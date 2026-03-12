@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(118.20766, 122)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qchbg"]
+size = Vector2(120.64371, 120.47064)
+
 [node name="Playground" type="Node2D" unique_id=1147006997]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1120231275]
@@ -33,7 +36,7 @@ position = Vector2(3.1590462e-06, -1)
 shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1796263544]
-position = Vector2(318.00003, 307)
+position = Vector2(421, 302)
 scale = Vector2(0.80078113, 1.4726564)
 texture = ExtResource("1_qchbg")
 
@@ -41,6 +44,18 @@ texture = ExtResource("1_qchbg")
 position = Vector2(3.0493754e-06, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D" unique_id=1045823666]
+position = Vector2(3.1590462e-06, -1)
+shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1528869062]
+position = Vector2(171.00003, 296.99997)
+scale = Vector2(0.80078113, 1.4726564)
+texture = ExtResource("1_qchbg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D5" unique_id=617782958]
+position = Vector2(3.0493754e-06, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D5/StaticBody2D" unique_id=494927372]
 position = Vector2(3.1590462e-06, -1)
 shape = SubResource("RectangleShape2D_wt17y")
 
@@ -55,6 +70,21 @@ position = Vector2(3.0493754e-06, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D" unique_id=1060994153]
 position = Vector2(3.1590462e-06, -1)
 shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Platform" type="Sprite2D" parent="." unique_id=547774207]
+position = Vector2(174.00002, 128)
+scale = Vector2(2.71875, 0.13281249)
+texture = ExtResource("1_qchbg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platform" unique_id=608175840]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/StaticBody2D" unique_id=240474539]
+position = Vector2(-0.36781693, 0)
+scale = Vector2(0.9999996, 0.99999964)
+shape = SubResource("RectangleShape2D_qchbg")
+one_way_collision = true
 
 [node name="Player" parent="." unique_id=260783507 instance=ExtResource("2_kddj0")]
 position = Vector2(72, 85)

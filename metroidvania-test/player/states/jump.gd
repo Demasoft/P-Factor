@@ -6,7 +6,8 @@ func init() -> void:
 	pass
 
 func enter() -> void:
-	player.velocity.y -= jump_velocity
+	player.animation_player.play( "jump" )
+	player.velocity.y =- jump_velocity
 	pass
 
 func exit() -> void:
