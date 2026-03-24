@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icon.svg" id="1_qchbg"]
 [ext_resource type="PackedScene" uid="uid://be2p5bjigf8yd" path="res://player/player.tscn" id="2_kddj0"]
-[ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://scenes/sepiavignetta.gdshader" id="3_q8s1k"]
+[ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="3_q8s1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(118.20766, 122)
