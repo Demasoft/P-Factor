@@ -2,7 +2,7 @@
 
 # P-Factor
 
-![alt text](image.png)
+
 
 </div>
 
@@ -15,6 +15,8 @@ P-Factor se passa em uma Segunda Guerra Mundial alternativa onde a matemática a
 O jogo se trata de um Bullet Hell desenvolvido em Godot com foco em Narrativa e Gameplay, este tem como objetivo unificar elementos do gênero Bullet Hell com JRPG e Metroidvânia, possibilitando mecânicas de exploração, aprimoramento de personagens, gerenciamento de habilidades, inventário e conversa, enquanto aborda temas como guerra, família, redenção e maioridade. Tudo isso com um visual steampunk, cyberpunk e "orgânico".
 
 O mesmo tem como inspirações principais os titulos "Progear" e "Megaman Zero".
+
+Publico Alvo: Jogadores de Bullet Hell e JRPG.
 
 ## Story
 
