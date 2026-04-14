@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bkh2rkvdxaxjq"]
+
+[ext_resource type="Script" uid="uid://b1gdpvarwpnm3" path="res://player/scripts/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://drgfoo5ocnmb3" path="res://player/states/idle.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://c5xkrg1e0acvh" path="res://player/states/move.gd" id="3_qjkh3"]
+[ext_resource type="Script" uid="uid://d05xt0qmb63th" path="res://player/states/shoot.gd" id="4_g6k8r"]
+[ext_resource type="Script" uid="uid://chvq6wppfq5hg" path="res://player/states/overboost.gd" id="4_qjkh3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1381327581]
+script = ExtResource("1_oul6g")
+
+[node name="States" type="Node" parent="." unique_id=1774873692]
+
+[node name="Idle" type="Node" parent="States" unique_id=857535119]
+unique_name_in_owner = true
+script = ExtResource("2_yw30f")
+
+[node name="Move" type="Node" parent="States" unique_id=1498735706]
+unique_name_in_owner = true
+script = ExtResource("3_qjkh3")
+
+[node name="Overboost" type="Node" parent="States" unique_id=1117718410]
+unique_name_in_owner = true
+script = ExtResource("4_qjkh3")
+
+[node name="Shoot" type="Node" parent="States" unique_id=1829536790]
+unique_name_in_owner = true
+script = ExtResource("4_g6k8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2107888949]
+scale = Vector2(7.23, 7.23)
+texture = SubResource("PlaceholderTexture2D_kqu6x")
+
+[node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=582594483]
+scale = Vector2(0.18, 0.18)
+shape = SubResource("CircleShape2D_oul6g")
+
+[node name="Label" type="Label" parent="." unique_id=503524283]
+unique_name_in_owner = true
+offset_left = -11.0
+offset_top = -12.0
+offset_right = 29.0
+offset_bottom = 11.0
+scale = Vector2(0.5739315, 0.26521263)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=622948403]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=177340078]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://o2284ca5xyua" path="res://player/scripts/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://drgfoo5ocnmb3" path="res://player/states/idle.gd" id="2_g1dw6"]
 [ext_resource type="Script" uid="uid://c5xkrg1e0acvh" path="res://player/states/run.gd" id="3_yw30f"]
-[ext_resource type="Script" uid="uid://4k568e3tpg7t" path="res://player/states/jump.gd" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://d4gdjyy4athkl" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://brt4j1pjbbt4d" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://2mvwie2gfky5" path="res://player/states/crouch.gd" id="6_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://chmugbr5likrt" path="res://player/sprites/zero_test.png" id="8_rgyib"]
