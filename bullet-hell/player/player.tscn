@@ -32,7 +32,7 @@ unique_name_in_owner = true
 script = ExtResource("4_g6k8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2107888949]
-scale = Vector2(7.23, 7.23)
+scale = Vector2(15.685, 15.685)
 texture = SubResource("PlaceholderTexture2D_kqu6x")
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=582594483]
@@ -42,9 +42,9 @@ shape = SubResource("CircleShape2D_oul6g")
 [node name="Label" type="Label" parent="." unique_id=503524283]
 unique_name_in_owner = true
 offset_left = -11.0
-offset_top = -12.0
+offset_top = -16.0
 offset_right = 29.0
-offset_bottom = 11.0
+offset_bottom = 7.0
 scale = Vector2(0.5739315, 0.26521263)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=622948403]

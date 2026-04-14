@@ -14,7 +14,7 @@ script = ExtResource("1_w2hqx")
 position = Vector2(112, 168)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=796631758]
-position = Vector2(298, 159)
+position = Vector2(383, 160)
 texture = ExtResource("2_lngde")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1686381527]
@@ -33,8 +33,17 @@ scale = Vector2(5.87, 5.87)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D" unique_id=1636637803]
 shape = SubResource("RectangleShape2D_51y22")
 
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=389139304]
+position = Vector2(861, 158)
+texture = ExtResource("2_lngde")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3" unique_id=133003803]
+scale = Vector2(5.87, 5.87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D" unique_id=2112684687]
+shape = SubResource("RectangleShape2D_51y22")
+
 [node name="LevelBounds" type="Node2D" parent="." unique_id=302306524]
 z_index = 256
 script = ExtResource("3_w2hqx")
-width = 864
-height = 398
+height = 334
