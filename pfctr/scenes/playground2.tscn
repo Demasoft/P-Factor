@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_tulhy"]
 [ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icon.svg" id="6_154ln"]
 [ext_resource type="Texture2D" uid="uid://cxbhhxc2h06dd" path="res://general/tilesets/sprites/light_stream.jpg" id="7_d8h1i"]
+[ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_72006"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sbnlh"]
 shader = ExtResource("3_ers8w")
@@ -157,4 +158,8 @@ offset = Vector2(0, 256)
 [node name="Player" parent="." unique_id=260783507 instance=ExtResource("2_hegil")]
 z_index = 1
 position = Vector2(320, 168.00002)
-scale = Vector2(1.4, 1.4)
+
+[node name="Props" type="Node2D" parent="." unique_id=1872561019]
+
+[node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_72006")]
+position = Vector2(558, 270)

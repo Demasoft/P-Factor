@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxbhhxc2h06dd" path="res://general/tilesets/sprites/light_stream.jpg" id="5_3fcoi"]
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_520st"]
 [ext_resource type="PackedScene" uid="uid://cvmqpwx6hl5cx" path="res://props/holo_dna.tscn" id="6_kchta"]
+[ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_5wrfj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6cygv"]
 shader = ExtResource("3_mql6g")
@@ -154,5 +155,8 @@ modulate = Color(0.99215686, 1, 0.92156863, 0.73333335)
 position = Vector2(-426, 3)
 
 [node name="HoloDNA" parent="Props" unique_id=94638372 instance=ExtResource("6_kchta")]
-position = Vector2(55, 226)
+position = Vector2(55, 236)
 speed_scale = 2.0
+
+[node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_5wrfj")]
+position = Vector2(79, 265)
