@@ -8,8 +8,8 @@ uniform float cloudcover = 0.2;
 uniform float cloudalpha = 8.0;
 uniform float skytint = 0.5;
 
-uniform vec3 skycolour1 = vec3(0.2, 0.4, 0.6);
-uniform vec3 skycolour2 = vec3(0.4, 0.7, 1.0);
+uniform vec3 skycolour1 = vec3(0.015, 0.025, 0.08);
+uniform vec3 skycolour2 = vec3(0.05, 0.10, 0.25);
 
 uniform mat2 m = mat2(
 	vec2(1.6, 1.2),
@@ -153,7 +153,7 @@ void fragment()
 		skycolour2,
 		skycolour1,
 		p.y
-	);
+	) * 1.0; //sets the sky darkness
 
 	vec3 cloudcolour = vec3(1.1, 1.1, 0.9)
 		* clamp(
@@ -161,6 +161,15 @@ void fragment()
 			0.0,
 			1.0
 		);
+
+//sets the clouds darkness
+
+	//vec3 cloudcolour = vec3(0.15, 0.18, 0.28)
+		//* clamp(
+			//clouddark + cloudlight * c,
+			//0.0,
+			//1.0
+		//);
 
 	f = cloudcover + cloudalpha * f * r;
 

@@ -83,7 +83,7 @@ turbulence_influence_min = 0.0
 
 [node name="Sky" type="Node2D" parent="." unique_id=760173824]
 
-[node name="ColorRect" type="ColorRect" parent="Sky" unique_id=1202893580]
+[node name="Sky" type="ColorRect" parent="Sky" unique_id=1202893580]
 material = SubResource("ShaderMaterial_huc75")
 offset_left = -15.0
 offset_top = -32.0
@@ -91,7 +91,7 @@ offset_right = 25.0
 offset_bottom = 8.0
 scale = Vector2(16.045073, 10.778918)
 
-[node name="ColorRect2" type="ColorRect" parent="Sky" unique_id=1815920530]
+[node name="SkyFadingDay" type="ColorRect" parent="Sky" unique_id=1815920530]
 material = SubResource("ShaderMaterial_w661m")
 offset_left = -15.0
 offset_top = -32.0
