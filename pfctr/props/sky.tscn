@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://xvhnseo6vfoc"]
+
+[ext_resource type="Shader" uid="uid://csg7yy0scj0nm" path="res://shaders/sky.gdshader" id="1_igpwe"]
+[ext_resource type="Shader" uid="uid://tmbcp5cmn1lu" path="res://shaders/sky_fading.tres" id="2_a2f2x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huc75"]
+shader = ExtResource("1_igpwe")
+shader_parameter/cloudscale = 1.1
+shader_parameter/speed = 0.2
+shader_parameter/clouddark = 0.5
+shader_parameter/cloudlight = 0.3
+shader_parameter/cloudcover = 0.2
+shader_parameter/cloudalpha = 8.0
+shader_parameter/skytint = 0.5
+shader_parameter/skycolour1 = Vector3(0.2, 0.4, 0.6)
+shader_parameter/skycolour2 = Vector3(0.4, 0.7, 1)
+shader_parameter/m = Transform2D(1.6, -1.2, 1.2, 1.6, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w661m"]
+shader = ExtResource("2_a2f2x")
+
+[node name="Sky" type="Node2D" unique_id=223594441]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=38671270]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="CanvasLayer" unique_id=31415139]
+material = SubResource("ShaderMaterial_huc75")
+anchors_preset = -1
+anchor_right = 1.002817
+anchor_bottom = 1.1976576
+offset_right = -601.8029
+offset_bottom = -391.15674
+scale = Vector2(16.045073, 10.778918)
+size_flags_horizontal = 10
+size_flags_vertical = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="SkyFadingDay" type="ColorRect" parent="CanvasLayer" unique_id=2131662369]
+material = SubResource("ShaderMaterial_w661m")
+offset_right = 642.0
+offset_bottom = 430.0

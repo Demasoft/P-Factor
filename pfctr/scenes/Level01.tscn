@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_520st"]
 [ext_resource type="PackedScene" uid="uid://cvmqpwx6hl5cx" path="res://props/holo_dna.tscn" id="6_kchta"]
 [ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_5wrfj"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="9_6kq4m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6cygv"]
 shader = ExtResource("3_mql6g")
@@ -16,15 +17,15 @@ shader_parameter/radius = 0.35
 shader_parameter/softness = 0.45
 shader_parameter/darkness = 0.5
 
-[sub_resource type="Gradient" id="Gradient_kchta"]
+[sub_resource type="Gradient" id="Gradient_5wrfj"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6l7v6"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6kq4m"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5wrfj"]
 height = 128
-noise = SubResource("FastNoiseLite_6l7v6")
-color_ramp = SubResource("Gradient_kchta")
+noise = SubResource("FastNoiseLite_6kq4m")
+color_ramp = SubResource("Gradient_5wrfj")
 seamless = true
 normalize = false
 
@@ -122,34 +123,6 @@ location = 1
 target_level = "uid://cr4vhm31bd2gx"
 target_transition_id = "pg2_left"
 
-[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=2111435441]
-position = Vector2(29, 0)
-color = Color(1, 0.8039216, 0.4627451, 0.8392157)
-energy = 2.25
-shadow_enabled = true
-texture = ExtResource("5_3fcoi")
-offset = Vector2(0, 256)
-
-[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1944910445]
-position = Vector2(396, -1)
-color = Color(1, 0.8039216, 0.4627451, 0.8392157)
-energy = 2.25
-shadow_enabled = true
-texture = ExtResource("5_3fcoi")
-offset = Vector2(0, 256)
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2033759265]
-visible = false
-modulate = Color(1.5565991, 1.4487698, 1.0773576, 0.5019608)
-z_index = 2
-material = SubResource("CanvasItemMaterial_3fcoi")
-position = Vector2(-420, 259)
-texture = ExtResource("5_3fcoi")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=128276635]
-energy = 0.58
-blend_mode = 1
-
 [node name="Props" type="Node2D" parent="." unique_id=227961907]
 modulate = Color(0.99215686, 1, 0.92156863, 0.73333335)
 position = Vector2(-426, 3)
@@ -160,3 +133,44 @@ speed_scale = 2.0
 
 [node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_5wrfj")]
 position = Vector2(79, 265)
+
+[node name="Illumination" type="Node2D" parent="." unique_id=1594139971]
+
+[node name="PointLight2D3" type="PointLight2D" parent="Illumination" unique_id=2111435441]
+position = Vector2(29, 0)
+color = Color(1, 0.8039216, 0.4627451, 0.8392157)
+energy = 2.25
+shadow_enabled = true
+texture = ExtResource("5_3fcoi")
+offset = Vector2(0, 256)
+
+[node name="PointLight2D5" type="PointLight2D" parent="Illumination" unique_id=192917229]
+position = Vector2(-371, 3)
+color = Color(1, 0.8039216, 0.4627451, 0.8392157)
+energy = 2.25
+shadow_enabled = true
+texture = ExtResource("5_3fcoi")
+offset = Vector2(0, 256)
+
+[node name="PointLight2D4" type="PointLight2D" parent="Illumination" unique_id=1944910445]
+position = Vector2(396, -1)
+color = Color(1, 0.8039216, 0.4627451, 0.8392157)
+energy = 2.25
+shadow_enabled = true
+texture = ExtResource("5_3fcoi")
+offset = Vector2(0, 256)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Illumination" unique_id=128276635]
+energy = 0.58
+blend_mode = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Illumination" unique_id=2033759265]
+visible = false
+modulate = Color(1.5565991, 1.4487698, 1.0773576, 0.5019608)
+z_index = 2
+material = SubResource("CanvasItemMaterial_3fcoi")
+position = Vector2(-420, 259)
+texture = ExtResource("5_3fcoi")
+
+[node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("9_6kq4m")]
+position = Vector2(552, 296)

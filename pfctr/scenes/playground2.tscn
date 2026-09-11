@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://cr4vhm31bd2gx"]
 
 [ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://general/tilesets/new_tile_set.tres" id="1_t685s"]
-[ext_resource type="PackedScene" uid="uid://be2p5bjigf8yd" path="res://player/player.tscn" id="2_hegil"]
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="3_ers8w"]
 [ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_sbnlh"]
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_tulhy"]
 [ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icon.svg" id="6_154ln"]
 [ext_resource type="Texture2D" uid="uid://cxbhhxc2h06dd" path="res://general/tilesets/sprites/light_stream.jpg" id="7_d8h1i"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="8_0vd8n"]
 [ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_72006"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sbnlh"]
@@ -76,7 +76,15 @@ position = Vector2(-138, 200)
 tile_map_data = PackedByteArray("AAACAAYAAAAGAAgAAAACAAcAAAAGAAgAAAADAAYAAAAHAAgAAAADAAcAAAAHAAgAAAAEAAYAAAAIAAgAAAAEAAcAAAAGAAoAAAAFAAYAAAAJAAgAAAAFAAcAAAAHAAkAAAAGAAYAAAAKAAgAAAAGAAcAAAAHAAkAAAAHAAYAAAAKAAgAAAAHAAcAAAAHAAkAAAAIAAYAAAAKAAgAAAAIAAcAAAAHAAkAAAAJAAYAAAAHAAkAAAAJAAcAAAAHAAkAAAAKAAYAAAAHAAkAAAAKAAcAAAAHAAkAAAALAAYAAAAHAAkAAAALAAcAAAAHAAkAAAAMAAYAAAAHAAkAAAAMAAcAAAAHAAkAAAANAAYAAAAHAAkAAAANAAcAAAAHAAkAAAAOAAYAAAAHAAkAAAAOAAcAAAAHAAkAAAAPAAYAAAAKAAgAAAAPAAcAAAAKAAgAAAACAAQAAAACAAgAAAACAAUAAAACAAkAAAADAAQAAAADAAgAAAADAAUAAAADAAkAAAAEAAIAAAADAAYAAAAEAAMAAAAGAAcAAAAEAAQAAAAGAAgAAAAEAAUAAAAKAAgAAAAFAAEAAAAEAAUAAAAFAAIAAAAEAAYAAAAFAAMAAAAEAAcAAAAFAAQAAAAEAAgAAAAFAAUAAAAKAAgAAAAGAAEAAAAFAAUAAAAGAAIAAAAFAAYAAAAGAAMAAAAFAAcAAAAGAAQAAAAFAAgAAAAGAAUAAAAFAAkAAAAHAAEAAAAGAAUAAAAHAAIAAAAGAAYAAAAHAAMAAAANAAcAAAAHAAQAAAAGAAgAAAAHAAUAAAAGAAkAAAAIAAEAAAAHAAUAAAAIAAIAAAAOAAYAAAAIAAMAAAAOAAcAAAAIAAQAAAAIAAcAAAAIAAUAAAAHAAkAAAAJAAEAAAAIAAUAAAAJAAMAAAAIAAYAAAAJAAQAAAAIAAcAAAAJAAUAAAAIAAkAAAAKAAEAAAAJAAUAAAAKAAMAAAAJAAYAAAAKAAQAAAAJAAcAAAAKAAUAAAAJAAkAAAALAAEAAAAKAAUAAAALAAIAAAACAAYAAAALAAMAAAACAAcAAAALAAQAAAAEAAcAAAALAAUAAAAKAAkAAAAMAAEAAAALAAUAAAAMAAIAAAADAAYAAAAMAAMAAAADAAcAAAAMAAQAAAALAAgAAAAMAAUAAAALAAkAAAANAAEAAAAMAAUAAAANAAIAAAAMAAYAAAANAAMAAAAMAAcAAAANAAQAAAAMAAgAAAANAAUAAAAMAAkAAAAOAAEAAAANAAUAAAAOAAIAAAANAAYAAAAOAAMAAAANAAcAAAAOAAQAAAANAAgAAAAOAAUAAAANAAkAAAAPAAEAAAAOAAUAAAAPAAIAAAAOAAYAAAAPAAMAAAAOAAcAAAAPAAQAAAAOAAgAAAAPAAUAAAANAAcAAAAQAAEAAAAPAAUAAAAQAAIAAAAPAAYAAAAQAAMAAAAPAAcAAAADAAIAAAAHAAYAAAADAAMAAAADAAcAAAACAAIAAAACAAYAAAACAAMAAAACAAcAAAAJAAIAAAAPAAYAAAACAPr/AAACAAsAAAACAPv/AAACAAwAAAADAPr/AAACAAsAAAADAPv/AAACAAwAAAAEAPr/AAADAAsAAAAEAPv/AAADAAwAAAAFAPr/AAAEAAsAAAAFAPv/AAAEAAwAAAAGAPr/AAAFAAsAAAAGAPv/AAAFAAwAAAAHAPr/AAAGAAsAAAAHAPv/AAAGAAwAAAALAPr/AAAKAAsAAAALAPv/AAAKAAwAAAAMAPr/AAALAAsAAAAMAPv/AAALAAwAAAANAPr/AAAMAAsAAAANAPv/AAAMAAwAAAAOAPr/AAANAAsAAAAOAPv/AAANAAwAAAAPAPr/AAAOAAsAAAAPAPv/AAAOAAwAAAA=")
 tile_set = ExtResource("1_t685s")
 
-[node name="pg2_left" parent="." unique_id=409620985 instance=ExtResource("5_tulhy")]
+[node name="pg2_left2" parent="." unique_id=409620985 instance=ExtResource("5_tulhy")]
+position = Vector2(622, 296)
+transition_id = "pg2_right"
+size = 9
+location = 1
+target_level = "uid://qf705dsbo34s"
+target_transition_id = "lv3_left"
+
+[node name="pg2_left" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
 position = Vector2(-15, 296)
 transition_id = "pg2_left"
 size = 9
@@ -136,18 +144,25 @@ scale = Vector2(0.9999996, 0.99999964)
 shape = SubResource("RectangleShape2D_d8h1i")
 one_way_collision = true
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1732647062]
+[node name="Props" type="Node2D" parent="." unique_id=1872561019]
+
+[node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_72006")]
+position = Vector2(558, 270)
+
+[node name="Illumination" type="Node2D" parent="." unique_id=1437278318]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Illumination" unique_id=1732647062]
 position = Vector2(166, 139)
 scale = Vector2(8.7674885, 1.2325569)
 energy = 0.42
 blend_mode = 1
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1020926777]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Illumination" unique_id=1020926777]
 position = Vector2(166, 217)
 scale = Vector2(8.7674885, 1.2325569)
 occluder = SubResource("OccluderPolygon2D_3fcoi")
 
-[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1572638628]
+[node name="PointLight2D4" type="PointLight2D" parent="Illumination" unique_id=1572638628]
 position = Vector2(316, -48)
 color = Color(1, 0.8039216, 0.4627451, 0.8392157)
 energy = 2.25
@@ -155,11 +170,5 @@ shadow_enabled = true
 texture = ExtResource("7_d8h1i")
 offset = Vector2(0, 256)
 
-[node name="Player" parent="." unique_id=260783507 instance=ExtResource("2_hegil")]
-z_index = 1
-position = Vector2(320, 168.00002)
-
-[node name="Props" type="Node2D" parent="." unique_id=1872561019]
-
-[node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_72006")]
-position = Vector2(558, 270)
+[node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("8_0vd8n")]
+position = Vector2(296, 194)
