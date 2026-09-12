@@ -129,7 +129,21 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boad6"]
 
+[sub_resource type="Gradient" id="Gradient_boad6"]
+offsets = PackedFloat32Array(0, 0.42168674, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0481928, 0.0481928, 0.0481928, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgyib"]
+gradient = SubResource("Gradient_boad6")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=260783507 groups=["Player"]]
+z_index = 1
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(1.4, 1.4)
 collision_layer = 16
 collision_mask = 3
 floor_constant_speed = true
@@ -158,6 +172,7 @@ unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907984180]
+position = Vector2(0, 1)
 texture = ExtResource("8_rgyib")
 hframes = 45
 
@@ -193,3 +208,9 @@ collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1261564545]
 position = Vector2(0, -11)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1968341219]
+visible = false
+color = Color(1, 0.82944584, 0.53515625, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_rgyib")

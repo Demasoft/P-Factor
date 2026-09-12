@@ -1,47 +1,92 @@
 @tool
-class_name LevelTransition extends Node2D
+class_name LevelTransition
+extends Node2D
 
-enum SIDE{ LEFT, RIGHT, TOP, DOWN }
+enum SIDE { LEFT, RIGHT, TOP, DOWN }
 
-@export_range( 2, 12, 1, "or_greater" ) var size : int = 2 :
-	set( value ): 
+@export var transition_id: String = "default"
+
+@export_range(2, 12, 1, "or_greater")
+var size: int = 2:
+	set(value):
 		size = value
 		apply_area_settings()
 
 @export var location: SIDE = SIDE.LEFT:
-	set( value ):
+	set(value):
 		location = value
-		apply_area_settings() 
+		apply_area_settings()
 
-@export_file( "*.tscn" ) var target_level : String = ""
-@export var target_area_name : String = "LevelTransition"
+@export_file("*.tscn")
+var target_level: String = ""
+
+@export var target_transition_id: String = "default"
 
 @onready var area_2d: Area2D = $Area2D
+
+#@tool
+#class_name LevelTransition extends Node2D
+#
+#enum SIDE{ LEFT, RIGHT, TOP, DOWN }
+#
+#@export_range( 2, 12, 1, "or_greater" ) var size : int = 2 :
+	#set( value ): 
+		#size = value
+		#apply_area_settings()
+#
+#@export var location: SIDE = SIDE.LEFT:
+	#set( value ):
+		#location = value
+		#apply_area_settings() 
+#
+#@export_file( "*.tscn" ) var target_level : String = ""
+#@export var target_area_name : String = "LevelTransition"
+#
+#@onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+	apply_area_settings()
 	SceneManager.new_scene_ready.connect( _on_new_scene_ready )
 	SceneManager.load_scene_finished.connect( _on_load_scene_finished )
 	pass
 
-func _on_player_entered( _n : Node2D ) -> void:
-	SceneManager.transition_scene( target_level, target_area_name, get_offset( _n ), "left" )
-	pass
+func _on_player_entered(player: Node2D) -> void:
+	SceneManager.transition_scene(
+		target_level,
+		target_transition_id,
+		get_offset(player),
+		get_transition_direction()
+	)
+	
+#func _on_player_entered( _n : Node2D ) -> void:
+	#SceneManager.transition_scene( target_level, target_area_name, get_offset( _n ), "left" )
+	#pass
 
-func _on_new_scene_ready( target_name: String, offset: Vector2 ) -> void:
-	if target_name == name:
-		var player : Player = get_tree().get_first_node_in_group( "Player" )
-		player.global_position = global_position + offset
-	pass
+func _on_new_scene_ready(target_id: String, offset: Vector2) -> void:
+	if target_id == transition_id:
+		var player: Player = get_tree().get_first_node_in_group("Player")
+
+		if player:
+			player.global_position = global_position + offset
+
+#func _on_new_scene_ready( target_name: String, offset: Vector2 ) -> void:
+	#if target_name == name:
+		#var player : Player = get_tree().get_first_node_in_group( "Player" )
+		#player.global_position = global_position + offset
+	#pass
 
 func _on_load_scene_finished() -> void:
 	area_2d.monitoring = false
-	area_2d.body_entered.connect( _on_player_entered )
+	#area_2d.body_entered.connect( _on_player_entered )
+	
+	if not area_2d.body_entered.is_connected(_on_player_entered):
+		area_2d.body_entered.connect(_on_player_entered)
+	
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	area_2d.monitoring = true
-	pass
 
 func apply_area_settings() -> void:
 	area_2d = get_node_or_null( "Area2D" )
@@ -61,23 +106,59 @@ func apply_area_settings() -> void:
 			area_2d.scale.y = -1
 	pass
 	
-func get_offset( player: Node2D ) -> Vector2:
-	var offset : Vector2 = Vector2.ZERO
-	var player_pos : Vector2 = player.global_position
-	
-	if location == SIDE.LEFT or location == SIDE.RIGHT:
-	
-		offset.y = player_pos.y - self.global_position.y
-		
-		if location == SIDE.LEFT:
-			offset.x = -12
-		else:
-			offset.x = 12
-	else:
-		offset.y = player_pos.x - self.global_position.x
-		
-		if location == SIDE.TOP:
-			offset.y = -2
-		else:
-			offset.y = 36
+func get_offset ( player : Node2D ) -> Vector2:
+	var offset := Vector2.ZERO
+	var player_pos := player.global_position
+
+	match location:
+		SIDE.LEFT:
+			offset.y = player_pos.y - global_position.y
+			offset.x = -20
+
+		SIDE.RIGHT:
+			offset.y = player_pos.y - global_position.y
+			offset.x = 20
+
+		SIDE.TOP:
+			offset.x = player_pos.x - global_position.x
+			offset.y = -40
+
+		SIDE.DOWN:
+			offset.x = player_pos.x - global_position.x
+			offset.y = 37
+
 	return offset
+	
+func get_transition_direction() -> String:
+	match location:
+		SIDE.LEFT:
+			return "left"
+		SIDE.RIGHT:
+			return "right"
+		SIDE.TOP:
+			return "up"
+		_:
+			return "down"
+				
+				
+	
+#func get_offset( player: Node2D ) -> Vector2:
+	#var offset : Vector2 = Vector2.ZERO
+	#var player_pos : Vector2 = player.global_position
+	#
+	#if location == SIDE.LEFT or location == SIDE.RIGHT:
+	#
+		#offset.y = player_pos.y - self.global_position.y
+		#
+		#if location == SIDE.LEFT:
+			#offset.x = -12
+		#else:
+			#offset.x = 12
+	#else:
+		#offset.y = player_pos.x - self.global_position.x
+		#
+		#if location == SIDE.TOP:
+			#offset.y = -2
+		#else:
+			#offset.y = 36
+	#return offset

@@ -16,8 +16,8 @@ func exit() -> void:
 func handle_input( _event: InputEvent ) -> PlayerState:
 	if _event.is_action_pressed( "jump" ):
 		return jump
-	elif _event.is_action_pressed( "shoot" ):
-		return shoot
+	#elif _event.is_action_pressed( "shoot" ):
+		#return shoot
 	return next_state
 
 

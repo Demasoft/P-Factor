@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c5fivye0rgux3"]
+
+[ext_resource type="Texture2D" uid="uid://di5c5fc8wycpk" path="res://general/tilesets/sprites/computer.png" id="1_yad6j"]
+[ext_resource type="Script" uid="uid://bnae0j00idrcc" path="res://props/light_flicker.gd" id="2_mf7so"]
+
+[sub_resource type="Gradient" id="Gradient_4xrr4"]
+offsets = PackedFloat32Array(0, 0.006024096, 0.04819277, 0.12650603)
+colors = PackedColorArray(1, 1, 1, 1, 0.40392157, 0.7490196, 0.4509804, 1, 0.2901961, 0.44718137, 0.45490196, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6udqx"]
+gradient = SubResource("Gradient_4xrr4")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Computer" type="Sprite2D" unique_id=1083230136]
+scale = Vector2(1, 0.8)
+texture = ExtResource("1_yad6j")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=315205941]
+position = Vector2(-24, -23)
+energy = 1.6
+texture = SubResource("GradientTexture2D_6udqx")
+script = ExtResource("2_mf7so")
+flicker_intensity = 0.1
+flicker_frequency = 0.02
