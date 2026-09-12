@@ -9,7 +9,6 @@ signal load_scene_finished
 func _ready() -> void:
 	fade.visible = false
 	load_scene_finished.emit.call_deferred()
-	#load_scene_finished.emit()
 
 func transition_scene( new_scene: String, target_area: String, player_offset: Vector2, dir: String ) -> void:
 	
@@ -37,7 +36,6 @@ func transition_scene( new_scene: String, target_area: String, player_offset: Ve
 	get_tree().paused = false
 	
 	load_scene_finished.emit()
-	pass
 	
 func fade_screen( from: Vector2, to: Vector2 ) -> Signal:
 	fade.position = from
@@ -46,7 +44,7 @@ func fade_screen( from: Vector2, to: Vector2 ) -> Signal:
 	return tween.finished
 
 func get_fade_pos( dir : String ) -> Vector2:
-	var pos: Vector2 = Vector2( 640 * 2, 360 * 2 )
+	var pos: Vector2 = get_viewport().get_visible_rect().size * 2
 	
 	match dir:
 		"left":
