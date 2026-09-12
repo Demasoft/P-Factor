@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://cr4vhm31bd2gx"]
 
+[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://props/sky.tscn" id="1_bp370"]
 [ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://general/tilesets/new_tile_set.tres" id="1_t685s"]
+[ext_resource type="PackedScene" uid="uid://x63kvgulrawl" path="res://props/snow.tscn" id="2_rtjyd"]
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="3_ers8w"]
 [ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_sbnlh"]
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_tulhy"]
@@ -23,6 +25,12 @@ size = Vector2(120.64371, 120.47064)
 polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
 
 [node name="Playground2" type="Node2D" unique_id=548011608]
+
+[node name="Sky" parent="." unique_id=223594441 instance=ExtResource("1_bp370")]
+
+[node name="Snow" parent="." unique_id=1457420681 instance=ExtResource("2_rtjyd")]
+z_index = 0
+position = Vector2(317, 96)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544988137]
 layer = 0
@@ -75,29 +83,6 @@ metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
 position = Vector2(-138, 200)
 tile_map_data = PackedByteArray("AAACAAYAAAAGAAgAAAACAAcAAAAGAAgAAAADAAYAAAAHAAgAAAADAAcAAAAHAAgAAAAEAAYAAAAIAAgAAAAEAAcAAAAGAAoAAAAFAAYAAAAJAAgAAAAFAAcAAAAHAAkAAAAGAAYAAAAKAAgAAAAGAAcAAAAHAAkAAAAHAAYAAAAKAAgAAAAHAAcAAAAHAAkAAAAIAAYAAAAKAAgAAAAIAAcAAAAHAAkAAAAJAAYAAAAHAAkAAAAJAAcAAAAHAAkAAAAKAAYAAAAHAAkAAAAKAAcAAAAHAAkAAAALAAYAAAAHAAkAAAALAAcAAAAHAAkAAAAMAAYAAAAHAAkAAAAMAAcAAAAHAAkAAAANAAYAAAAHAAkAAAANAAcAAAAHAAkAAAAOAAYAAAAHAAkAAAAOAAcAAAAHAAkAAAAPAAYAAAAKAAgAAAAPAAcAAAAKAAgAAAACAAQAAAACAAgAAAACAAUAAAACAAkAAAADAAQAAAADAAgAAAADAAUAAAADAAkAAAAEAAIAAAADAAYAAAAEAAMAAAAGAAcAAAAEAAQAAAAGAAgAAAAEAAUAAAAKAAgAAAAFAAEAAAAEAAUAAAAFAAIAAAAEAAYAAAAFAAMAAAAEAAcAAAAFAAQAAAAEAAgAAAAFAAUAAAAKAAgAAAAGAAEAAAAFAAUAAAAGAAIAAAAFAAYAAAAGAAMAAAAFAAcAAAAGAAQAAAAFAAgAAAAGAAUAAAAFAAkAAAAHAAEAAAAGAAUAAAAHAAIAAAAGAAYAAAAHAAMAAAANAAcAAAAHAAQAAAAGAAgAAAAHAAUAAAAGAAkAAAAIAAEAAAAHAAUAAAAIAAIAAAAOAAYAAAAIAAMAAAAOAAcAAAAIAAQAAAAIAAcAAAAIAAUAAAAHAAkAAAAJAAEAAAAIAAUAAAAJAAMAAAAIAAYAAAAJAAQAAAAIAAcAAAAJAAUAAAAIAAkAAAAKAAEAAAAJAAUAAAAKAAMAAAAJAAYAAAAKAAQAAAAJAAcAAAAKAAUAAAAJAAkAAAALAAEAAAAKAAUAAAALAAIAAAACAAYAAAALAAMAAAACAAcAAAALAAQAAAAEAAcAAAALAAUAAAAKAAkAAAAMAAEAAAALAAUAAAAMAAIAAAADAAYAAAAMAAMAAAADAAcAAAAMAAQAAAALAAgAAAAMAAUAAAALAAkAAAANAAEAAAAMAAUAAAANAAIAAAAMAAYAAAANAAMAAAAMAAcAAAANAAQAAAAMAAgAAAANAAUAAAAMAAkAAAAOAAEAAAANAAUAAAAOAAIAAAANAAYAAAAOAAMAAAANAAcAAAAOAAQAAAANAAgAAAAOAAUAAAANAAkAAAAPAAEAAAAOAAUAAAAPAAIAAAAOAAYAAAAPAAMAAAAOAAcAAAAPAAQAAAAOAAgAAAAPAAUAAAANAAcAAAAQAAEAAAAPAAUAAAAQAAIAAAAPAAYAAAAQAAMAAAAPAAcAAAADAAIAAAAHAAYAAAADAAMAAAADAAcAAAACAAIAAAACAAYAAAACAAMAAAACAAcAAAAJAAIAAAAPAAYAAAACAPr/AAACAAsAAAACAPv/AAACAAwAAAADAPr/AAACAAsAAAADAPv/AAACAAwAAAAEAPr/AAADAAsAAAAEAPv/AAADAAwAAAAFAPr/AAAEAAsAAAAFAPv/AAAEAAwAAAAGAPr/AAAFAAsAAAAGAPv/AAAFAAwAAAAHAPr/AAAGAAsAAAAHAPv/AAAGAAwAAAALAPr/AAAKAAsAAAALAPv/AAAKAAwAAAAMAPr/AAALAAsAAAAMAPv/AAALAAwAAAANAPr/AAAMAAsAAAANAPv/AAAMAAwAAAAOAPr/AAANAAsAAAAOAPv/AAANAAwAAAAPAPr/AAAOAAsAAAAPAPv/AAAOAAwAAAA=")
 tile_set = ExtResource("1_t685s")
-
-[node name="pg2_left2" parent="." unique_id=409620985 instance=ExtResource("5_tulhy")]
-position = Vector2(622, 296)
-transition_id = "pg2_right"
-size = 9
-location = 1
-target_level = "uid://qf705dsbo34s"
-target_transition_id = "lv3_left"
-
-[node name="pg2_left" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
-position = Vector2(-15, 296)
-transition_id = "pg2_left"
-size = 9
-target_level = "uid://biwpjf43oeg7m"
-target_transition_id = "lv1_right"
-
-[node name="LevelTransition2" parent="." unique_id=1917394845 instance=ExtResource("5_tulhy")]
-position = Vector2(253, -32)
-transition_id = "pg2_up"
-size = 4
-location = 2
-target_level = "uid://ctji5ss445da"
-target_transition_id = "lv2_down"
 
 [node name="Platform" type="Sprite2D" parent="." unique_id=1455267592]
 position = Vector2(297, 217.00002)
@@ -158,6 +143,7 @@ energy = 0.42
 blend_mode = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Illumination" unique_id=1020926777]
+visible = false
 position = Vector2(166, 217)
 scale = Vector2(8.7674885, 1.2325569)
 occluder = SubResource("OccluderPolygon2D_3fcoi")
@@ -172,3 +158,26 @@ offset = Vector2(0, 256)
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("8_0vd8n")]
 position = Vector2(296, 194)
+
+[node name="LevelTransition3" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
+position = Vector2(-15, 296)
+transition_id = "p2l"
+size = 9
+target_level = "uid://biwpjf43oeg7m"
+target_transition_id = "l1r"
+
+[node name="LevelTransition2" parent="." unique_id=1917394845 instance=ExtResource("5_tulhy")]
+position = Vector2(253, -32)
+transition_id = "p2u"
+size = 4
+location = 2
+target_level = "uid://ctji5ss445da"
+target_transition_id = "l2d"
+
+[node name="LevelTransition4" parent="." unique_id=409620985 instance=ExtResource("5_tulhy")]
+position = Vector2(624, 296)
+transition_id = "p2r"
+size = 9
+location = 1
+target_level = "uid://qf705dsbo34s"
+target_transition_id = "l3l"

@@ -115,14 +115,6 @@ width = 1376
 height = 430
 metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
 
-[node name="lv1_right" parent="." unique_id=1072128697 instance=ExtResource("5_520st")]
-position = Vector2(627, 296)
-transition_id = "lv1_right"
-size = 9
-location = 1
-target_level = "uid://cr4vhm31bd2gx"
-target_transition_id = "pg2_left"
-
 [node name="Props" type="Node2D" parent="." unique_id=227961907]
 modulate = Color(0.99215686, 1, 0.92156863, 0.73333335)
 position = Vector2(-426, 3)
@@ -174,3 +166,11 @@ texture = ExtResource("5_3fcoi")
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("9_6kq4m")]
 position = Vector2(552, 296)
+
+[node name="LevelTransition2" parent="." unique_id=1072128697 instance=ExtResource("5_520st")]
+position = Vector2(627, 296)
+transition_id = "l1r"
+size = 9
+location = 1
+target_level = "uid://cr4vhm31bd2gx"
+target_transition_id = "p2l"
