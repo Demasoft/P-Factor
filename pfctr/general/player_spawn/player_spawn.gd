@@ -11,7 +11,7 @@ func _ready() -> void:
 		return
 	print("No player")
 
-	var player: Player = load("uid://be2p5bjigf8yd").instantiate()
+	var player: Player = PLAYER.instantiate()
 	get_tree().root.add_child( player )
 
 	player.global_position = self.global_position
