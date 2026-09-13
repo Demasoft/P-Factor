@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*uid://cu26uan7elsbr"
+SaveManager="*uid://cab1j82eequi7"
 
 [display]
 

@@ -85,8 +85,8 @@ tile_map_data = PackedByteArray("AAACAAYAAAAGAAgAAAACAAcAAAAGAAgAAAADAAYAAAAHAAg
 tile_set = ExtResource("1_t685s")
 
 [node name="Platform" type="Sprite2D" parent="." unique_id=1455267592]
-position = Vector2(297, 217.00002)
-scale = Vector2(2.7187498, 0.13281247)
+position = Vector2(236, 217)
+scale = Vector2(1.3587486, 0.13281247)
 texture = ExtResource("6_154ln")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platform" unique_id=921933029]
@@ -99,31 +99,31 @@ scale = Vector2(0.9999996, 0.99999964)
 shape = SubResource("RectangleShape2D_d8h1i")
 one_way_collision = true
 
-[node name="Platform3" type="Sprite2D" parent="." unique_id=1708997028]
-position = Vector2(297, 130.5)
-scale = Vector2(2.7187498, 0.13281247)
+[node name="Platform2" type="Sprite2D" parent="." unique_id=119810863]
+position = Vector2(406, 149.00003)
+scale = Vector2(1.3587486, 0.13281247)
 texture = ExtResource("6_154ln")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform3" unique_id=177583523]
+[node name="StaticBody2D" type="StaticBody2D" parent="Platform2" unique_id=255097881]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/StaticBody2D" unique_id=1254582352]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/StaticBody2D" unique_id=1245306324]
 position = Vector2(-0.36781693, 0)
 scale = Vector2(0.9999996, 0.99999964)
 shape = SubResource("RectangleShape2D_d8h1i")
 one_way_collision = true
 
-[node name="Platform2" type="Sprite2D" parent="." unique_id=675243127]
-position = Vector2(297, 59.000004)
-scale = Vector2(2.7187498, 0.13281247)
+[node name="Platform3" type="Sprite2D" parent="." unique_id=1658796946]
+position = Vector2(235.99997, 68.00002)
+scale = Vector2(1.3587486, 0.13281247)
 texture = ExtResource("6_154ln")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform2" unique_id=358260033]
+[node name="StaticBody2D" type="StaticBody2D" parent="Platform3" unique_id=720039394]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/StaticBody2D" unique_id=851393298]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/StaticBody2D" unique_id=685663206]
 position = Vector2(-0.36781693, 0)
 scale = Vector2(0.9999996, 0.99999964)
 shape = SubResource("RectangleShape2D_d8h1i")
@@ -143,9 +143,18 @@ energy = 0.42
 blend_mode = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Illumination" unique_id=1020926777]
-visible = false
-position = Vector2(166, 217)
-scale = Vector2(8.7674885, 1.2325569)
+position = Vector2(149, 211.99998)
+scale = Vector2(5.131209, 0.47172025)
+occluder = SubResource("OccluderPolygon2D_3fcoi")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Illumination" unique_id=540439146]
+position = Vector2(323, 145)
+scale = Vector2(5.131209, 0.47172025)
+occluder = SubResource("OccluderPolygon2D_3fcoi")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Illumination" unique_id=1738842884]
+position = Vector2(156, 63.999977)
+scale = Vector2(5.131209, 0.47172025)
 occluder = SubResource("OccluderPolygon2D_3fcoi")
 
 [node name="PointLight2D4" type="PointLight2D" parent="Illumination" unique_id=1572638628]
@@ -157,7 +166,7 @@ texture = ExtResource("7_d8h1i")
 offset = Vector2(0, 256)
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("8_0vd8n")]
-position = Vector2(296, 194)
+position = Vector2(535, 226)
 
 [node name="LevelTransition3" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
 position = Vector2(-15, 296)

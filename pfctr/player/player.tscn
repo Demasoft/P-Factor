@@ -207,6 +207,7 @@ max_results = 12
 collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1261564545]
+process_mode = 3
 position = Vector2(0, -11)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1968341219]

@@ -15,6 +15,11 @@ var current_state: PlayerState :
 	get : return states.front()
 var previous_state : PlayerState : 
 	get : return states[ 1 ]
+
+var hp : float = 20
+var max_hp : float = 20
+#var skill : bool = false
+
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980
 var gravity_multiplier : float = 1.0
