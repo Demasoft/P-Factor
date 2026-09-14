@@ -13,34 +13,39 @@ func _ready() -> void:
 	fade.visible = false
 	load_scene_finished.emit.call_deferred()
 
-func transition_scene( new_scene: String, target_area: String, player_offset: Vector2, dir: String ) -> void:
-	
-	get_tree().paused = true 
-	
-	var fade_pos: Vector2 = get_fade_pos( dir )
-	
+func transition_scene(
+	new_scene: String,
+	target_area: String,
+	player_offset: Vector2,
+	dir: String
+) -> void:
+
+	get_tree().paused = true
+
+	var fade_pos: Vector2 = get_fade_pos(dir)
+
 	fade.visible = true
-	
+
 	load_scene_started.emit()
-	
-	await fade_screen( fade_pos, Vector2.ZERO )
-	
-	#await get_tree().process_frame
-	
-	get_tree().change_scene_to_file( new_scene )
-	current_scene_uid = ResourceUID.path_to_uid( new_scene )
-	scene_entered.emit( current_scene_uid )
-	
+
+	await fade_screen(fade_pos, Vector2.ZERO)
+
+	get_tree().change_scene_to_file(new_scene)
+
+	current_scene_uid = ResourceUID.path_to_uid(new_scene)
+	scene_entered.emit(current_scene_uid)
+
 	await get_tree().scene_changed
-	
-	new_scene_ready.emit( target_area, player_offset )
-	
 	await get_tree().process_frame
-	await fade_screen( Vector2.ZERO, -fade_pos )
-	
+
+	new_scene_ready.emit(target_area, player_offset)
+
+	await get_tree().process_frame
+	await fade_screen(Vector2.ZERO, -fade_pos)
+
 	fade.visible = false
 	get_tree().paused = false
-	
+
 	load_scene_finished.emit()
 	
 func fade_screen( from: Vector2, to: Vector2 ) -> Signal:

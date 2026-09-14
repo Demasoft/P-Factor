@@ -187,6 +187,7 @@ shape = SubResource("CapsuleShape2D_g6k8r")
 disabled = true
 
 [node name="Label" type="Label" parent="." unique_id=1621969075]
+visible = false
 offset_left = -27.0
 offset_top = -50.0
 offset_right = 28.0

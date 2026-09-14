@@ -124,6 +124,7 @@ position = Vector2(55, 236)
 speed_scale = 2.0
 
 [node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_5wrfj")]
+visible = false
 position = Vector2(79, 265)
 
 [node name="Illumination" type="Node2D" parent="." unique_id=1594139971]

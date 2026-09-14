@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://marbvtpx8lrt"]
+
+[ext_resource type="Texture2D" uid="uid://eovfgx3pjlsf" path="res://general/tilesets/sprites/jukebox.png" id="1_n8qrg"]
+[ext_resource type="Script" uid="uid://clbusug8eqqul" path="res://scenes/save_point.gd" id="1_wiums"]
+[ext_resource type="FontFile" uid="uid://nrc5yw0nbjwi" path="res://general/fonts/YuseiMagic-Regular.ttf" id="2_xvfwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvfwu"]
+size = Vector2(41, 79)
+
+[sub_resource type="Gradient" id="Gradient_wiums"]
+colors = PackedColorArray(0.60960835, 0.3699763, 0.113051236, 0.8980392, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n0rt3"]
+gradient = SubResource("Gradient_wiums")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_xvfwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, -72)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wiums"]
+resource_name = "game_saved"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.030000001, 0.6, 2.62, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-30, -52), Vector2(-30, -72), Vector2(-30, -72), Vector2(-30, -52)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.61, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0rt3"]
+_data = {
+&"RESET": SubResource("Animation_xvfwu"),
+&"game_saved": SubResource("Animation_wiums")
+}
+
+[node name="SavePoint" type="Node2D" unique_id=1501989839]
+script = ExtResource("1_wiums")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492341750]
+texture = ExtResource("1_n8qrg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=554013764]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2056392520]
+position = Vector2(0, -4)
+scale = Vector2(1.8799996, 1)
+shape = SubResource("RectangleShape2D_xvfwu")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=773425773]
+texture = SubResource("GradientTexture2D_n0rt3")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1430880222]
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1742149948]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -30.0
+offset_top = -72.0
+offset_right = 59.0
+offset_bottom = -48.0
+theme_override_colors/font_color = Color(0.8359375, 0.8359375, 0.8359375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_xvfwu")
+text = "Saving..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=1931336293]
+root_node = NodePath("../Label")
+libraries/ = SubResource("AnimationLibrary_n0rt3")

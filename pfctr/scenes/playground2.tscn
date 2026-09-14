@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icon.svg" id="6_154ln"]
 [ext_resource type="Texture2D" uid="uid://cxbhhxc2h06dd" path="res://general/tilesets/sprites/light_stream.jpg" id="7_d8h1i"]
 [ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="8_0vd8n"]
-[ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_72006"]
+[ext_resource type="PackedScene" uid="uid://marbvtpx8lrt" path="res://scenes/save_point.tscn" id="11_rtjyd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sbnlh"]
 shader = ExtResource("3_ers8w")
@@ -131,9 +131,6 @@ one_way_collision = true
 
 [node name="Props" type="Node2D" parent="." unique_id=1872561019]
 
-[node name="Computer" parent="Props" unique_id=1083230136 instance=ExtResource("8_72006")]
-position = Vector2(558, 270)
-
 [node name="Illumination" type="Node2D" parent="." unique_id=1437278318]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Illumination" unique_id=1732647062]
@@ -143,17 +140,8 @@ energy = 0.42
 blend_mode = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Illumination" unique_id=1020926777]
+visible = false
 position = Vector2(149, 211.99998)
-scale = Vector2(5.131209, 0.47172025)
-occluder = SubResource("OccluderPolygon2D_3fcoi")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Illumination" unique_id=540439146]
-position = Vector2(323, 145)
-scale = Vector2(5.131209, 0.47172025)
-occluder = SubResource("OccluderPolygon2D_3fcoi")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Illumination" unique_id=1738842884]
-position = Vector2(156, 63.999977)
 scale = Vector2(5.131209, 0.47172025)
 occluder = SubResource("OccluderPolygon2D_3fcoi")
 
@@ -190,3 +178,6 @@ size = 9
 location = 1
 target_level = "uid://qf705dsbo34s"
 target_transition_id = "l3l"
+
+[node name="SavePoint" parent="." unique_id=1501989839 instance=ExtResource("11_rtjyd")]
+position = Vector2(501, 262)

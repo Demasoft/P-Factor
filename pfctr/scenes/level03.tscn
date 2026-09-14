@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="1_a5sv2"]
 [ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://general/tilesets/new_tile_set.tres" id="2_i0uyp"]
-[ext_resource type="Material" uid="uid://hfioc5ktsoc2" path="res://shaders/fog_fadel.tres" id="3_omx20"]
 [ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_cqnb5"]
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_b6ys7"]
 [ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://props/sky.tscn" id="6_t1noo"]
@@ -16,20 +15,7 @@ shader_parameter/radius = 0.35
 shader_parameter/softness = 0.45
 shader_parameter/darkness = 0.5
 
-[sub_resource type="Gradient" id="Gradient_kchta"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6l7v6"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_76smb"]
-height = 128
-noise = SubResource("FastNoiseLite_6l7v6")
-color_ramp = SubResource("Gradient_kchta")
-seamless = true
-normalize = false
-
 [node name="Level03" type="Node2D" unique_id=469195267]
-position = Vector2(749, 0)
 
 [node name="Sky" parent="." unique_id=223594441 instance=ExtResource("6_t1noo")]
 position = Vector2(-748, 0)
@@ -70,21 +56,6 @@ position = Vector2(-138, 23)
 tile_map_data = PackedByteArray("AAD0/wMAAAAFAAYAAAD0/wQAAAAFAAcAAAD0/wUAAAAFAAgAAAD0/wYAAAAFAAkAAAD1/wMAAAAGAAYAAAD1/wQAAAAGAAcAAAD1/wUAAAAGAAgAAAD1/wYAAAAGAAkAAAD2/wMAAAAHAAYAAAD2/wQAAAAHAAcAAAD2/wUAAAAHAAgAAAD2/wYAAAAHAAkAAAD3/wMAAAAIAAYAAAD3/wQAAAAIAAcAAAD3/wUAAAAIAAgAAAD3/wYAAAAIAAkAAAD4/wMAAAAJAAYAAAD4/wQAAAAJAAcAAAD4/wUAAAAFAAkAAAD4/wYAAAAFAAoAAAD4////AAACAAYAAAD4/wAAAAACAAcAAAD4/wEAAAACAAgAAAD4/wIAAAACAAkAAAD5////AAADAAYAAAD5/wAAAAADAAcAAAD5/wEAAAADAAgAAAD5/wIAAAADAAkAAAD6////AAAEAAYAAAD6/wAAAAAEAAcAAAD6/wEAAAAEAAgAAAD6/wIAAAAEAAkAAAD7////AAAFAAYAAAD7/wAAAAAFAAcAAAD7/wEAAAAFAAgAAAD7/wIAAAAFAAkAAAD8////AAAGAAYAAAD8/wAAAAAGAAcAAAD8/wEAAAAGAAgAAAD8/wIAAAAGAAkAAAD9////AAAMAAYAAAD9/wAAAAAMAAcAAAD9/wEAAAAMAAgAAAD9/wIAAAAHAAkAAAD+////AAANAAYAAAD+/wAAAAANAAcAAAD+/wEAAAANAAcAAAD+/wIAAAANAAgAAAD/////AAAOAAYAAAD//wAAAAAOAAcAAAD//wEAAAAOAAcAAAD//wIAAAAOAAgAAAD5/wQAAAAFAAoAAAD5/wUAAAAGAAkAAAD6/wQAAAAGAAoAAAD6/wUAAAAHAAkAAAD7/wQAAAAFAAoAAAD7/wUAAAAFAAkAAAD5/wMAAAAFAAkAAAD6/wMAAAAGAAkAAAD7/wMAAAAFAAkAAAD9/wMAAAAHAAkAAAD9/wQAAAAHAAoAAAD+/wMAAAANAAkAAAD+/wQAAAAFAAoAAAD//wMAAAAOAAkAAAD//wQAAAAGAAoAAAD8/wMAAAAGAAkAAAD8/wQAAAAGAAoAAAD5/wYAAAAGAAoAAAD6/wYAAAAHAAoAAAD7/wYAAAAFAAoAAAD8/wUAAAAGAAkAAAD8/wYAAAAGAAoAAAD9/wUAAAAHAAkAAAD9/wYAAAAHAAoAAAD+/wUAAAAFAAkAAAD+/wYAAAAFAAoAAAD//wUAAAAGAAkAAAD//wYAAAAGAAoAAAAAAAUAAAAIAAgAAAAAAAYAAAAIAAgAAAAAAAMAAAAIAAYAAAAAAAQAAAAIAAcAAAABAAMAAAAJAAYAAAABAAQAAAAJAAcAAAACAAMAAAAKAAYAAAACAAQAAAAKAAcAAAADAAMAAAALAAYAAAADAAQAAAALAAcAAAABAAUAAAAJAAgAAAACAAUAAAAKAAgAAAADAAUAAAALAAgAAAAEAAMAAAAMAAYAAAAEAAQAAAAMAAcAAAAEAAUAAAAMAAgAAAAFAAMAAAANAAYAAAAFAAQAAAANAAcAAAAFAAUAAAANAAgAAAAGAAMAAAAOAAYAAAAGAAQAAAAOAAcAAAAGAAUAAAAOAAgAAAAAAAcAAAAIAAkAAAABAAYAAAAJAAgAAAABAAcAAAAJAAkAAAACAAYAAAAKAAgAAAACAAcAAAAKAAkAAAADAAYAAAALAAgAAAADAAcAAAALAAkAAAAEAAYAAAAMAAgAAAAEAAcAAAAMAAkAAAAFAAYAAAANAAgAAAAFAAcAAAANAAkAAAAGAAYAAAAOAAkAAAAHAAUAAAAKAAYAAAAHAAYAAAAKAAcAAAAHAAcAAAAKAAgAAAAIAAUAAAALAAYAAAAIAAYAAAALAAcAAAAIAAcAAAALAAgAAAAJAAUAAAAMAAYAAAAJAAYAAAAMAAcAAAAJAAcAAAAMAAgAAAAKAAUAAAANAAYAAAAKAAYAAAANAAcAAAAKAAcAAAANAAgAAAALAAUAAAAOAAYAAAALAAYAAAAOAAcAAAALAAcAAAAOAAgAAAA=")
 tile_set = ExtResource("2_i0uyp")
 collision_enabled = false
-
-[node name="Parallax2D4" type="Parallax2D" parent="ParallaxLayers" unique_id=1675399872]
-modulate = Color(1, 1, 1, 0.34901962)
-z_index = 2
-scroll_scale = Vector2(2, 0)
-scroll_offset = Vector2(-522, 3)
-repeat_size = Vector2(512, 0)
-autoscroll = Vector2(10, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayers/Parallax2D4" unique_id=989091303]
-modulate = Color(1, 1, 1, 0.32156864)
-material = ExtResource("3_omx20")
-position = Vector2(768, 251)
-texture = SubResource("NoiseTexture2D_76smb")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=504541404]
 z_index = 2

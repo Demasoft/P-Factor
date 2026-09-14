@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deyko213mtm3l"
-path="res://.godot/imported/vent_test.png-bc6fc355cfa5e94562b148fed41cc64b.ctex"
+uid="uid://eovfgx3pjlsf"
+path="res://.godot/imported/jukebox.png-b438a2cd2d08ef7f43303c9a14aeba7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/sprites/vent_test.png"
-dest_files=["res://.godot/imported/vent_test.png-bc6fc355cfa5e94562b148fed41cc64b.ctex"]
+source_file="res://general/tilesets/sprites/jukebox.png"
+dest_files=["res://.godot/imported/jukebox.png-b438a2cd2d08ef7f43303c9a14aeba7c.ctex"]
 
 [params]
 
