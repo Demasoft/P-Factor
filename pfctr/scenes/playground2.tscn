@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="3_ers8w"]
 [ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_sbnlh"]
 [ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_tulhy"]
-[ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icon.svg" id="6_154ln"]
+[ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icons/icon.svg" id="6_154ln"]
 [ext_resource type="Texture2D" uid="uid://cxbhhxc2h06dd" path="res://general/tilesets/sprites/light_stream.jpg" id="7_d8h1i"]
 [ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="8_0vd8n"]
 [ext_resource type="PackedScene" uid="uid://marbvtpx8lrt" path="res://scenes/save_point.tscn" id="11_rtjyd"]
@@ -154,7 +154,7 @@ texture = ExtResource("7_d8h1i")
 offset = Vector2(0, 256)
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("8_0vd8n")]
-position = Vector2(535, 226)
+position = Vector2(82, 226)
 
 [node name="LevelTransition3" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
 position = Vector2(-15, 296)

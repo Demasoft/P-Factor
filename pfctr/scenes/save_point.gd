@@ -11,11 +11,15 @@ func _ready() -> void:
 
 func _on_player_entered( _n : Node2D ) -> void:
 	Messages.player_interacted.connect( _on_player_interacted )
-	pass
+	Messages.input_hint_changed.emit( "Interact" )
 
 func _on_player_exited( _n : Node2D ) -> void:
 	Messages.player_interacted.disconnect( _on_player_interacted )
-	pass
+	Messages.input_hint_changed.emit( "" )
 
 func _on_player_interacted( player : Player ) -> void:
-	print("player interacted")
+	SaveManager.save_game()
+	Messages.player_healed.emit( 9999 )
+	print("saved")
+	animation_player.play( "game_saved" )
+	animation_player.seek( 0 )

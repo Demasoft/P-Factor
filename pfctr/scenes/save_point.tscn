@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://eovfgx3pjlsf" path="res://general/tilesets/sprites/jukebox.png" id="1_n8qrg"]
 [ext_resource type="Script" uid="uid://clbusug8eqqul" path="res://scenes/save_point.gd" id="1_wiums"]
 [ext_resource type="FontFile" uid="uid://nrc5yw0nbjwi" path="res://general/fonts/YuseiMagic-Regular.ttf" id="2_xvfwu"]
+[ext_resource type="Script" uid="uid://scdklj3aaopl" path="res://icons/input_hint.gd" id="4_q203c"]
+[ext_resource type="Texture2D" uid="uid://bm37haipomgxd" path="res://icons/pointer.png" id="5_fuk0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvfwu"]
 size = Vector2(41, 79)
@@ -104,6 +106,44 @@ _data = {
 &"game_saved": SubResource("Animation_wiums")
 }
 
+[sub_resource type="Animation" id="Animation_q203c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -55.999996)]
+}
+
+[sub_resource type="Animation" id="Animation_fuk0d"]
+resource_name = "pointer"
+loop_mode = 1
+step = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -55.999996), Vector2(0, -64), Vector2(0, -55.999996)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abvb2"]
+_data = {
+&"RESET": SubResource("Animation_q203c"),
+&"pointer": SubResource("Animation_fuk0d")
+}
+
 [node name="SavePoint" type="Node2D" unique_id=1501989839]
 script = ExtResource("1_wiums")
 
@@ -111,6 +151,7 @@ script = ExtResource("1_wiums")
 texture = ExtResource("1_n8qrg")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=554013764]
+position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 16
 monitorable = false
@@ -143,3 +184,14 @@ text = "Saving..."
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=1931336293]
 root_node = NodePath("../Label")
 libraries/ = SubResource("AnimationLibrary_n0rt3")
+
+[node name="InputHints" type="Node2D" parent="." unique_id=373980548]
+script = ExtResource("4_q203c")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=2045908965]
+position = Vector2(0, -55.999996)
+scale = Vector2(0.007, 0.007)
+texture = ExtResource("5_fuk0d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InputHints" unique_id=342779335]
+libraries/ = SubResource("AnimationLibrary_abvb2")

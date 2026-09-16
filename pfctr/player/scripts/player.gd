@@ -29,7 +29,7 @@ func _ready() -> void:
 		self.queue_free()
 	initialize_states()
 	reparent.call_deferred(get_tree().root)
-	pass
+	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "interact" ):
@@ -98,3 +98,7 @@ func update_direction() -> void:
 		elif direction.x > 0:
 			sprite_2d.flip_h = true
 	pass
+
+func _on_player_healed( amount : float ) -> void:
+	hp += amount
+	print(amount)
