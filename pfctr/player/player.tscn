@@ -210,6 +210,11 @@ collision_mask = 2
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1261564545]
 process_mode = 3
 position = Vector2(0, -11)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.005
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1968341219]
 visible = false
