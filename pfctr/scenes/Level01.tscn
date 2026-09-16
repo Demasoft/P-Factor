@@ -166,7 +166,7 @@ position = Vector2(-420, 259)
 texture = ExtResource("5_3fcoi")
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("9_6kq4m")]
-position = Vector2(552, 296)
+position = Vector2(-371, 56)
 
 [node name="LevelTransition2" parent="." unique_id=1072128697 instance=ExtResource("5_520st")]
 position = Vector2(627, 296)

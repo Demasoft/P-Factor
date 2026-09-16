@@ -18,8 +18,8 @@ func _on_player_exited( _n : Node2D ) -> void:
 	Messages.input_hint_changed.emit( "" )
 
 func _on_player_interacted( player : Player ) -> void:
-	SaveManager.save_game()
 	Messages.player_healed.emit( 9999 )
+	SaveManager.save_game()
 	print("saved")
 	animation_player.play( "game_saved" )
 	animation_player.seek( 0 )

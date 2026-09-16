@@ -35,7 +35,7 @@ func get_controller_type( device_id: int ) -> void:
 	elif "playstation" in n or "ps" in n or "dualsense" in n:
 		controller_type = "playstation"
 	else: 
-		controller_type = "unknown"
+		controller_type = "playstation"
 	
 	print(controller_type)
 	set_process_input( false )
