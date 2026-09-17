@@ -19,6 +19,7 @@ config/icon="res://icons/icon.svg"
 SceneManager="*uid://cu26uan7elsbr"
 SaveManager="*uid://cab1j82eequi7"
 Messages="*uid://c3fv0a6qjemrn"
+PlayerHudGround="*uid://xxjra0dsyr4d"
 
 [display]
 
@@ -33,7 +34,7 @@ Player=""
 
 [gui]
 
-theme/custom_font="uid://bjim05fvis1q0"
+theme/custom_font="uid://biwco2pnavrow"
 
 [input]
 
