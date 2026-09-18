@@ -42,7 +42,19 @@ func show_main_menu() -> void:
 	main_menu.visible = true
 	new_game_menu.visible = false
 	load_game_menu.visible = false
-	new_game.grab_focus()
+	
+	var has_save := (
+	SaveManager.save_file_check(0)
+	or SaveManager.save_file_check(1)
+	or SaveManager.save_file_check(2)
+	)
+
+	load_game.disabled = not has_save
+
+	if load_game.disabled:
+		new_game.grab_focus()
+	else:
+		load_game.grab_focus()
 
 func show_new_game_menu() -> void:
 	main_menu.visible = false

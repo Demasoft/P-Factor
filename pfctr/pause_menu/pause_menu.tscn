@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://bdi104xa86306"]
+
+[ext_resource type="Script" uid="uid://bfes63td7maxe" path="res://pause_menu/pause_menu.gd" id="1_5hbt6"]
+[ext_resource type="FontFile" uid="uid://bjim05fvis1q0" path="res://general/fonts/AlienBlock-Regular.ttf" id="2_rd7dy"]
+[ext_resource type="PackedScene" uid="uid://cet7lh88houlp" path="res://pause_menu/map_node.tscn" id="3_uwtdo"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1141749296]
+process_mode = 3
+script = ExtResource("1_5hbt6")
+
+[node name="Control" type="Control" parent="." unique_id=1856402598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=431623043]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.14509805, 0.14509805, 0.5529412)
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1237450849]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect2" unique_id=517020280]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = 192.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_rd7dy")
+theme_override_font_sizes/font_size = 35
+text = "01 MAIN"
+
+[node name="Pause" type="Control" parent="Control" unique_id=475116845]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Pause" unique_id=415876485]
+layout_mode = 0
+offset_left = 15.0
+offset_right = 71.0
+offset_bottom = 17.0
+text = "Mission"
+
+[node name="Label2" type="Label" parent="Control/Pause" unique_id=544078542]
+layout_mode = 0
+offset_left = 110.0
+offset_right = 134.0
+offset_bottom = 17.0
+text = "Map"
+
+[node name="Map" type="Control" parent="Control/Pause" unique_id=1680620432]
+anchors_preset = 0
+offset_left = 110.0
+offset_right = 552.0
+offset_bottom = 275.0
+
+[node name="MapNode" parent="Control/Pause/Map" unique_id=1714141679 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 29.0
+offset_right = 32.0
+offset_bottom = 38.0
+
+[node name="MapNode2" parent="Control/Pause/Map" unique_id=229177965 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 29.0
+offset_right = 52.0
+offset_bottom = 38.0
+
+[node name="MapNode3" parent="Control/Pause/Map" unique_id=1473998284 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 17.0
+offset_right = 52.0
+offset_bottom = 26.0
+
+[node name="MapNode4" parent="Control/Pause/Map" unique_id=176750327 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 29.0
+offset_right = 86.0
+offset_bottom = 38.0
+
+[node name="SystemButton" type="Button" parent="Control/Pause" unique_id=480854515]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 552.0
+offset_right = 608.0
+offset_bottom = 25.0
+text = "System"
+
+[node name="System" type="Control" parent="Control" unique_id=942783303]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System" unique_id=524565315]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -118.0
+offset_right = 146.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 11
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=2099090068]
+layout_mode = 2
+theme_override_constants/separation = 83
+alignment = 1
+
+[node name="BackToMap" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=2128878017]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to Map"
+
+[node name="BackToTitle" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=366339464]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to Title"
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer" unique_id=75214750]
+layout_mode = 2
+text = "Audio Levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1086796294]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1778663851]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=430666674]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1941179555]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=857683946]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1102625222]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=343118262]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=258424747]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "System"
+
+[node name="SystemSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1791020752]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5

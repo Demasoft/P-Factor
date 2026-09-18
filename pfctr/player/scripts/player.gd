@@ -16,8 +16,14 @@ var current_state: PlayerState :
 var previous_state : PlayerState : 
 	get : return states[ 1 ]
 
-var hp : float = 20
-var max_hp : float = 20
+var hp : float = 20 :
+	set( value ):
+		hp = clampf( value, 0, max_hp )
+		Messages.player_health_changed.emit( hp, max_hp )
+var max_hp : float = 20 :
+	set( value ):
+		max_hp = value
+		Messages.player_health_changed.emit( hp, max_hp )
 #var skill : bool = false
 
 var direction : Vector2 = Vector2.ZERO
@@ -34,6 +40,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "interact" ):
 		Messages.player_interacted.emit( self )
+	elif event.is_action_pressed( "pause" ):
+		get_tree().paused = true
+		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
+		add_child( pause_menu )
+		return
+		
 	change_state( current_state.handle_input( event ) )
 
 func _process(_delta: float) -> void:
@@ -101,4 +113,3 @@ func update_direction() -> void:
 
 func _on_player_healed( amount : float ) -> void:
 	hp += amount
-	print(amount)
