@@ -12,6 +12,9 @@ var current_scene_uid : String
 func _ready() -> void:
 	fade.visible = false
 	load_scene_finished.emit.call_deferred()
+	var current_scene : String = get_tree().current_scene.scene_file_path
+	current_scene_uid = ResourceUID.path_to_uid( current_scene )
+	scene_entered.emit( current_scene_uid )
 
 func transition_scene(
 	new_scene: String,

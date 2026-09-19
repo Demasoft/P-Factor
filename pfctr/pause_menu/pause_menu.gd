@@ -45,4 +45,5 @@ func setup_system() -> void:
 func _on_back_to_title_pressed() -> void:
 	SceneManager.transition_scene( "uid://cv8mro2sepasu", "", Vector2.ZERO, "up" )
 	get_tree().paused = false
+	Messages.back_to_title.connect( queue_free )
 	queue_free()

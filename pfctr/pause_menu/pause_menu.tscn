@@ -4,6 +4,57 @@
 [ext_resource type="FontFile" uid="uid://bjim05fvis1q0" path="res://general/fonts/AlienBlock-Regular.ttf" id="2_rd7dy"]
 [ext_resource type="PackedScene" uid="uid://cet7lh88houlp" path="res://pause_menu/map_node.tscn" id="3_uwtdo"]
 
+[sub_resource type="Gradient" id="Gradient_uwtdo"]
+offsets = PackedFloat32Array(0, 0.19277108, 0.71686745, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9609375, 0, 1, 1, 0.55393445, 0.12556475, 1, 1, 0.22745098, 0.22745098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b4s0c"]
+gradient = SubResource("Gradient_uwtdo")
+width = 5
+height = 5
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.1)
+
+[sub_resource type="Animation" id="Animation_uwtdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b4s0c"]
+resource_name = "new_animation"
+length = 0.5
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1glv"]
+_data = {
+&"RESET": SubResource("Animation_uwtdo"),
+&"new_animation": SubResource("Animation_b4s0c")
+}
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=1141749296]
 process_mode = 3
 script = ExtResource("1_5hbt6")
@@ -49,7 +100,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 70.0
+offset_left = 1.0
+offset_top = 69.0
+offset_right = 1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -74,32 +128,160 @@ offset_right = 552.0
 offset_bottom = 275.0
 
 [node name="MapNode" parent="Control/Pause/Map" unique_id=1714141679 instance=ExtResource("3_uwtdo")]
+modulate = Color(1, 0.5625, 0, 1)
 layout_mode = 0
-offset_left = 1.0
-offset_top = 29.0
-offset_right = 32.0
-offset_bottom = 38.0
+offset_left = 21.0
+offset_top = 65.0
+offset_right = 37.0
+offset_bottom = 74.0
+scale = Vector2(1.1626405, 1.0168873)
+
+[node name="MapNode7" parent="Control/Pause/Map" unique_id=1460800785 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 95.0
+offset_right = 34.0
+offset_bottom = 104.0
 
 [node name="MapNode2" parent="Control/Pause/Map" unique_id=229177965 instance=ExtResource("3_uwtdo")]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 29.0
-offset_right = 52.0
-offset_bottom = 38.0
+offset_left = 54.0
+offset_top = 65.0
+offset_right = 131.0
+offset_bottom = 74.0
+
+[node name="MapNode9" parent="Control/Pause/Map" unique_id=759007124 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 44.0
+offset_right = 131.0
+offset_bottom = 53.0
 
 [node name="MapNode3" parent="Control/Pause/Map" unique_id=1473998284 instance=ExtResource("3_uwtdo")]
 layout_mode = 0
+offset_left = 3.0
+offset_top = 65.0
+offset_right = 19.0
+offset_bottom = 74.0
+
+[node name="MapNode14" parent="Control/Pause/Map" unique_id=1218641121 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 186.0
+offset_right = 37.0
+offset_bottom = 197.0
+linked_scene = "uid://biwpjf43oeg7m"
+entrances_right = Array[float]([4.4])
+
+[node name="MapNode15" parent="Control/Pause/Map" unique_id=661812004 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 186.0
+offset_right = 56.0
+offset_bottom = 197.0
+linked_scene = "uid://cr4vhm31bd2gx"
+entrances_top = Array[float]([6.7])
+entrances_right = Array[float]([5.2])
+entrances_left = Array[float]([5.2])
+
+[node name="MapNode16" parent="Control/Pause/Map" unique_id=1700938634 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 171.0
+offset_right = 56.0
+offset_bottom = 182.0
+linked_scene = "uid://ctji5ss445da"
+entrances_down = Array[float]([7.925])
+
+[node name="MapNode17" parent="Control/Pause/Map" unique_id=1706236400 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 186.0
+offset_right = 93.0
+offset_bottom = 197.0
+linked_scene = "uid://qf705dsbo34s"
+entrances_left = Array[float]([4.4])
+
+[node name="MapNode13" parent="Control/Pause/Map" unique_id=612166149 instance=ExtResource("3_uwtdo")]
+modulate = Color(0, 0.5294118, 1, 1)
+layout_mode = 0
 offset_left = 36.0
-offset_top = 17.0
+offset_top = 44.0
 offset_right = 52.0
-offset_bottom = 26.0
+offset_bottom = 53.0
+
+[node name="MapNode10" parent="Control/Pause/Map" unique_id=1814515701 instance=ExtResource("3_uwtdo")]
+modulate = Color(0, 0.5294118, 1, 1)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 80.0
+offset_bottom = 65.0
+
+[node name="MapNode11" parent="Control/Pause/Map" unique_id=548812907 instance=ExtResource("3_uwtdo")]
+modulate = Color(0, 1, 0.4375, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 56.0
+offset_right = 112.0
+offset_bottom = 65.0
+
+[node name="MapNode12" parent="Control/Pause/Map" unique_id=201757506 instance=ExtResource("3_uwtdo")]
+modulate = Color(0, 1, 0.4392157, 1)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 86.0
+offset_right = 112.0
+offset_bottom = 95.0
+
+[node name="MapNode5" parent="Control/Pause/Map" unique_id=880858908 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 95.0
+offset_right = 125.0
+offset_bottom = 104.0
 
 [node name="MapNode4" parent="Control/Pause/Map" unique_id=176750327 instance=ExtResource("3_uwtdo")]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 29.0
-offset_right = 86.0
-offset_bottom = 38.0
+offset_left = 54.0
+offset_top = 75.0
+offset_right = 84.0
+offset_bottom = 84.0
+
+[node name="MapNode8" parent="Control/Pause/Map" unique_id=1827732158 instance=ExtResource("3_uwtdo")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 75.0
+offset_right = 52.0
+offset_bottom = 84.0
+
+[node name="MapNode6" parent="Control/Pause/Map" unique_id=236741240 instance=ExtResource("3_uwtdo")]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 127.0
+offset_top = 95.0
+offset_right = 157.0
+offset_bottom = 104.0
+
+[node name="PlayerPointer" type="Control" parent="Control/Pause/Map" unique_id=1712657111]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 31.0
+offset_right = 11.0
+offset_bottom = 31.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Pause/Map/PlayerPointer" unique_id=1680842776]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 134.0
+offset_right = -14.0
+offset_bottom = 139.0
+texture = SubResource("GradientTexture2D_b4s0c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Pause/Map/PlayerPointer" unique_id=86587542]
+libraries/ = SubResource("AnimationLibrary_s1glv")
+autoplay = &"new_animation"
 
 [node name="SystemButton" type="Button" parent="Control/Pause" unique_id=480854515]
 unique_name_in_owner = true

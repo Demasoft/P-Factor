@@ -11,7 +11,7 @@ var discovered_areas : Array = []
 var persistent_data: Dictionary = {}
 
 func _ready() -> void:
-	pass
+	SceneManager.scene_entered.connect( _on_scene_entered )
 
 func _unhandled_key_input( event: InputEvent ) -> void:
 	if event is InputEventKey and event.pressed:
@@ -102,3 +102,13 @@ func get_file_name( slot: int ) -> String:
 
 func save_file_check( slot: int ) -> bool:
 	return FileAccess.file_exists( get_file_name( slot ) )
+
+func is_area_discovered( scene_uid ) -> bool:
+	return discovered_areas.has( scene_uid )
+
+func _on_scene_entered( scene_uid: String ) -> void:
+	if discovered_areas.has( scene_uid ):
+		return
+	else:
+		discovered_areas.append( scene_uid )
+			
