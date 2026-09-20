@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvmqpwx6hl5cx" path="res://props/holo_dna.tscn" id="6_kchta"]
 [ext_resource type="PackedScene" uid="uid://c5fivye0rgux3" path="res://props/computer.tscn" id="8_5wrfj"]
 [ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="9_6kq4m"]
+[ext_resource type="PackedScene" uid="uid://cqbxtcr6ad3w3" path="res://dialogue/dialogue_trigger.tscn" id="10_ke2w7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6cygv"]
 shader = ExtResource("3_mql6g")
@@ -175,3 +176,6 @@ size = 9
 location = 1
 target_level = "uid://cr4vhm31bd2gx"
 target_transition_id = "p2l"
+
+[node name="DialogueTrigger" parent="." unique_id=1575239511 instance=ExtResource("10_ke2w7")]
+position = Vector2(-371, 264)

@@ -1,0 +1,4 @@
+join p center [animation="Fade In Down" wait="true"]
+p: I should probably get going...
+[wait_input hide_text="false"]
+[end_timeline]

@@ -34,8 +34,8 @@ func create_new_save_game( slot : int ) -> void:
 	discovered_areas.append( new_game_scene )
 	save_data = {
 		"scene_path" : new_game_scene,
-		"x" : 535.0,
-		"y" : 226.0,
+		"x" : -473.0,
+		"y" : 262.334,
 		"hp" : 20,
 		"max_hp" : 20,
 		#"dash" : false, #skill

@@ -75,7 +75,6 @@ collision_enabled = false
 z_index = 256
 position = Vector2(-15, -32)
 script = ExtResource("4_sbnlh")
-width = 640
 height = 430
 metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
 

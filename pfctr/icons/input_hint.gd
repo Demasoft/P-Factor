@@ -42,9 +42,10 @@ func get_controller_type( device_id: int ) -> void:
 
 func _on_hint_changed( hint : String ) -> void:
 	if hint == "":
-		visible = false
+		animation_player.play("show")
 	else:
+		animation_player.play("hide")
+		await animation_player.animation_finished
 		animation_player.play( "pointer" )
 		visible = true
 		sprite_2d.frame = HINT_MAP[ controller_type ].get( hint, "0" )
-	pass
