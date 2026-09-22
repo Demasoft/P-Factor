@@ -1,28 +1,28 @@
 [gd_scene format=4 uid="uid://btfsn3tbhioqm"]
 
-[ext_resource type="TileSet" uid="uid://c0rpf54x1mpue" path="res://general/tilesets/raflesia.tres" id="1_6e11s"]
-[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="2_m4f0u"]
-[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="3_hwk5g"]
-[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="4_8g16c"]
+[ext_resource type="TileSet" uid="uid://c0rpf54x1mpue" path="res://general/tilesets/raflesia.tres" id="1_5p57d"]
+[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="2_r8aof"]
+[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="3_b2w0k"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="4_rpmp5"]
 
 [node name="level04" type="Node2D" unique_id=1928797929]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=878732952]
 tile_map_data = PackedByteArray("AAAAAAkAAQAEAAIAAAABAAkAAQAFAAIAAAACAAkAAQAGAAIAAAADAAkAAQABAAAAAAAEAAkAAQAEAAMAAAAFAAkAAQAFAAMAAAAGAAkAAQAGAAMAAAAHAAkAAQAGAAEAAAAIAAkAAQAHAAEAAAAJAAkAAQAHAAEAAAAKAAkAAQAHAAEAAAALAAkAAQAHAAEAAAAMAAkAAQAHAAEAAAANAAkAAQAHAAEAAAAOAAkAAQAHAAEAAAAPAAkAAQAHAAEAAAAQAAkAAQAEAAMAAAARAAkAAQAFAAMAAAASAAkAAQAGAAMAAAATAAkAAQAKAAEAAAAAAAoAAQABAAEAAAABAAoAAQABAAEAAAACAAoAAQABAAEAAAADAAoAAQABAAEAAAAEAAoAAQABAAEAAAAFAAoAAQABAAEAAAAGAAoAAQABAAEAAAAHAAoAAQABAAEAAAAIAAoAAQABAAEAAAAJAAoAAQABAAEAAAAKAAoAAQABAAEAAAALAAoAAQABAAEAAAAPAAoAAQABAAEAAAAQAAoAAQABAAEAAAARAAoAAQABAAEAAAASAAoAAQABAAEAAAATAAoAAQABAAIAAAAMAAoAAQABAAEAAAANAAoAAQABAAEAAAAOAAoAAQABAAEAAAATAAsAAQAMAAAAAAAAAAsAAQABAAIAAAABAAsAAQABAAIAAAACAAsAAQABAAIAAAADAAsAAQABAAIAAAAEAAsAAQABAAIAAAAFAAsAAQABAAIAAAAGAAsAAQABAAIAAAAHAAsAAQABAAIAAAAIAAsAAQABAAIAAAAJAAsAAQABAAIAAAAKAAsAAQABAAIAAAALAAsAAQABAAIAAAAMAAsAAQABAAIAAAANAAsAAQABAAIAAAAOAAsAAQABAAIAAAAPAAsAAQABAAIAAAAQAAsAAQABAAIAAAARAAsAAQABAAIAAAASAAsAAQABAAIAAAATAAgAAQAAAAEAAAATAAcAAQAAAAEAAAATAAYAAQAAAAEAAAATAAUAAQAAAAAAAAAHAAgAAQAGAAAAAAAIAAgAAQAHAAAAAAAJAAcAAQAGAAAAAAAJAAgAAQAGAAEAAAAKAAcAAQAHAAAAAAAKAAgAAQAHAAEAAAALAAYAAQAGAAAAAAALAAcAAQAGAAEAAAAMAAYAAQAHAAAAAAAMAAcAAQAHAAEAAAALAAgAAQABAAEAAAAMAAgAAQABAAEAAAANAAcAAQABAAEAAAANAAgAAQABAAEAAAANAAUAAQAGAAAAAAANAAYAAQAGAAEAAAAOAAUAAQAHAAAAAAAOAAYAAQAHAAEAAAAOAAcAAQABAAEAAAAOAAgAAQABAAEAAAAPAAUAAQACAAAAAAAPAAYAAQACAAEAAAAPAAcAAQACAAEAAAAPAAgAAQACAAEAAAAQAAYAAQADAAMAAAARAAYAAQADAAMAAAASAAYAAQADAAMAAAA=")
-tile_set = ExtResource("1_6e11s")
+tile_set = ExtResource("1_5p57d")
 
-[node name="LevelTransition2" parent="." unique_id=409620985 instance=ExtResource("2_m4f0u")]
+[node name="LevelTransition2" parent="." unique_id=409620985 instance=ExtResource("2_r8aof")]
 position = Vector2(0, 296)
 transition_id = "l4l"
 size = 9
-target_level = "uid://cr4vhm31bd2gx"
+target_level = "uid://qf705dsbo34s"
 target_transition_id = "l3r"
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=408743465]
 z_index = 256
 position = Vector2(0, -12)
-script = ExtResource("3_hwk5g")
+script = ExtResource("3_b2w0k")
 metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
 
-[node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("4_8g16c")]
+[node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("4_rpmp5")]
 position = Vector2(61, 191)
