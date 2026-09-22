@@ -18,7 +18,7 @@ func _on_player_exited( _n : Node2D ) -> void:
 	Messages.input_hint_changed.emit( "" )
 
 func _on_player_interacted( player : Player ) -> void:
-	Messages.player_healed.emit( 9999 )
+	Messages.player_healed.emit( player.max_hp )
 	SaveManager.save_game()
 	print("saved")
 	animation_player.play( "game_saved" )

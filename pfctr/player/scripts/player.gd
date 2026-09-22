@@ -34,7 +34,7 @@ func _ready() -> void:
 	if get_tree().get_first_node_in_group( "Player" ) != self:
 		self.queue_free()
 	initialize_states()
-	reparent.call_deferred(get_tree().root)
+	reparent.call_deferred(get_tree().get_first_node_in_group("Player"))
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:

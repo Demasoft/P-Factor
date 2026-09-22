@@ -153,7 +153,7 @@ texture = ExtResource("7_d8h1i")
 offset = Vector2(0, 256)
 
 [node name="PlayerSpawn" parent="." unique_id=400504278 instance=ExtResource("8_0vd8n")]
-position = Vector2(82, 226)
+position = Vector2(423, 107)
 
 [node name="LevelTransition3" parent="." unique_id=569059399 instance=ExtResource("5_tulhy")]
 position = Vector2(-15, 296)

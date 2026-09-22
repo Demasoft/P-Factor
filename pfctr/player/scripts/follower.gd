@@ -3,8 +3,7 @@ extends CharacterBody2D
 @export var follow_distance: float = 20.0
 @export var follow_speed: float = 3.5
 
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
-
+@onready var player: Player = $".."
 
 func _physics_process(delta: float) -> void:
 	if player == null:

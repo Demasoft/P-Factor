@@ -86,7 +86,7 @@ func setup_player() -> void:
 	var player : Player = null
 	while not player: 
 		player = get_tree().get_first_node_in_group( "Player" )
-		await  get_tree().process_frame
+		#await  get_tree().process_frame
 	
 	player.max_hp = save_data.get( "max_hp", 20 )
 	player.hp = save_data.get( "hp", 20 )

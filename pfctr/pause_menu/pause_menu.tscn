@@ -200,6 +200,7 @@ offset_top = 186.0
 offset_right = 93.0
 offset_bottom = 197.0
 linked_scene = "uid://qf705dsbo34s"
+entrances_right = Array[float]([4.4])
 entrances_left = Array[float]([4.4])
 
 [node name="MapNode13" parent="Control/Pause/Map" unique_id=612166149 instance=ExtResource("3_uwtdo")]
