@@ -15,6 +15,17 @@ var current_state: PlayerState :
 	get : return states.front()
 var previous_state : PlayerState : 
 	get : return states[ 1 ]
+
+var hp : float = 20 :
+	set( value ):
+		hp = clampf( value, 0, max_hp )
+		Messages.player_health_changed.emit( hp, max_hp )
+var max_hp : float = 20 :
+	set( value ):
+		max_hp = value
+		Messages.player_health_changed.emit( hp, max_hp )
+#var skill : bool = false
+
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980
 var gravity_multiplier : float = 1.0
@@ -23,12 +34,18 @@ func _ready() -> void:
 	if get_tree().get_first_node_in_group( "Player" ) != self:
 		self.queue_free()
 	initialize_states()
-	#self.call_deferred( "reparent", get_tree().root )
-	reparent.call_deferred(get_tree().root)
-	pass
+	reparent.call_deferred(get_tree().get_first_node_in_group("Player"))
+	Messages.player_healed.connect( _on_player_healed )
 
-#_unhandled
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed( "interact" ):
+		Messages.player_interacted.emit( self )
+	elif event.is_action_pressed( "pause" ):
+		get_tree().paused = true
+		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
+		add_child( pause_menu )
+		return
+		
 	change_state( current_state.handle_input( event ) )
 
 func _process(_delta: float) -> void:
@@ -93,3 +110,6 @@ func update_direction() -> void:
 		elif direction.x > 0:
 			sprite_2d.flip_h = true
 	pass
+
+func _on_player_healed( amount : float ) -> void:
+	hp += amount

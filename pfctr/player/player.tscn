@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d4gdjyy4athkl" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://brt4j1pjbbt4d" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://2mvwie2gfky5" path="res://player/states/crouch.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://8728hyo2366p" path="res://player/scripts/follower.gd" id="8_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://chmugbr5likrt" path="res://player/sprites/zero_test.png" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
@@ -129,17 +130,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boad6"]
 
-[sub_resource type="Gradient" id="Gradient_boad6"]
-offsets = PackedFloat32Array(0, 0.42168674, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.0481928, 0.0481928, 0.0481928, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgyib"]
-gradient = SubResource("Gradient_boad6")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="Player" type="CharacterBody2D" unique_id=260783507 groups=["Player"]]
 z_index = 1
 position = Vector2(0, -1.9073486e-06)
@@ -147,6 +137,7 @@ scale = Vector2(1.4, 1.4)
 collision_layer = 16
 collision_mask = 3
 floor_constant_speed = true
+floor_snap_length = 2.0
 script = ExtResource("1_oul6g")
 
 [node name="States" type="Node" parent="." unique_id=1330493630]
@@ -187,6 +178,7 @@ shape = SubResource("CapsuleShape2D_g6k8r")
 disabled = true
 
 [node name="Label" type="Label" parent="." unique_id=1621969075]
+visible = false
 offset_left = -27.0
 offset_top = -50.0
 offset_right = 28.0
@@ -206,11 +198,15 @@ target_position = Vector2(0, 4)
 max_results = 12
 collision_mask = 2
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1261564545]
-position = Vector2(0, -11)
+[node name="Follower" type="CharacterBody2D" parent="." unique_id=779487525]
+position = Vector2(0, -10.999999)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("8_hg6s5")
+follow_distance = 50.0
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1968341219]
-visible = false
-color = Color(1, 0.82944584, 0.53515625, 1)
-energy = 0.4
-texture = SubResource("GradientTexture2D_rgyib")
+[node name="Camera2D" type="Camera2D" parent="Follower" unique_id=1261564545]
+process_mode = 3
+scale = Vector2(1.0000001, 1.0000001)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.005
+drag_horizontal_offset = 0.2
