@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://ch82j5a2d5bo0"]
+
+[ext_resource type="Script" uid="uid://coxmj6wm1bpeo" path="res://npcs/npc.gd" id="1_cqejd"]
+[ext_resource type="Script" uid="uid://bxsfd3igd655v" path="res://npcs/states/idle.gd" id="2_mea8m"]
+[ext_resource type="Texture2D" uid="uid://bn76j423qpxkn" path="res://player/sprites/npc_test.png" id="2_novm3"]
+
+[sub_resource type="Animation" id="Animation_novm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mea8m"]
+resource_name = "idle"
+length = 7.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 6.5, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_atlxo"]
+_data = {
+&"RESET": SubResource("Animation_novm3"),
+&"idle": SubResource("Animation_mea8m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_novm3"]
+size = Vector2(33.41794, 43.5)
+
+[node name="NPC" type="CharacterBody2D" unique_id=553809351]
+scale = Vector2(1.4, 1.4)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_cqejd")
+
+[node name="States" type="Node" parent="." unique_id=70062323]
+
+[node name="Idle" type="Node" parent="States" unique_id=534232229]
+unique_name_in_owner = true
+script = ExtResource("2_mea8m")
+
+[node name="Wander" type="Node" parent="States" unique_id=1968471688]
+unique_name_in_owner = true
+
+[node name="Talk" type="Node" parent="States" unique_id=191952768]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=577158204]
+libraries/ = SubResource("AnimationLibrary_atlxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=208853118]
+position = Vector2(0, -23)
+texture = ExtResource("2_novm3")
+hframes = 6
+
+[node name="Label" type="Label" parent="." unique_id=33783826]
+offset_left = -13.571427
+offset_top = -53.57143
+offset_right = 14.285714
+offset_bottom = -36.57143
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2120172635]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1554147288]
+position = Vector2(-4.7683716e-07, -21.428574)
+scale = Vector2(1.8799994, 0.9999998)
+shape = SubResource("RectangleShape2D_novm3")

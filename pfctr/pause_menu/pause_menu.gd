@@ -42,8 +42,19 @@ func setup_system() -> void:
 	back_to_title.pressed.connect( _on_back_to_title_pressed )
 	back_to_map.pressed.connect( show_pause_menu )
 	
+#func _on_back_to_title_pressed() -> void:
+	#SceneManager.transition_scene( "uid://cv8mro2sepasu", "", Vector2.ZERO, "up" )
+	#get_tree().paused = false
+	#Messages.back_to_title.connect( queue_free )
+	#queue_free()
+
 func _on_back_to_title_pressed() -> void:
-	SceneManager.transition_scene( "uid://cv8mro2sepasu", "", Vector2.ZERO, "up" )
 	get_tree().paused = false
-	Messages.back_to_title.connect( queue_free )
 	queue_free()
+
+	SceneManager.transition_scene(
+		"uid://cv8mro2sepasu",
+		"",
+		Vector2.ZERO,
+		"up"
+	)

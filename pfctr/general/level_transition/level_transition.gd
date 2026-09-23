@@ -91,11 +91,11 @@ func get_offset ( player : Node2D ) -> Vector2:
 
 		SIDE.TOP:
 			offset.x = player_pos.x - global_position.x
-			offset.y = -40
+			offset.y = -1
 
 		SIDE.DOWN:
 			offset.x = player_pos.x - global_position.x
-			offset.y = 37
+			offset.y = 48
 
 	return offset
 	

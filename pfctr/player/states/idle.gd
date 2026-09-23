@@ -1,7 +1,5 @@
 class_name PlayerStateIdle extends PlayerState
 
-
-
 func init() -> void:
 	pass
 

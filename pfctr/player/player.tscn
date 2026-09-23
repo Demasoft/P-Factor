@@ -163,17 +163,18 @@ unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907984180]
-position = Vector2(0, 1)
+position = Vector2(0, -23.143)
 texture = ExtResource("8_rgyib")
 hframes = 45
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=1030916990]
-position = Vector2(0, 5)
+position = Vector2(0, -19.285713)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("CapsuleShape2D_boad6")
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=933879658]
-position = Vector2(0, 11)
+visible = false
+position = Vector2(0, -13.571426)
 shape = SubResource("CapsuleShape2D_g6k8r")
 disabled = true
 
@@ -191,7 +192,7 @@ horizontal_alignment = 1
 libraries/ = SubResource("AnimationLibrary_ebec5")
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=1369541786]
-position = Vector2(0, 12)
+position = Vector2(0, -12.142856)
 enabled = false
 shape = SubResource("RectangleShape2D_boad6")
 target_position = Vector2(0, 4)
@@ -202,7 +203,6 @@ collision_mask = 2
 position = Vector2(0, -10.999999)
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("8_hg6s5")
-follow_distance = 50.0
 
 [node name="Camera2D" type="Camera2D" parent="Follower" unique_id=1261564545]
 process_mode = 3
