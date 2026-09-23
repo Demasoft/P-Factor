@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://coxmj6wm1bpeo" path="res://npcs/npc.gd" id="1_cqejd"]
 [ext_resource type="Script" uid="uid://bxsfd3igd655v" path="res://npcs/states/idle.gd" id="2_mea8m"]
 [ext_resource type="Texture2D" uid="uid://bn76j423qpxkn" path="res://player/sprites/npc_test.png" id="2_novm3"]
+[ext_resource type="Script" uid="uid://scdklj3aaopl" path="res://icons/input_hint.gd" id="4_atlxo"]
+[ext_resource type="Texture2D" uid="uid://bm37haipomgxd" path="res://icons/pointer.png" id="5_p37wn"]
 
 [sub_resource type="Animation" id="Animation_novm3"]
 length = 0.001
@@ -46,8 +48,91 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_novm3"]
 size = Vector2(33.41794, 43.5)
 
+[sub_resource type="Animation" id="Animation_q203c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -55.999996)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_abvb2"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fuk0d"]
+resource_name = "pointer"
+loop_mode = 1
+step = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -55.999996), Vector2(0, -64), Vector2(0, -55.999996)]
+}
+
+[sub_resource type="Animation" id="Animation_d5l6q"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntfcn"]
+_data = {
+&"RESET": SubResource("Animation_q203c"),
+&"hide": SubResource("Animation_abvb2"),
+&"pointer": SubResource("Animation_fuk0d"),
+&"show": SubResource("Animation_d5l6q")
+}
+
 [node name="NPC" type="CharacterBody2D" unique_id=553809351]
-scale = Vector2(1.4, 1.4)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_cqejd")
@@ -68,7 +153,8 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_atlxo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=208853118]
-position = Vector2(0, -23)
+position = Vector2(0, -32)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_novm3")
 hframes = 6
 
@@ -84,3 +170,15 @@ offset_bottom = -36.57143
 position = Vector2(-4.7683716e-07, -21.428574)
 scale = Vector2(1.8799994, 0.9999998)
 shape = SubResource("RectangleShape2D_novm3")
+
+[node name="InputHints" type="Node2D" parent="." unique_id=1011724156]
+script = ExtResource("4_atlxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=315057724]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -55.999996)
+scale = Vector2(0.007, 0.007)
+texture = ExtResource("5_p37wn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InputHints" unique_id=852249414]
+libraries/ = SubResource("AnimationLibrary_ntfcn")

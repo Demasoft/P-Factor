@@ -133,7 +133,6 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=260783507 groups=["Player"]]
 z_index = 1
 position = Vector2(0, -1.9073486e-06)
-scale = Vector2(1.4, 1.4)
 collision_layer = 16
 collision_mask = 3
 floor_constant_speed = true
@@ -163,13 +162,14 @@ unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907984180]
-position = Vector2(0, -23.143)
+position = Vector2(0, -31.999996)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("8_rgyib")
 hframes = 45
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=1030916990]
-position = Vector2(0, -19.285713)
-scale = Vector2(1.1, 1.1)
+position = Vector2(0, -23.999998)
+scale = Vector2(1.4, 1.4)
 shape = SubResource("CapsuleShape2D_boad6")
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=933879658]
