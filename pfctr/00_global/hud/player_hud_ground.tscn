@@ -81,4 +81,38 @@ offset_right = 47.0
 offset_bottom = 37.0
 theme_override_fonts/font = ExtResource("2_4sald")
 theme_override_font_sizes/font_size = 25
-text = "50"
+text = "67"
+
+[node name="Label2" type="Label" parent="Control" unique_id=156061301]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 47.0
+offset_bottom = 34.0
+scale = Vector2(0.29959655, 0.29959655)
+theme_override_fonts/font = ExtResource("2_4sald")
+theme_override_font_sizes/font_size = 25
+text = "lv"
+
+[node name="Label3" type="Label" parent="Control" unique_id=661104212]
+layout_mode = 0
+offset_left = 54.0
+offset_right = 92.0
+offset_bottom = 34.0
+scale = Vector2(0.29959655, 0.29959655)
+theme_override_fonts/font = ExtResource("2_4sald")
+theme_override_font_sizes/font_size = 25
+text = "hp"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=811431383]
+layout_mode = 0
+offset_left = 54.000004
+offset_top = 21.0
+offset_right = 55.000004
+offset_bottom = 55.0
+scale = Vector2(2.858504, 0.34075376)
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer" unique_id=890225495]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4sald")
+theme_override_font_sizes/font_size = 10
+text = "DDD"

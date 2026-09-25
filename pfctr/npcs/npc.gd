@@ -1,5 +1,8 @@
 class_name NPC extends CharacterBody2D
 
+const HIT_EFFECT = preload("res://props/explosion.tscn")
+
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -28,7 +31,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		#var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
 		#add_child( pause_menu )
 		#return
-		
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_T:
+			spawn_hit_effect(self.global_position)
+	
 	change_state( current_state.handle_input( event ) )
 	pass
 
@@ -90,3 +96,11 @@ func update_direction() -> void:
 	elif direction.x > 0:
 		sprite_2d.flip_h = false
 	
+func spawn_hit_effect(position: Vector2) -> void:
+	var effect = HIT_EFFECT.instantiate()
+	get_tree().current_scene.add_child(effect)
+
+	effect.global_position = position
+	effect.play()
+	await animation_player.animation_finished
+	queue_free()

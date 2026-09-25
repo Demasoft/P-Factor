@@ -160,9 +160,9 @@ hframes = 6
 
 [node name="Label" type="Label" parent="." unique_id=33783826]
 offset_left = -13.571427
-offset_top = -53.57143
+offset_top = -78.0
 offset_right = 14.285714
-offset_bottom = -36.57143
+offset_bottom = -61.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2120172635]
 
