@@ -89,7 +89,6 @@ offset_left = 9.0
 offset_right = 47.0
 offset_bottom = 34.0
 scale = Vector2(0.29959655, 0.29959655)
-theme_override_fonts/font = ExtResource("2_4sald")
 theme_override_font_sizes/font_size = 25
 text = "lv"
 
@@ -99,7 +98,6 @@ offset_left = 54.0
 offset_right = 92.0
 offset_bottom = 34.0
 scale = Vector2(0.29959655, 0.29959655)
-theme_override_fonts/font = ExtResource("2_4sald")
 theme_override_font_sizes/font_size = 25
 text = "hp"
 
@@ -113,6 +111,5 @@ scale = Vector2(2.858504, 0.34075376)
 
 [node name="Label4" type="Label" parent="Control/HBoxContainer" unique_id=890225495]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4sald")
 theme_override_font_sizes/font_size = 10
 text = "DDD"

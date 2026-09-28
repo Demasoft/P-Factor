@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5xp08mytjynd"]
+
+[ext_resource type="PackedScene" uid="uid://cyjsbduf75g4d" path="res://player_aircraft/player_aircraft.tscn" id="1_pcde8"]
+
+[node name="PlaygroundA" type="Node2D" unique_id=1233324546]
+
+[node name="PlayerAircraft" parent="." unique_id=1461582815 instance=ExtResource("1_pcde8")]
+position = Vector2(75, 285)
+motion_mode = 1
