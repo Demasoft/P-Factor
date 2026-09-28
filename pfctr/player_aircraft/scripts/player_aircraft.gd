@@ -25,10 +25,10 @@ var max_hp : float = 20 :
 var direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	if get_tree().get_first_node_in_group( "Player" ) != self:
+	if get_tree().get_first_node_in_group( "PlayerAirc" ) != self:
 		self.queue_free()
 	initialize_states()
-	reparent.call_deferred(get_tree().get_first_node_in_group("Player"))
+	reparent.call_deferred(get_tree().get_first_node_in_group("PlayerAirc"))
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:

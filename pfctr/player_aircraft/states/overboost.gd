@@ -6,7 +6,7 @@ func init() -> void:
 	pass
 
 func enter() -> void:
-	player.animation_player.play( "jump" )
+	player.animation_player.play( "overboost" )
 	player.animation_player.pause()
 	#player.velocity.y =- jump_velocity
 	
@@ -19,7 +19,7 @@ func exit() -> void:
 	pass
 
 func handle_input( event: InputEvent ) -> AircraftState:
-	if event.is_action_released( "jump" ) :
+	if event.is_action_released( "overboost" ) :
 		player.velocity.x *= 0.5
 		#return fall
 	return next_state
