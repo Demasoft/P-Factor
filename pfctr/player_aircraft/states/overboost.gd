@@ -1,42 +1,40 @@
 class_name AircraftStateOverboost extends AircraftState
 
-@export var jump_velocity : float = 450
+@export var duration: float = 5.0
+@export var boost_speed: float = 360.0
+
+var time_left: float = 0.0
+
 
 func init() -> void:
 	pass
 
+
 func enter() -> void:
-	player.animation_player.play( "overboost" )
-	player.animation_player.pause()
-	#player.velocity.y =- jump_velocity
-	
-	#if player.previous_state == fall and not Input.is_action_pressed( "jump" ):
-		#await get_tree().physics_frame
-		#player.velocity.y *= 0.5
-		#player.change_state( fall )
+	time_left = duration
+	player.animation_player.play("overboost")
+
 
 func exit() -> void:
 	pass
 
-func handle_input( event: InputEvent ) -> AircraftState:
-	if event.is_action_released( "overboost" ) :
-		player.velocity.x *= 0.5
-		#return fall
-	return next_state
 
-func process( _delta: float) -> AircraftState:
-	set_boost_frame()
-	return next_state
+func handle_input(_event: InputEvent) -> AircraftState:
+	return self
 
-func physics_process( _delta: float) -> AircraftState:
-	#if player.is_on_floor():
-		#return idle
-	#elif player.velocity.y >= 0 :
-		#return fall
-	#player.velocity.x = player.direction.x * player.move_speed
-	return next_state	
 
-func set_boost_frame() -> void:
-	var frame : float = remap( player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5)
-	player.animation_player.seek( frame, true )
-	pass
+func process(delta: float) -> AircraftState:
+	time_left -= delta
+
+	if time_left <= 0.0:
+		if player.direction == Vector2.ZERO:
+			return idle
+		else:
+			return move
+
+	return self
+
+
+func physics_process(_delta: float) -> AircraftState:
+	player.velocity = player.direction * boost_speed
+	return self

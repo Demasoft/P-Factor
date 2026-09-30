@@ -4,7 +4,8 @@ class_name PlayerAircraft extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var move_speed : float = 180 
+@export var move_speed : float = 180
+@export var overboost_speed: float = 1000.0 
 
 var states: Array[ AircraftState ]
 var current_state: AircraftState : 
@@ -44,14 +45,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	update_direction()
-	change_state( current_state.process( _delta ) )
-	pass
+	change_state(current_state.process(_delta))
 
 func _physics_process(_delta: float) -> void:
+	change_state(current_state.physics_process(_delta))
 	move_and_slide()
-	change_state( current_state.physics_process( _delta ) )
-	pass
-
 
 func initialize_states() -> void:
 	states = []
@@ -95,6 +93,8 @@ func update_direction() -> void:
 	var x_axis = Input.get_axis("left","right")
 	var y_axis = Input.get_axis("up","down")
 	direction = Vector2(x_axis,y_axis) 
+	
+	direction = Vector2(x_axis, y_axis).normalized()
 	
 	#apply plane animation logic
 	
