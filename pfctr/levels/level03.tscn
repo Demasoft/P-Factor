@@ -88,7 +88,7 @@ position = Vector2(627, 296)
 transition_id = "l3r"
 size = 9
 location = 1
-target_level = "uid://cr4vhm31bd2gx"
+target_level = "uid://btfsn3tbhioqm"
 target_transition_id = "l4l"
 
 [node name="LevelTransition2" parent="." unique_id=1000780408 instance=ExtResource("5_b6ys7")]

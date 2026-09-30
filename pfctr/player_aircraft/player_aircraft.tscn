@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://cyjsbduf75g4d"]
+
+[ext_resource type="Script" uid="uid://c7e1e7raqhegm" path="res://player_aircraft/scripts/player_aircraft.gd" id="1_7014d"]
+[ext_resource type="Script" uid="uid://db3ypa63bxkuw" path="res://player_aircraft/states/idle.gd" id="2_gxif6"]
+[ext_resource type="Script" uid="uid://cmjcffgx2yhoa" path="res://player_aircraft/states/move.gd" id="3_r3lfl"]
+[ext_resource type="Script" uid="uid://dv2db0ey5lvgk" path="res://player_aircraft/states/overboost.gd" id="4_8hpoa"]
+[ext_resource type="Texture2D" uid="uid://c75yn58qlxxi8" path="res://player_aircraft/sprites/laura.png" id="5_gxif6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3lfl"]
+
+[sub_resource type="Animation" id="Animation_boad6"]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_gxif6"]
+resource_name = "move"
+length = 2.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+}
+
+[sub_resource type="Animation" id="Animation_r3lfl"]
+resource_name = "move_down"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_8hpoa"]
+resource_name = "move_up"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19999993, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 47, 46, 45, 44]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "jump"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xaxa7"]
+_data = {
+&"RESET": SubResource("Animation_boad6"),
+&"idle": SubResource("Animation_hg6s5"),
+&"move": SubResource("Animation_gxif6"),
+&"move_down": SubResource("Animation_r3lfl"),
+&"move_up": SubResource("Animation_8hpoa"),
+&"overboost": SubResource("Animation_8t03j")
+}
+
+[node name="PlayerAircraft" type="CharacterBody2D" unique_id=1461582815 groups=["PlayerAirc"]]
+scale = Vector2(0.45, 0.45)
+motion_mode = 1
+script = ExtResource("1_7014d")
+
+[node name="States" type="Node" parent="." unique_id=619953490]
+
+[node name="Idle" type="Node" parent="States" unique_id=852349613]
+unique_name_in_owner = true
+script = ExtResource("2_gxif6")
+
+[node name="Move" type="Node" parent="States" unique_id=840975415]
+unique_name_in_owner = true
+script = ExtResource("3_r3lfl")
+
+[node name="Overboost" type="Node" parent="States" unique_id=814484075]
+unique_name_in_owner = true
+script = ExtResource("4_8hpoa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879820816]
+position = Vector2(-27, -15)
+texture = ExtResource("5_gxif6")
+hframes = 49
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815493226]
+position = Vector2(0, 1)
+scale = Vector2(1.1717551, 1.1717551)
+shape = SubResource("CircleShape2D_r3lfl")
+
+[node name="Label" type="Label" parent="." unique_id=1907820007]
+offset_left = -27.0
+offset_top = -50.0
+offset_right = 28.0
+offset_bottom = -27.0
+theme_override_font_sizes/font_size = 11
+text = "Idle"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1624528999]
+libraries/ = SubResource("AnimationLibrary_xaxa7")
+speed_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2020261988]

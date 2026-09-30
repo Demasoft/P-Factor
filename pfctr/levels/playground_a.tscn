@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b5xp08mytjynd"]
+
+[ext_resource type="PackedScene" uid="uid://cyjsbduf75g4d" path="res://player_aircraft/player_aircraft.tscn" id="1_pcde8"]
+[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://props/sky.tscn" id="2_marse"]
+[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_l8r6p"]
+
+[node name="PlaygroundA" type="Node2D" unique_id=1233324546]
+
+[node name="PlayerAircraft" parent="." unique_id=1461582815 instance=ExtResource("1_pcde8")]
+z_index = 1
+position = Vector2(75, 285)
+
+[node name="Sky" parent="." unique_id=223594441 instance=ExtResource("2_marse")]
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=846435502]
+z_index = 256
+script = ExtResource("4_l8r6p")
+metadata/_custom_type_script = "uid://cej4p4vnaw1j3"

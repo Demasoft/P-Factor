@@ -1,19 +1,16 @@
-class_name Player extends CharacterBody2D
+class_name PlayerAircraft extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var collision_stand: CollisionShape2D = $CollisionStand
-@onready var collision_crouch: CollisionShape2D = $CollisionCrouch
-@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var move_speed : float = 180
+@export var overboost_speed: float = 1000.0 
 
-@export var move_speed : float = 180 
-@export var max_fall_velocity: float = 600
-
-var states: Array[ PlayerState ]
-var current_state: PlayerState : 
+var states: Array[ AircraftState ]
+var current_state: AircraftState : 
 	get : return states.front()
-var previous_state : PlayerState : 
+var previous_state : AircraftState : 
 	get : return states[ 1 ]
 
 var hp : float = 20 :
@@ -27,11 +24,9 @@ var max_hp : float = 20 :
 #var skill : bool = false
 
 var direction : Vector2 = Vector2.ZERO
-var gravity : float = 980
-var gravity_multiplier : float = 1.0
 
 func _ready() -> void:
-	if get_tree().get_first_node_in_group( "Player" ) != self:
+	if get_tree().get_first_node_in_group( "PlayerAirc" ) != self:
 		self.queue_free()
 	initialize_states()
 	reparent.call_deferred(get_tree().current_scene)
@@ -50,22 +45,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	update_direction()
-	change_state( current_state.process( _delta ) )
-	pass
+	change_state(current_state.process(_delta))
 
 func _physics_process(_delta: float) -> void:
-	velocity.y += gravity * _delta * gravity_multiplier
-	velocity.y = clampf( velocity.y, -1000, max_fall_velocity )
+	change_state(current_state.physics_process(_delta))
 	move_and_slide()
-	change_state( current_state.physics_process( _delta ) )
-	pass
-
 
 func initialize_states() -> void:
 	states = []
 	#gather states
 	for c in $States.get_children():
-		if c is PlayerState:
+		if c is AircraftState:
 			states.append( c )
 			c.player = self
 		pass
@@ -82,7 +72,7 @@ func initialize_states() -> void:
 	$Label.text = current_state.name
 	pass
 
-func change_state( new_state : PlayerState ) -> void:
+func change_state( new_state : AircraftState ) -> void:
 	if new_state == null:
 		return
 	elif new_state == current_state:
@@ -98,18 +88,19 @@ func change_state( new_state : PlayerState ) -> void:
 	pass
 	
 func update_direction() -> void:
-	var prev_direction : Vector2 = direction
-	
 	var x_axis = Input.get_axis("left","right")
 	var y_axis = Input.get_axis("up","down")
 	direction = Vector2(x_axis,y_axis) 
 	
-	if prev_direction.x != direction.x:
-		if direction.x < 0:
-			sprite_2d.flip_h = false
-		elif direction.x > 0:
-			sprite_2d.flip_h = true
-	pass
+	direction = Vector2(x_axis, y_axis).normalized()
+	
+	#apply plane animation logic
+	
+	#if prev_direction.x != direction.x:
+		#if direction.x < 0:
+			#sprite_2d.flip_h = false
+		#elif direction.x > 0:
+			#sprite_2d.flip_h = true
 
 func _on_player_healed( amount : float ) -> void:
 	hp += amount

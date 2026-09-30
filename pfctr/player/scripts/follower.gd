@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var direction: Vector2 = player.velocity.normalized()
-
+	
 	if direction == Vector2.ZERO:
 		return
 
@@ -24,3 +24,4 @@ func _physics_process(delta: float) -> void:
 		target_position,
 		weight
 	)
+	
