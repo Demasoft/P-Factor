@@ -10,7 +10,7 @@ func exit() -> void:
 	pass
 
 func handle_input(event: InputEvent) -> AircraftState:
-	if event.is_action_pressed("overboost"):
+	if event.is_action_pressed("jump"):
 		if player.use_overboost():
 			return overboost
 
