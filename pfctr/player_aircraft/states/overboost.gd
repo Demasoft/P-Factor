@@ -12,7 +12,7 @@ func init() -> void:
 
 func enter() -> void:
 	time_left = duration
-	player.animation_player.play("overboost")
+	player.animation_player.play("move")
 
 
 func exit() -> void:

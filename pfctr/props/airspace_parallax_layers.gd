@@ -2,7 +2,6 @@ extends Node2D
 
 @export var player: PlayerAircraft
 
-
 func _process(delta: float) -> void:
 	if player == null:
 		return

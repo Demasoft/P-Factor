@@ -29,7 +29,7 @@ func _ready() -> void:
 	if get_tree().get_first_node_in_group( "PlayerAirc" ) != self:
 		self.queue_free()
 	initialize_states()
-	reparent.call_deferred(get_tree().get_first_node_in_group("PlayerAirc"))
+	reparent.call_deferred(get_tree().current_scene)
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -88,8 +88,6 @@ func change_state( new_state : AircraftState ) -> void:
 	pass
 	
 func update_direction() -> void:
-	var prev_direction : Vector2 = direction
-	
 	var x_axis = Input.get_axis("left","right")
 	var y_axis = Input.get_axis("up","down")
 	direction = Vector2(x_axis,y_axis) 
