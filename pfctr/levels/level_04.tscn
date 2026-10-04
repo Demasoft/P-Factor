@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://btfsn3tbhioqm"]
 
-[ext_resource type="TileSet" uid="uid://c0rpf54x1mpue" path="res://general/tilesets/raflesia.tres" id="1_5p57d"]
-[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="2_r8aof"]
-[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="4_rpmp5"]
-[ext_resource type="PackedScene" uid="uid://ch82j5a2d5bo0" path="res://npcs/npc.tscn" id="5_b2w0k"]
-[ext_resource type="PackedScene" uid="uid://ccwwpk8bfes0l" path="res://props/explosion.tscn" id="5_r8aof"]
+[ext_resource type="TileSet" uid="uid://c0rpf54x1mpue" path="res://objects/tilesets/raflesia.tres" id="1_5p57d"]
+[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://objects/level_transition/level_transition.tscn" id="2_r8aof"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://objects/player_spawn/player_spawn.tscn" id="4_rpmp5"]
+[ext_resource type="PackedScene" uid="uid://ch82j5a2d5bo0" path="res://objects/npcs/npc.tscn" id="5_b2w0k"]
+[ext_resource type="PackedScene" uid="uid://ccwwpk8bfes0l" path="res://objects/props/explosion.tscn" id="5_r8aof"]
 
 [node name="level04" type="Node2D" unique_id=1928797929]
 

@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://qf705dsbo34s"]
 
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="1_a5sv2"]
-[ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://general/tilesets/new_tile_set.tres" id="2_i0uyp"]
-[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_cqnb5"]
-[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_b6ys7"]
-[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://props/sky.tscn" id="6_t1noo"]
-[ext_resource type="PackedScene" uid="uid://x63kvgulrawl" path="res://props/snow.tscn" id="7_g23mk"]
-[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="8_a5sv2"]
+[ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://objects/tilesets/new_tile_set.tres" id="2_i0uyp"]
+[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://objects/player/scripts/level_bounds.gd" id="4_cqnb5"]
+[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://objects/level_transition/level_transition.tscn" id="5_b6ys7"]
+[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://objects/props/sky.tscn" id="6_t1noo"]
+[ext_resource type="PackedScene" uid="uid://x63kvgulrawl" path="res://objects/props/snow.tscn" id="7_g23mk"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://objects/player_spawn/player_spawn.tscn" id="8_a5sv2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m4ofl"]
 shader = ExtResource("1_a5sv2")

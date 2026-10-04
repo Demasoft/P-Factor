@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://ctji5ss445da"]
 
-[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://props/sky.tscn" id="1_huc75"]
-[ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://general/tilesets/new_tile_set.tres" id="1_vxvah"]
-[ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://icons/icon.svg" id="1_w6u7p"]
+[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://objects/props/sky.tscn" id="1_huc75"]
+[ext_resource type="TileSet" uid="uid://d20l6if578lab" path="res://objects/tilesets/new_tile_set.tres" id="1_vxvah"]
+[ext_resource type="Texture2D" uid="uid://c46ovt85g71wd" path="res://objects/icons/icon.svg" id="1_w6u7p"]
 [ext_resource type="Shader" uid="uid://1q62w6cndyhr" path="res://shaders/sepiavignetta.gdshader" id="3_3w282"]
-[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://player/scripts/level_bounds.gd" id="4_xwslo"]
-[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://general/level_transition/level_transition.tscn" id="5_vjrih"]
-[ext_resource type="PackedScene" uid="uid://x63kvgulrawl" path="res://props/snow.tscn" id="7_dlhnw"]
-[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://general/player_spawn/player_spawn.tscn" id="8_w661m"]
+[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://objects/player/scripts/level_bounds.gd" id="4_xwslo"]
+[ext_resource type="PackedScene" uid="uid://b5cvwpxdertfv" path="res://objects/level_transition/level_transition.tscn" id="5_vjrih"]
+[ext_resource type="PackedScene" uid="uid://x63kvgulrawl" path="res://objects/props/snow.tscn" id="7_dlhnw"]
+[ext_resource type="PackedScene" uid="uid://dnsfu5gp18su" path="res://objects/player_spawn/player_spawn.tscn" id="8_w661m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w282"]
 size = Vector2(120.64371, 120.47064)
