@@ -120,7 +120,7 @@ _data = {
 &"overboost": SubResource("Animation_8t03j")
 }
 
-[node name="PlayerAircraft" type="CharacterBody2D" unique_id=1461582815 groups=["PlayerAirc"]]
+[node name="PlayerAircraft" type="CharacterBody2D" unique_id=1461582815 groups=["PlayerAircraft"]]
 scale = Vector2(0.45, 0.45)
 motion_mode = 1
 script = ExtResource("1_7014d")

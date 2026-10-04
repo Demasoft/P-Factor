@@ -11,10 +11,6 @@ func exit() -> void:
 	pass
 
 func handle_input( _event: InputEvent ) -> NPCState:
-	#if _event.is_action_pressed( "jump" ):
-		#return jump
-	#elif _event.is_action_pressed( "shoot" ):
-		#return shoot
 	return next_state
 
 func process( _delta: float) -> NPCState:

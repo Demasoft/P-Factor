@@ -25,7 +25,7 @@ var max_hp : float = 20 :
 var direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	if get_tree().get_first_node_in_group( "PlayerAirc" ) != self:
+	if get_tree().get_first_node_in_group( "PlayerAircraft" ) != self:
 		self.queue_free()
 	initialize_states()
 	reparent.call_deferred(get_tree().current_scene)
