@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://marbvtpx8lrt"]
 
-[ext_resource type="Texture2D" uid="uid://eovfgx3pjlsf" path="res://general/tilesets/sprites/jukebox.png" id="1_n8qrg"]
+[ext_resource type="Texture2D" uid="uid://eovfgx3pjlsf" path="res://objects/tilesets/sprites/jukebox.png" id="1_n8qrg"]
 [ext_resource type="Script" uid="uid://clbusug8eqqul" path="res://scenes/save_point.gd" id="1_wiums"]
-[ext_resource type="Script" uid="uid://scdklj3aaopl" path="res://icons/input_hint.gd" id="4_q203c"]
-[ext_resource type="Texture2D" uid="uid://bm37haipomgxd" path="res://icons/pointer.png" id="5_fuk0d"]
+[ext_resource type="Script" uid="uid://scdklj3aaopl" path="res://objects/icons/input_hint.gd" id="4_q203c"]
+[ext_resource type="Texture2D" uid="uid://bm37haipomgxd" path="res://objects/icons/pointer.png" id="5_fuk0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvfwu"]
 size = Vector2(41, 79)
