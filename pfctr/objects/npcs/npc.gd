@@ -2,6 +2,7 @@ class_name NPC extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var area_2d: Area2D = $Area2D
 
 @export var move_speed : float = 180 
 @export var max_fall_velocity: float = 600
@@ -18,6 +19,8 @@ var direction : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	initialize_states()
+	area_2d.body_entered.connect( _on_player_entered )
+	area_2d.body_exited.connect( _on_player_exited )
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -81,3 +84,15 @@ func update_direction() -> void:
 		sprite_2d.flip_h = true
 	elif direction.x > 0:
 		sprite_2d.flip_h = false
+		
+func _on_player_entered(_n: Node2D) -> void:
+	Messages.player_interacted.connect(_on_player_interacted)
+	Messages.input_hint_changed.emit(self, "Interact")
+
+func _on_player_exited(_n: Node2D) -> void:
+	Messages.player_interacted.disconnect(_on_player_interacted)
+	Messages.input_hint_changed.emit(self, "")
+
+func _on_player_interacted( player : Player ) -> void:
+#	dia logigc
+	pass

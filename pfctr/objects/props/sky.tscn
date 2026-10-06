@@ -6,13 +6,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huc75"]
 shader = ExtResource("1_igpwe")
 shader_parameter/cloudscale = 1.1
-shader_parameter/speed = 0.2
+shader_parameter/speed = 0.1
 shader_parameter/clouddark = 0.5
 shader_parameter/cloudlight = 0.3
 shader_parameter/cloudcover = 0.2
 shader_parameter/cloudalpha = 8.0
 shader_parameter/skytint = 0.5
-shader_parameter/skycolour1 = Vector3(0.2, 0.4, 0.6)
+shader_parameter/skycolour1 = Vector3(-0.075, 0.4, 0.8)
 shader_parameter/skycolour2 = Vector3(0.4, 0.7, 1)
 shader_parameter/m = Transform2D(1.6, -1.2, 1.2, 1.6, 0, 0)
 
@@ -37,6 +37,7 @@ size_flags_vertical = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="SkyFadingDay" type="ColorRect" parent="CanvasLayer" unique_id=2131662369]
+visible = false
 material = SubResource("ShaderMaterial_w661m")
 offset_right = 642.0
 offset_bottom = 430.0

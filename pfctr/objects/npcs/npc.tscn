@@ -45,8 +45,7 @@ _data = {
 &"idle": SubResource("Animation_mea8m")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_novm3"]
-size = Vector2(33.41794, 43.5)
+[sub_resource type="FontVariation" id="FontVariation_4djo7"]
 
 [sub_resource type="Animation" id="Animation_q203c"]
 length = 0.001
@@ -75,22 +74,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_abvb2"]
-resource_name = "hide"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_fuk0d"]
 resource_name = "pointer"
 loop_mode = 1
@@ -105,32 +88,17 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0, -55.999996), Vector2(0, -64), Vector2(0, -55.999996)]
-}
-
-[sub_resource type="Animation" id="Animation_d5l6q"]
-resource_name = "show"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(0, -66), Vector2(0, -74), Vector2(0, -66)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ntfcn"]
 _data = {
 &"RESET": SubResource("Animation_q203c"),
-&"hide": SubResource("Animation_abvb2"),
-&"pointer": SubResource("Animation_fuk0d"),
-&"show": SubResource("Animation_d5l6q")
+&"pointer": SubResource("Animation_fuk0d")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4djo7"]
+size = Vector2(41, 79)
 
 [node name="NPC" type="CharacterBody2D" unique_id=553809351]
 collision_layer = 0
@@ -152,27 +120,25 @@ unique_name_in_owner = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=577158204]
 libraries/ = SubResource("AnimationLibrary_atlxo")
 
+[node name="Label" type="Label" parent="." unique_id=33783826]
+offset_left = -74.0
+offset_top = -80.0
+offset_right = -10.0
+offset_bottom = -43.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = SubResource("FontVariation_4djo7")
+text = "Testing
+Override"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=208853118]
 position = Vector2(0, -32)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_novm3")
 hframes = 6
 
-[node name="Label" type="Label" parent="." unique_id=33783826]
-offset_left = -13.571427
-offset_top = -78.0
-offset_right = 14.285714
-offset_bottom = -61.0
-
-[node name="Area2D" type="Area2D" parent="." unique_id=2120172635]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1554147288]
-position = Vector2(-4.7683716e-07, -21.428574)
-scale = Vector2(1.8799994, 0.9999998)
-shape = SubResource("RectangleShape2D_novm3")
-
-[node name="InputHints" type="Node2D" parent="." unique_id=1011724156]
+[node name="InputHints" type="Node2D" parent="." unique_id=1011724156 node_paths=PackedStringArray("owner_node")]
 script = ExtResource("4_atlxo")
+owner_node = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=315057724]
 modulate = Color(1, 1, 1, 0)
@@ -182,3 +148,14 @@ texture = ExtResource("5_p37wn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InputHints" unique_id=852249414]
 libraries/ = SubResource("AnimationLibrary_ntfcn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1741642758]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1558156164]
+position = Vector2(0, -39)
+scale = Vector2(1.8799996, 1)
+shape = SubResource("RectangleShape2D_4djo7")

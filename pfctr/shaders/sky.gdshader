@@ -150,8 +150,8 @@ void fragment()
 	c += c1;
 
 	vec3 skycolour = mix(
-		skycolour2,
 		skycolour1,
+		skycolour2,
 		p.y
 	) * 1.0; //sets the sky darkness
 

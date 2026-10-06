@@ -229,8 +229,9 @@ text = "Saving..."
 root_node = NodePath("../Label")
 libraries/ = SubResource("AnimationLibrary_n0rt3")
 
-[node name="InputHints" type="Node2D" parent="." unique_id=373980548]
+[node name="InputHints" type="Node2D" parent="." unique_id=373980548 node_paths=PackedStringArray("owner_node")]
 script = ExtResource("4_q203c")
+owner_node = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=2045908965]
 modulate = Color(1, 1, 1, 0)
