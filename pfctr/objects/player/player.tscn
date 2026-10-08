@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://2mvwie2gfky5" path="res://objects/player/states/crouch.gd" id="6_g6k8r"]
 [ext_resource type="Script" uid="uid://8728hyo2366p" path="res://objects/player/scripts/follower.gd" id="8_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://chmugbr5likrt" path="res://objects/player/sprites/zero_test.png" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://bqli81mu3ualp" path="res://objects/player/scripts/player_camera.gd" id="8_xgwla"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
 height = 34.545452
@@ -199,14 +200,16 @@ target_position = Vector2(0, 4)
 max_results = 12
 collision_mask = 2
 
-[node name="Follower" type="CharacterBody2D" parent="." unique_id=779487525]
-position = Vector2(0, -10.999999)
-scale = Vector2(0.99999994, 0.99999994)
-script = ExtResource("8_hg6s5")
-
-[node name="Camera2D" type="Camera2D" parent="Follower" unique_id=1261564545]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1261564545]
 process_mode = 3
-scale = Vector2(1.0000001, 1.0000001)
+position = Vector2(0, -10.999999)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.005
 drag_horizontal_offset = 0.2
+script = ExtResource("8_xgwla")
+
+[node name="Follower" type="CharacterBody2D" parent="." unique_id=779487525]
+visible = false
+position = Vector2(0, -10.999999)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("8_hg6s5")

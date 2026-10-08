@@ -6,6 +6,15 @@ class_name PlayerAircraft extends CharacterBody2D
 
 @export var move_speed : float = 180
 
+@export var rest_frame: int = 0
+@export var bank_deadzone: float = 0.05   # the Input Map deadzone already filters most noise
+@export var bank_response: float = 0.6    # below 1.0 makes small pushes bank more
+@export var bank_follow: float = 14.0     # higher = snappier
+
+var is_banking: bool = false
+
+var bank_value: float = 0.0               # -1 = full up, +1 = full down
+var bank_enabled: bool = true
 var states: Array[ AircraftState ]
 var current_state: AircraftState : 
 	get : return states.front()
@@ -45,6 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	update_direction()
 	change_state(current_state.process(_delta))
+	update_bank(_delta)
 
 func _physics_process(_delta: float) -> void:
 	change_state(current_state.physics_process(_delta))
@@ -87,19 +97,39 @@ func change_state( new_state : AircraftState ) -> void:
 	pass
 	
 func update_direction() -> void:
-	var x_axis = Input.get_axis("left","right")
-	var y_axis = Input.get_axis("up","down")
-	direction = Vector2(x_axis,y_axis) 
-	
-	direction = Vector2(x_axis, y_axis).normalized()
-	
-	#apply plane animation logic
-	
-	#if prev_direction.x != direction.x:
-		#if direction.x < 0:
-			#sprite_2d.flip_h = false
-		#elif direction.x > 0:
-			#sprite_2d.flip_h = true
+	direction = Input.get_vector("left", "right", "up", "down")
 
 func _on_player_healed( amount : float ) -> void:
 	hp += amount
+	
+func update_bank(delta: float) -> void:
+	if not bank_enabled:
+		return
+
+	var y := direction.y
+	var target := 0.0
+	if absf(y) > bank_deadzone:
+		target = signf(y) * pow(absf(y), bank_response)
+
+	bank_value = lerpf(bank_value, target, 1.0 - exp(-bank_follow * delta))
+	if absf(bank_value - target) < 0.005:
+		bank_value = target
+
+	# LEVEL: hand control back to the AnimationPlayer
+	if absf(bank_value) < 0.001:
+		bank_value = 0.0
+		if is_banking or animation_player.current_animation != "idle":
+			is_banking = false
+			animation_player.play("idle")
+			animation_player.advance(0.0)   # apply frame 0 immediately, no one-frame lag
+		return
+
+	# BANKING: we drive the clip by hand
+	is_banking = true
+	if animation_player.is_playing():
+		animation_player.pause()
+
+	var clip := "move_up" if bank_value < 0.0 else "move_down"
+	var length := animation_player.get_animation(clip).length
+	animation_player.assigned_animation = clip
+	animation_player.seek(absf(bank_value) * length, true)
