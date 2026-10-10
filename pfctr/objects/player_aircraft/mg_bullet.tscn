@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dfjmdevv22cc5"]
+
+[ext_resource type="Script" uid="uid://blo2fun5ydyen" path="res://objects/player_aircraft/mg_bullet.gd" id="1_mv7tc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g25cw"]
+radius = 2.0
+height = 48.0
+
+[sub_resource type="Gradient" id="Gradient_mv7tc"]
+offsets = PackedFloat32Array(0.19879518, 0.3253012, 1)
+colors = PackedColorArray(1.6197081, 1.5325567, 0.80421966, 1, 18.892157, 9.772155, 0, 0.047058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ib6no"]
+gradient = SubResource("Gradient_mv7tc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="MGBullet" type="Node2D" unique_id=923343793]
+script = ExtResource("1_mv7tc")
+speed = 3500.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=969792929]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=898652724]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_g25cw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1097667851]
+position = Vector2(-2.7105054e-20, 0)
+scale = Vector2(0.24746475, 2.829942)
+texture = SubResource("GradientTexture2D_ib6no")

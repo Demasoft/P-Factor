@@ -8,7 +8,7 @@ class_name Player extends CharacterBody2D
 
 
 @export var move_speed : float = 180 
-@export var max_fall_velocity: float = 600
+@export var max_fall_velocity: float = 800
 
 var states: Array[ PlayerState ]
 var current_state: PlayerState : 
@@ -27,7 +27,7 @@ var max_hp : float = 20 :
 #var skill : bool = false
 
 var direction : Vector2 = Vector2.ZERO
-var gravity : float = 980
+var gravity : float = 1000
 var gravity_multiplier : float = 1.0
 
 func _ready() -> void:

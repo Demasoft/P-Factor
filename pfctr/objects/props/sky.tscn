@@ -14,7 +14,7 @@ shader_parameter/cloudalpha = 8.0
 shader_parameter/skytint = 0.5
 shader_parameter/skycolour1 = Vector3(-0.075, 0.4, 0.8)
 shader_parameter/skycolour2 = Vector3(0.4, 0.7, 1)
-shader_parameter/m = Transform2D(1.6, -1.2, 1.2, 1.6, 0, 0)
+shader_parameter/cloud_base_colour = Vector3(1.1, 1.1, 0.9)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w661m"]
 shader = ExtResource("2_a2f2x")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://nlc51lnwumyd"]
+
+[ext_resource type="Script" uid="uid://457bxwkh8y2a" path="res://machine_gun.gd" id="1_ec413"]
+[ext_resource type="PackedScene" uid="uid://dfjmdevv22cc5" path="res://objects/player_aircraft/mg_bullet.tscn" id="2_64e3v"]
+
+[node name="MachineGun" type="Node2D" unique_id=1607767919]
+script = ExtResource("1_ec413")
+bullet_scene = ExtResource("2_64e3v")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=2033465071]
+
+[node name="MuzzleFlash" type="Sprite2D" parent="." unique_id=1179060053]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1608530086]
+root_node = NodePath("../MuzzleFlash")

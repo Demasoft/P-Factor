@@ -1,15 +1,21 @@
 class_name PlayerAircraft extends CharacterBody2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AircraftSprite = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var move_speed : float = 180
+@export var shooting_speed : float = 360
 
 @export var rest_frame: int = 0
 @export var bank_deadzone: float = 0.05   # the Input Map deadzone already filters most noise
 @export var bank_response: float = 0.6    # below 1.0 makes small pushes bank more
 @export var bank_follow: float = 14.0     # higher = snappier
+
+const NORMAL_SPEED : float = 360.0
+const SHOOTING_SPEED : float = 180.0
+
+var is_shooting: bool = false
 
 var is_banking: bool = false
 
@@ -57,6 +63,9 @@ func _process(_delta: float) -> void:
 	update_bank(_delta)
 
 func _physics_process(_delta: float) -> void:
+	is_shooting = Input.is_action_pressed("shoot")
+	move_speed = SHOOTING_SPEED if is_shooting else NORMAL_SPEED
+	
 	change_state(current_state.physics_process(_delta))
 	move_and_slide()
 

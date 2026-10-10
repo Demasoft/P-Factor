@@ -1,10 +1,8 @@
 class_name AircraftStateOverboost extends AircraftState
 
-@export var duration: float = 5.0
-@export var boost_speed: float = 360.0
+@export var duration: float = 7.0
 
 var time_left: float = 0.0
-
 
 func init() -> void:
 	pass
@@ -15,7 +13,7 @@ func enter() -> void:
 	player.bank_enabled = false
 	player.bank_value = 0.0
 
-	var ap := player.animation_player
+	var ap: AnimationPlayer = player.animation_player
 	if not ap.animation_finished.is_connected(_on_anim_finished):
 		ap.animation_finished.connect(_on_anim_finished)
 	ap.play("overboost")
@@ -49,9 +47,11 @@ func process(delta: float) -> AircraftState:
 		else:
 			return move
 
+	player.sprite_2d.trail()
+	
 	return self
 
 
 func physics_process(_delta: float) -> AircraftState:
-	player.velocity = player.direction * boost_speed
+	player.velocity = player.direction * player.move_speed
 	return self
