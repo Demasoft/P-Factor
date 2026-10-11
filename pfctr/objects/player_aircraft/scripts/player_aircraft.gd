@@ -13,7 +13,7 @@ class_name PlayerAircraft extends CharacterBody2D
 @export var bank_follow: float = 14.0     # higher = snappier
 
 const NORMAL_SPEED : float = 360.0
-const SHOOTING_SPEED : float = 180.0
+const SHOOTING_SPEED : float = 100.0
 
 var is_shooting: bool = false
 

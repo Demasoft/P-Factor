@@ -18,7 +18,7 @@ fill_to = Vector2(0.5, 0)
 
 [node name="MGBullet" type="Node2D" unique_id=923343793]
 script = ExtResource("1_mv7tc")
-speed = 3500.0
+speed = 3000.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=969792929]
 
@@ -26,7 +26,10 @@ speed = 3500.0
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_g25cw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1097667851]
-position = Vector2(-2.7105054e-20, 0)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1097667851]
+position = Vector2(1.1847996e-27, -2.7105054e-20)
+rotation = 1.5707964
 scale = Vector2(0.24746475, 2.829942)
 texture = SubResource("GradientTexture2D_ib6no")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=961568301]

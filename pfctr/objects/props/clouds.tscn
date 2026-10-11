@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://da8c5up6vthdj"]
+
+[ext_resource type="Shader" uid="uid://csvgg7mirwcvg" path="res://shaders/clouds.gdshader" id="1_65rxd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k46bm"]
+shader = ExtResource("1_65rxd")
+shader_parameter/scale = 1.345
+shader_parameter/speed = 3.41
+shader_parameter/transparency = 0.92
+
+[node name="Clouds" type="Node2D" unique_id=1240607775]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=480789548]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="CanvasLayer" unique_id=1290663035]
+material = SubResource("ShaderMaterial_k46bm")
+anchors_preset = -1
+anchor_right = 1.002817
+anchor_bottom = 1.1976576
+offset_right = -601.8029
+offset_bottom = -391.15674
+scale = Vector2(16.045073, 10.778918)
+size_flags_horizontal = 10
+size_flags_vertical = 10
+metadata/_edit_use_anchors_ = true

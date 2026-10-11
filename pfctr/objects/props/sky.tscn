@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://xvhnseo6vfoc"]
 
 [ext_resource type="Shader" uid="uid://csg7yy0scj0nm" path="res://shaders/sky.gdshader" id="1_igpwe"]
-[ext_resource type="Shader" uid="uid://tmbcp5cmn1lu" path="res://shaders/sky_fading.tres" id="2_a2f2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huc75"]
 shader = ExtResource("1_igpwe")
@@ -15,9 +14,6 @@ shader_parameter/skytint = 0.5
 shader_parameter/skycolour1 = Vector3(-0.075, 0.4, 0.8)
 shader_parameter/skycolour2 = Vector3(0.4, 0.7, 1)
 shader_parameter/cloud_base_colour = Vector3(1.1, 1.1, 0.9)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w661m"]
-shader = ExtResource("2_a2f2x")
 
 [node name="Sky" type="Node2D" unique_id=223594441]
 
@@ -35,9 +31,3 @@ scale = Vector2(16.045073, 10.778918)
 size_flags_horizontal = 10
 size_flags_vertical = 10
 metadata/_edit_use_anchors_ = true
-
-[node name="SkyFadingDay" type="ColorRect" parent="CanvasLayer" unique_id=2131662369]
-visible = false
-material = SubResource("ShaderMaterial_w661m")
-offset_right = 642.0
-offset_bottom = 430.0
