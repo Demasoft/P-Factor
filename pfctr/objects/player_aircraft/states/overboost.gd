@@ -22,7 +22,7 @@ func enter() -> void:
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == &"overboost":
 		player.bank_value = 0.0
-		player.bank_enabled = true   # banking resumes, boost keeps going
+		player.bank_enabled = true
 
 
 func exit() -> void:

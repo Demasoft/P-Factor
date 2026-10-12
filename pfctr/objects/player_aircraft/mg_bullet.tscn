@@ -7,8 +7,8 @@ radius = 2.0
 height = 48.0
 
 [sub_resource type="Gradient" id="Gradient_mv7tc"]
-offsets = PackedFloat32Array(0.19879518, 0.3253012, 1)
-colors = PackedColorArray(1.6197081, 1.5325567, 0.80421966, 1, 18.892157, 9.772155, 0, 0.047058824, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.15060242, 0.23493975, 0.3493976, 1)
+colors = PackedColorArray(1.6197081, 1.5325567, 0.80421966, 1, 1.179811, 1.2473186, 0, 0.59159654, 0.7507996, 0, 0, 0.047058824, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ib6no"]
 gradient = SubResource("Gradient_mv7tc")
@@ -21,6 +21,8 @@ script = ExtResource("1_mv7tc")
 speed = 3000.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=969792929]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=898652724]
 rotation = 1.5707964

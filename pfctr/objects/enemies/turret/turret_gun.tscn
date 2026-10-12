@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://447k6j3eiv7b"]
+
+[ext_resource type="Script" uid="uid://yuqgeqo06p8i" path="res://objects/enemies/turret/turret_gun.gd" id="1_v17bq"]
+[ext_resource type="Texture2D" uid="uid://bdxuwglbynpkb" path="res://objects/enemies/sprites/b17_gun.png" id="2_j2ttj"]
+
+[node name="TurretGun" type="Node2D" unique_id=950007915]
+z_index = -1
+script = ExtResource("1_v17bq")
+arc_start_degrees = 360.0
+arc_end_degrees = 360.0
+gizmo_radius = 500.0
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1862404606]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=602244980]
+position = Vector2(17, 0)
+texture = ExtResource("2_j2ttj")
+
+[node name="Muzzle" type="Marker2D" parent="Pivot" unique_id=1967970023]
+position = Vector2(27, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=252408495]

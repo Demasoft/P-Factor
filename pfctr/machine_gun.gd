@@ -1,14 +1,14 @@
 class_name MachineGun extends Node2D
 
 @export var bullet_scene: PackedScene
-@export var fire_rate: float = 20.0          # shots per second
+@export var fire_rate: float = 20.0 
 @export var shoot_action: StringName = &"shoot"
 
 @onready var muzzle: Marker2D = $Muzzle
 @onready var flash_player: AnimationPlayer = $FlashPlayer
 
-var cooldown: float = 0.0
-var enabled: bool = true                    # states can switch this off
+var cooldown: float = 1
+var enabled: bool = true
 
 
 func _process(delta: float) -> void:

@@ -125,6 +125,7 @@ _data = {
 
 [node name="PlayerAircraft" type="CharacterBody2D" unique_id=1461582815 groups=["PlayerAircraft"]]
 z_index = 1
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_7014d")
 
@@ -149,8 +150,8 @@ hframes = 49
 script = ExtResource("6_4ly2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815493226]
-position = Vector2(13, 6)
-scale = Vector2(1.1717551, 1.1717551)
+position = Vector2(12.999999, 6)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("CircleShape2D_r3lfl")
 
 [node name="Label" type="Label" parent="." unique_id=1907820007]

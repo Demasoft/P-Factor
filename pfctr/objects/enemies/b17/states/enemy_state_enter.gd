@@ -2,7 +2,7 @@ class_name EnemyStateEnter extends EnemyState
 
 const HALF: float = 0.5
 
-@export var entry_distance: float = 300.0   # pixels to travel before stopping
+@export var entry_distance: float = 300.0 
 
 var entry_direction: Vector2 = Vector2.LEFT
 var distance_travelled: float = 0.0

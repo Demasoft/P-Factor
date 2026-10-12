@@ -1,9 +1,11 @@
-class_name EnemyAircraft extends CharacterBody2D
+class_name B17 extends CharacterBody2D
 
-signal died(enemy: EnemyAircraft)
+signal death(enemy: B17)
 
 const PLAYER_GROUP: StringName = &"PlayerAircraft"
 const DEFAULT_AIM_ANGLE: float = PI   # faces left when no player exists
+const LAYER_WORLD: int = 1
+const LAYER_ENEMY: int = 2
 
 @export var max_hp: float = 10.0
 @export var move_speed: float = 120.0
@@ -25,6 +27,7 @@ var pattern_index: int = 0
 var anchor_y: float = 0.0   # height the enemy bobs around while idle
 
 func _ready() -> void:
+	configure_collision()
 	hp = max_hp
 	initialize_states()
 
@@ -95,3 +98,8 @@ func fire_bullet(angle: float, speed: float) -> void:
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = muzzle.global_position
 	bullet.launch(angle, speed)
+
+func configure_collision() -> void:
+	set_collision_layer_value(LAYER_ENEMY, true)
+	set_collision_mask_value(LAYER_ENEMY, false)
+	set_collision_mask_value(LAYER_WORLD, true)

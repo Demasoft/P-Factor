@@ -6,20 +6,26 @@
 [ext_resource type="Script" uid="uid://c0boxtul6k0o8" path="res://objects/enemies/b17/states/enemy_state_idle.gd" id="2_4xfuo"]
 [ext_resource type="PackedScene" uid="uid://cwb5c7g61phx2" path="res://objects/props/propeller.tscn" id="2_unwaj"]
 [ext_resource type="Script" uid="uid://dcxh6f1oeiynm" path="res://objects/enemies/b17/states/enemy_state_attack.gd" id="3_bq06v"]
-[ext_resource type="Script" uid="uid://cpuajmnto8vt4" path="res://objects/enemies/b17/bullet_pattern.gd" id="3_ky681"]
-[ext_resource type="Script" uid="uid://b3m57gsnmc6lx" path="res://objects/enemies/b17/aimed_fan_pattern.gd" id="4_4dcc7"]
+[ext_resource type="Script" uid="uid://cpuajmnto8vt4" path="res://objects/enemies/patterns/bullet_pattern.gd" id="3_ky681"]
+[ext_resource type="Script" uid="uid://b3m57gsnmc6lx" path="res://objects/enemies/patterns/aimed_fan_pattern.gd" id="4_4dcc7"]
 [ext_resource type="Script" uid="uid://cr33sjqyhbdv7" path="res://objects/enemies/b17/states/enemy_state_death.gd" id="4_plc4l"]
 [ext_resource type="PackedScene" uid="uid://dupqdcbx3dc7h" path="res://objects/enemies/enemy_bullet.tscn" id="7_4xfuo"]
+[ext_resource type="PackedScene" uid="uid://447k6j3eiv7b" path="res://objects/enemies/turret/turret_gun.tscn" id="11_4dcc7"]
 
-[sub_resource type="Resource" id="Resource_43keq"]
+[sub_resource type="Resource" id="Resource_ky681"]
 script = ExtResource("4_4dcc7")
+bullets_per_volley = 6
+bullet_speed = 100.0
 metadata/_custom_type_script = "uid://b3m57gsnmc6lx"
 
 [node name="B17" type="CharacterBody2D" unique_id=1568138198]
+collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_2pq7e")
+max_hp = null
+move_speed = null
 bullet_scene = ExtResource("7_4xfuo")
-patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_43keq")])
+patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_ky681")])
 
 [node name="States" type="Node" parent="." unique_id=1209874980]
 
@@ -45,6 +51,8 @@ texture = ExtResource("1_mecmw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1875578533]
 
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1964226265]
+
 [node name="Propeller" parent="." unique_id=1354534855 instance=ExtResource("2_unwaj")]
 modulate = Color(0.30078125, 0.30078125, 0.30078125, 1)
 z_index = -1
@@ -58,5 +66,24 @@ position = Vector2(73, 14)
 modulate = Color(0.3019608, 0.3019608, 0.3019608, 1)
 position = Vector2(64, 18)
 
-[node name="Muzzle" type="Marker2D" parent="." unique_id=955099533]
-position = Vector2(-108, -3)
+[node name="TurretGun" parent="." unique_id=950007915 instance=ExtResource("11_4dcc7")]
+position = Vector2(0, 16)
+arc_start_degrees = 15.0
+arc_end_degrees = 185.0
+bullet_scene = ExtResource("7_4xfuo")
+
+[node name="TurretGun4" parent="." unique_id=454521284 instance=ExtResource("11_4dcc7")]
+position = Vector2(-108, -1)
+arc_start_degrees = 10.0
+arc_end_degrees = 275.0
+bullet_scene = ExtResource("7_4xfuo")
+
+[node name="TurretGun2" parent="." unique_id=1433875512 instance=ExtResource("11_4dcc7")]
+position = Vector2(55, -11)
+arc_start_degrees = 181.0
+bullet_scene = ExtResource("7_4xfuo")
+
+[node name="TurretGun3" parent="." unique_id=732949376 instance=ExtResource("11_4dcc7")]
+position = Vector2(99, 14)
+arc_end_degrees = 152.0
+bullet_scene = ExtResource("7_4xfuo")

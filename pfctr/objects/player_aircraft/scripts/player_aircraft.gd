@@ -5,12 +5,12 @@ class_name PlayerAircraft extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var move_speed : float = 180
-@export var shooting_speed : float = 360
+@export var shooting_speed : float = 300
 
 @export var rest_frame: int = 0
-@export var bank_deadzone: float = 0.05   # the Input Map deadzone already filters most noise
-@export var bank_response: float = 0.6    # below 1.0 makes small pushes bank more
-@export var bank_follow: float = 14.0     # higher = snappier
+@export var bank_deadzone: float = 0.05   
+@export var bank_response: float = 0.6    
+@export var bank_follow: float = 10.0     
 
 const NORMAL_SPEED : float = 360.0
 const SHOOTING_SPEED : float = 100.0
@@ -19,7 +19,7 @@ var is_shooting: bool = false
 
 var is_banking: bool = false
 
-var bank_value: float = 0.0               # -1 = full up, +1 = full down
+var bank_value: float = 0.0              
 var bank_enabled: bool = true
 var states: Array[ AircraftState ]
 var current_state: AircraftState : 
@@ -71,24 +71,20 @@ func _physics_process(_delta: float) -> void:
 
 func initialize_states() -> void:
 	states = []
-	#gather states
 	for c in $States.get_children():
 		if c is AircraftState:
 			states.append( c )
 			c.player = self
-		pass
 
 	if states.size() == 0:
 		return
 
-	#initialize states
 	for state in states:
 		state.init()
 		
 	change_state( current_state )
 	current_state.enter()
 	$Label.text = current_state.name
-	pass
 
 func change_state( new_state : AircraftState ) -> void:
 	if new_state == null:
@@ -103,7 +99,6 @@ func change_state( new_state : AircraftState ) -> void:
 	current_state.enter()
 	states.resize( 3 ) 
 	$Label.text = current_state.name
-	pass
 	
 func update_direction() -> void:
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -124,16 +119,14 @@ func update_bank(delta: float) -> void:
 	if absf(bank_value - target) < 0.005:
 		bank_value = target
 
-	# LEVEL: hand control back to the AnimationPlayer
 	if absf(bank_value) < 0.001:
 		bank_value = 0.0
 		if is_banking or animation_player.current_animation != "idle":
 			is_banking = false
 			animation_player.play("idle")
-			animation_player.advance(0.0)   # apply frame 0 immediately, no one-frame lag
+			animation_player.advance(0.0)  
 		return
 
-	# BANKING: we drive the clip by hand
 	is_banking = true
 	if animation_player.is_playing():
 		animation_player.pause()

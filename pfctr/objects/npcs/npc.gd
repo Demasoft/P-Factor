@@ -21,11 +21,9 @@ func _ready() -> void:
 	initialize_states()
 	area_2d.body_entered.connect( _on_player_entered )
 	area_2d.body_exited.connect( _on_player_exited )
-	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	change_state( current_state.handle_input( event ) )
-	pass
 
 
 func _process(_delta: float) -> void:
@@ -45,7 +43,6 @@ func initialize_states() -> void:
 		if c is NPCState:
 			states.append( c )
 			c.npc = self
-		pass
 
 	if states.size() == 0:
 		return
@@ -57,7 +54,6 @@ func initialize_states() -> void:
 	change_state( current_state )
 	current_state.enter()
 	$Label.text = current_state.name
-	pass
 
 func change_state( new_state : NPCState ) -> void:
 	if new_state == null:
@@ -72,7 +68,6 @@ func change_state( new_state : NPCState ) -> void:
 	current_state.enter()
 	states.resize( 3 ) 
 	$Label.text = current_state.name
-	pass
 	
 func update_direction() -> void:
 	var player = get_tree().get_first_node_in_group("Player")

@@ -7,7 +7,6 @@ signal player_interacted( player : Player )
 signal player_healed( amount: float )
 
 @warning_ignore("unused_signal")
-#signal input_hint_changed( hint : String )
 signal input_hint_changed(source: Node, hint: String)
 
 @warning_ignore("unused_signal")

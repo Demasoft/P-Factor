@@ -5,6 +5,7 @@ class_name Bullet extends Node2D
 
 @onready var hit_area: Area2D = $Area2D
 @onready var screen_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+@export var hit_radius: float = 6.0
 
 var has_hit: bool = false
 
@@ -17,6 +18,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x += speed * delta
 
+	if has_hit:
+		return
+
+	for swarm: ParticleSwarm in ParticleSwarm.active:
+		if swarm.try_hit(global_position, hit_radius, damage):
+			has_hit = true
+			queue_free()
+			return
 
 func _on_body_entered(body: Node2D) -> void:
 	if has_hit:

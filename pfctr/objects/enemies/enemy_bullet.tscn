@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://8wdqghimkikn" path="res://objects/enemies/enemy_bullet.gd" id="1_tn31o"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m1qok"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tn31o"]
+radius = 7.185603
+height = 21.556808
 
 [sub_resource type="Gradient" id="Gradient_m1qok"]
 offsets = PackedFloat32Array(0, 0.40963855, 0.6325301)
-colors = PackedColorArray(2.9308496, 2.890505, 3.5629182, 1, 0.8351123, 0, 4.1634445, 0.7891566, 1, 1, 1, 0)
+colors = PackedColorArray(2.9308496, 2.890505, 3.5629182, 1, 0.63857836, 0, 1.4011594, 0.7882353, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tn31o"]
 gradient = SubResource("Gradient_m1qok")
@@ -19,13 +21,16 @@ script = ExtResource("1_tn31o")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1605986360]
 scale = Vector2(1.5821509, 1.5821509)
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1255419122]
+rotation = 1.5707964
 scale = Vector2(0.52776444, 0.52776444)
-shape = SubResource("CircleShape2D_m1qok")
+shape = SubResource("CapsuleShape2D_tn31o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=139389455]
-scale = Vector2(0.2900027, 0.2900027)
+scale = Vector2(0.4116479, 0.2733867)
 texture = SubResource("GradientTexture2D_tn31o")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1300266715]

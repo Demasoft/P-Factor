@@ -1,7 +1,7 @@
 class_name EnemyBullet extends Node2D
 
 @export var damage: float = 1.0
-@export var max_lifetime: float = 10.0   # safety net if it never enters the screen
+@export var max_lifetime: float = 10.0
 
 @onready var hit_area: Area2D = $Area2D
 @onready var screen_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
@@ -18,11 +18,15 @@ func _ready() -> void:
 
 func launch(angle: float, speed: float) -> void:
 	velocity = Vector2.from_angle(angle) * speed
-	rotation = angle
+	rotation = velocity.angle()
 
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
+
+	if velocity != Vector2.ZERO:
+		rotation = velocity.angle()
+
 	age += delta
 	if age >= max_lifetime:
 		queue_free()
