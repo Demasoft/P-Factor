@@ -5,15 +5,14 @@ class_name PlayerAircraft extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var move_speed : float = 180
-@export var shooting_speed : float = 300
 
 @export var rest_frame: int = 0
 @export var bank_deadzone: float = 0.05   
 @export var bank_response: float = 0.6    
 @export var bank_follow: float = 10.0     
 
-const NORMAL_SPEED : float = 360.0
-const SHOOTING_SPEED : float = 100.0
+const normal_speed : float = 360.0
+const shooting_speed : float = 100.0
 
 var is_shooting: bool = false
 
@@ -27,11 +26,11 @@ var current_state: AircraftState :
 var previous_state : AircraftState : 
 	get : return states[ 1 ]
 
-var hp : float = 20 :
+var hp : float = 3 :
 	set( value ):
 		hp = clampf( value, 0, max_hp )
 		Messages.player_health_changed.emit( hp, max_hp )
-var max_hp : float = 20 :
+var max_hp : float = 3 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )
@@ -64,7 +63,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	is_shooting = Input.is_action_pressed("shoot")
-	move_speed = SHOOTING_SPEED if is_shooting else NORMAL_SPEED
+	move_speed = shooting_speed if is_shooting else normal_speed
 	
 	change_state(current_state.physics_process(_delta))
 	move_and_slide()

@@ -2,16 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crlv5ohr31c1t" path="res://objects/enemies/patterns/particle_swarm.gd" id="1_widj3"]
 [ext_resource type="Texture2D" uid="uid://dp63uygsereov" path="res://objects/enemies/sprites/propeller.png" id="2_ky8ek"]
-
-[sub_resource type="Gradient" id="Gradient_widj3"]
-offsets = PackedFloat32Array(0.24025974, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ky8ek"]
-gradient = SubResource("Gradient_widj3")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
+[ext_resource type="PackedScene" uid="uid://csomve8vlknaw" path="res://objects/props/explosion_great.tscn" id="3_1rjy6"]
 
 [sub_resource type="Animation" id="Animation_rbqph"]
 length = 0.001
@@ -54,26 +45,7 @@ _data = {
 
 [node name="UASSwarm" type="Node2D" unique_id=1519920295]
 script = ExtResource("1_widj3")
-swarm_count = null
-spawn_radius = null
-particle_hp = null
-spawn_mode = null
-stream_rate = null
-follow_distance = null
-ring_jitter = null
-ring_pulse_frequency = null
-orbit_speed = null
-orbit_clockwise = null
-max_speed = null
-acceleration = null
-follow_gain = null
-contact_damage = null
-particle_radius = null
-player_hit_radius = null
-particle_texture = SubResource("GradientTexture2D_ky8ek")
-particle_size = null
-particle_color = null
-rotate_to_velocity = null
+explosion_scene = ExtResource("3_1rjy6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460376010]
 scale = Vector2(0.8, 0.8)

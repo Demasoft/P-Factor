@@ -16,11 +16,11 @@ var current_state: PlayerState :
 var previous_state : PlayerState : 
 	get : return states[ 1 ]
 
-var hp : float = 20 :
+var hp : float = 3 :
 	set( value ):
 		hp = clampf( value, 0, max_hp )
 		Messages.player_health_changed.emit( hp, max_hp )
-var max_hp : float = 20 :
+var max_hp : float = 3 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )

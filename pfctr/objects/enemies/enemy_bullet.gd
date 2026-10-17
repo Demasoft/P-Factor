@@ -1,7 +1,11 @@
 class_name EnemyBullet extends Node2D
 
+const NO_SPIN: float = 0.0
+
 @export var damage: float = 1.0
 @export var max_lifetime: float = 10.0
+## Degrees per second. Positive spins clockwise. 0 = no spin, the bullet faces its direction of travel.
+@export var spin_speed_degrees: float = 360.0
 
 @onready var hit_area: Area2D = $Area2D
 @onready var screen_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
@@ -18,18 +22,27 @@ func _ready() -> void:
 
 func launch(angle: float, speed: float) -> void:
 	velocity = Vector2.from_angle(angle) * speed
-	rotation = velocity.angle()
+	if is_zero_approx(spin_speed_degrees):
+		rotation = angle
 
 
 func _physics_process(delta: float) -> void:
 	position += velocity * delta
-
-	if velocity != Vector2.ZERO:
-		rotation = velocity.angle()
+	update_rotation(delta)
 
 	age += delta
 	if age >= max_lifetime:
 		queue_free()
+
+
+## Movement uses `velocity`, not `rotation`, so the bullet can spin freely.
+func update_rotation(delta: float) -> void:
+	if is_zero_approx(spin_speed_degrees):
+		if velocity != Vector2.ZERO:
+			rotation = velocity.angle()
+		return
+
+	rotation += deg_to_rad(spin_speed_degrees) * delta
 
 
 func _on_body_entered(body: Node2D) -> void:

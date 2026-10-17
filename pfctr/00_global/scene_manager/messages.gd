@@ -14,3 +14,6 @@ signal player_health_changed( hp : float, max_hp : float )
 
 @warning_ignore("unused_signal")
 signal back_to_title()
+
+@warning_ignore("unused_signal")
+signal particle_removed(world_position: Vector2, killed_by_player: bool)

@@ -16,4 +16,5 @@ func enter() -> void:
 
 
 func _on_animation_finished(_animation_name: StringName) -> void:
+	ExplosionGreat.explode(self.global_position)
 	enemy.queue_free()

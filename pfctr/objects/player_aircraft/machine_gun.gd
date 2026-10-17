@@ -7,7 +7,7 @@ class_name MachineGun extends Node2D
 @onready var muzzle: Marker2D = $Muzzle
 @onready var flash_player: AnimationPlayer = $FlashPlayer
 
-var cooldown: float = 1
+var cooldown: float = 0
 var enabled: bool = true
 
 

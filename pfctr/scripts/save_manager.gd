@@ -36,8 +36,8 @@ func create_new_save_game( slot : int ) -> void:
 		"scene_path" : new_game_scene,
 		"x" : -473.0,
 		"y" : 262.334,
-		"hp" : 20,
-		"max_hp" : 20,
+		"hp" : 2,
+		"max_hp" : 3,
 		#"dash" : false, #skill
 		"discovered_areas" : discovered_areas,
 		"persistent_data" : persistent_data,

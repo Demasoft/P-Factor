@@ -57,37 +57,34 @@ metadata/_edit_use_anchors_ = true
 [node name="Clouds" parent="." unique_id=1240607775 instance=ExtResource("5_5he1d")]
 
 [node name="B17" parent="." unique_id=1568138198 instance=ExtResource("6_itgdq")]
-position = Vector2(766, 201)
+position = Vector2(858, 193)
+max_hp = 200.0
+move_speed = 50.0
+patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
+
+[node name="B18" parent="." unique_id=1845089648 instance=ExtResource("6_itgdq")]
+position = Vector2(858, 193)
 max_hp = 200.0
 move_speed = 50.0
 patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
 
 [node name="UASSwarm" parent="." unique_id=1519920295 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]
 position = Vector2(686, 74)
-swarm_count = 40
+swarm_count = 20
 spawn_radius = 50.0
-particle_hp = 1.0
 target = NodePath("../PlayerAircraft")
 spawn_mode = 1
-stream_rate = 20.0
 max_speed = 200.0
 acceleration = 250.0
-rotate_to_velocity = true
-contact_damage = 1.0
 particle_radius = 10.0
-player_hit_radius = 14.0
 
 [node name="UASSwarm2" parent="." unique_id=593429796 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]
 position = Vector2(686, 314)
-swarm_count = 40
+swarm_count = 20
 spawn_radius = 50.0
-particle_hp = 1.0
 target = NodePath("../PlayerAircraft")
 spawn_mode = 1
-stream_rate = 20.0
+launch_interval = 2.0
 max_speed = 200.0
 acceleration = 250.0
-rotate_to_velocity = true
-contact_damage = 1.0
 particle_radius = 10.0
-player_hit_radius = 14.0
