@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://447k6j3eiv7b"]
 
 [ext_resource type="Script" uid="uid://yuqgeqo06p8i" path="res://objects/enemies/turret/turret_gun.gd" id="1_v17bq"]
+[ext_resource type="PackedScene" uid="uid://dupqdcbx3dc7h" path="res://objects/enemies/enemy_bullet.tscn" id="2_3x2te"]
 [ext_resource type="Texture2D" uid="uid://bdxuwglbynpkb" path="res://objects/enemies/sprites/b17_gun.png" id="2_j2ttj"]
 
 [sub_resource type="Animation" id="Animation_j2ttj"]
@@ -48,8 +49,8 @@ script = ExtResource("1_v17bq")
 arc_start_degrees = 360.0
 arc_end_degrees = 360.0
 rest_direction = 0
-detection_radius = null
 turn_speed_degrees = 60.0
+bullet_scene = ExtResource("2_3x2te")
 fire_cooldown = 2.0
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1862404606]

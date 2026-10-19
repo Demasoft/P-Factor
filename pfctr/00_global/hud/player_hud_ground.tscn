@@ -1,6 +1,45 @@
 [gd_scene format=3 uid="uid://xxjra0dsyr4d"]
 
 [ext_resource type="Script" uid="uid://bmmfoxc6co72q" path="res://00_global/hud/player_hud_ground.gd" id="1_2b1cy"]
+[ext_resource type="Shader" uid="uid://cm2tslwgvdhbf" path="res://shaders/highlight.gdshader" id="2_0vlpv"]
+[ext_resource type="LabelSettings" uid="uid://cvmhn7hdsrodd" path="res://objects/fonts/Marker.tres" id="2_2b1cy"]
+[ext_resource type="LabelSettings" uid="uid://khplevakjimc" path="res://objects/fonts/menu.tres" id="3_sg2or"]
+[ext_resource type="LabelSettings" uid="uid://dbtd4keu8oks7" path="res://objects/fonts/gold.tres" id="4_sg2or"]
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="4_ub7f0"]
+[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="5_2lc2n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldxqx"]
+shader = ExtResource("4_ub7f0")
+shader_parameter/noise_tex = ExtResource("5_2lc2n")
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(0.40234375, 0.01387393, 0, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 1)
+shader_parameter/fire_aperture = 0.50000002375
+shader_parameter/noise_scale = Vector2(1, 1)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lc2n"]
+shader = ExtResource("4_ub7f0")
+shader_parameter/noise_tex = ExtResource("5_2lc2n")
+shader_parameter/root_color = Color(1, 0.30196083, 0.40012258, 1)
+shader_parameter/tip_color = Color(0, 0.015716553, 0.40234375, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 1)
+shader_parameter/fire_aperture = 0.22
+shader_parameter/noise_scale = Vector2(1, 1)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b1cy"]
+shader = ExtResource("2_0vlpv")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 3.0
+shader_parameter/highlight_strength = 0.7000000700356397
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = true
+shader_parameter/pause_duration = 0.02
 
 [node name="PlayerHudGround" type="CanvasLayer" unique_id=1014093034]
 process_mode = 3
@@ -15,19 +54,93 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=629050813]
+[node name="PlayerHudContainer" type="HBoxContainer" parent="Control" unique_id=718592196]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(154, 55)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 15.0
+offset_right = 178.0
+offset_bottom = 55.0
 
-[node name="Label" type="Label" parent="Control/HPMarginContainer" unique_id=416176897]
-unique_name_in_owner = true
+[node name="PlayerIcon" type="RichTextLabel" parent="Control/PlayerHudContainer" unique_id=71890160]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "Test"
+bbcode_enabled = true
+text = "[img=50x50]uid://bqq3xb7bsauy[/img]"
+autowrap_mode = 0
+
+[node name="AircraftIcon" type="Label" parent="Control/PlayerHudContainer" unique_id=372179348]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+text = "P"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="HPLabel" type="Label" parent="Control/PlayerHudContainer" unique_id=1849598314]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "x9"
+label_settings = ExtResource("3_sg2or")
+
+[node name="Score" type="Label" parent="Control/PlayerHudContainer" unique_id=1302288960]
+material = SubResource("ShaderMaterial_ldxqx")
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "123456"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="PlayerHudContainer2" type="HBoxContainer" parent="Control" unique_id=1582098571]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(154, 55)
+layout_mode = 0
+offset_left = 464.0
+offset_right = 627.0
+offset_bottom = 55.0
+
+[node name="PlayerIcon" type="RichTextLabel" parent="Control/PlayerHudContainer2" unique_id=2053720166]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[img=50x50]uid://bqq3xb7bsauy[/img]"
+autowrap_mode = 0
+
+[node name="AircraftIcon" type="Label" parent="Control/PlayerHudContainer2" unique_id=1654491162]
+visible = false
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+text = "P"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="HPLabel" type="Label" parent="Control/PlayerHudContainer2" unique_id=1512608013]
+visible = false
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "x9"
+label_settings = ExtResource("3_sg2or")
+
+[node name="Score" type="Label" parent="Control/PlayerHudContainer2" unique_id=616933334]
+visible = false
+material = SubResource("ShaderMaterial_ldxqx")
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "123456"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="Ready" type="Label" parent="Control/PlayerHudContainer2" unique_id=1780972023]
+material = SubResource("ShaderMaterial_2lc2n")
+layout_mode = 2
+text = "Pres5 Start"
+label_settings = ExtResource("2_2b1cy")
 
 [node name="TimerLabel" type="Label" parent="." unique_id=887464187]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2b1cy")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -39,4 +152,5 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "00'00'000"
+label_settings = ExtResource("4_sg2or")
 horizontal_alignment = 1

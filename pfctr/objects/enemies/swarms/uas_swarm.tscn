@@ -46,6 +46,7 @@ _data = {
 [node name="UASSwarm" type="Node2D" unique_id=1519920295]
 script = ExtResource("1_widj3")
 explosion_scene = ExtResource("3_1rjy6")
+swarm_count = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460376010]
 scale = Vector2(0.8, 0.8)

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var hp_label: Label = %Label
+@onready var hp_label: Label = %HPLabel
 @onready var timer_label: Label = %TimerLabel
 
 

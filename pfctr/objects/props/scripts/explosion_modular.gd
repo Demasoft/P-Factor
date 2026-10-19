@@ -13,8 +13,8 @@ func _ready() -> void:
 	img.fill(Color.WHITE)
 
 	fx.texture = ImageTexture.create_from_image(img)
-	fx.amount = 956                    # must match TOTAL in the shader
-	fx.lifetime = 5.5                  # must exceed the longest-living particle
+	fx.amount = 465                    # must match TOTAL in the shader
+	fx.lifetime = 3.0                  # must exceed the longest-living particle             # must exceed the longest-living particle      # must exceed the longest-living particle
 	fx.one_shot = true
 	fx.explosiveness = 1.0
 	fx.local_coords = true

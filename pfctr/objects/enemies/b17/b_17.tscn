@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://b3m57gsnmc6lx" path="res://objects/enemies/patterns/aimed_fan_pattern.gd" id="4_4dcc7"]
 [ext_resource type="Script" uid="uid://cr33sjqyhbdv7" path="res://objects/enemies/b17/states/enemy_state_death.gd" id="4_plc4l"]
 [ext_resource type="PackedScene" uid="uid://dupqdcbx3dc7h" path="res://objects/enemies/enemy_bullet.tscn" id="7_4xfuo"]
+[ext_resource type="PackedScene" uid="uid://q6nj23djp04g" path="res://objects/props/fire.tscn" id="9_l8rgx"]
+[ext_resource type="PackedScene" uid="uid://bjxflgi0jpyjl" path="res://objects/props/smoke.tscn" id="10_1sy1v"]
 [ext_resource type="PackedScene" uid="uid://447k6j3eiv7b" path="res://objects/enemies/turret/turret_gun.tscn" id="11_4dcc7"]
 [ext_resource type="Script" uid="uid://bnpbsj27k7ln3" path="res://objects/enemies/patterns/radial_pattern.gd" id="12_43keq"]
 
@@ -48,6 +50,7 @@ metadata/_custom_type_script = "uid://b3m57gsnmc6lx"
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_2pq7e")
+max_hp = 100.0
 bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_ky681")])
 
@@ -64,6 +67,11 @@ script = ExtResource("3_bq06v")
 
 [node name="Death" type="Node" parent="States" unique_id=1907619657]
 script = ExtResource("4_plc4l")
+fire_scene = ExtResource("9_l8rgx")
+fire_end_scale = 4.0
+smoke_scene = ExtResource("10_1sy1v")
+smoke_fade_in = 0.0
+smoke_end_scale = 6.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=887677042]
 scale = Vector2(0.8, 0.8)
@@ -91,36 +99,28 @@ modulate = Color(0.3019608, 0.3019608, 0.3019608, 1)
 position = Vector2(64, 18)
 
 [node name="TurretGun" parent="." unique_id=950007915 instance=ExtResource("11_4dcc7")]
-position = Vector2(0, 16)
+position = Vector2(1, 15)
 arc_start_degrees = 15.0
 arc_end_degrees = 185.0
 rest_direction = 1
-detection_radius = 400.0
-bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_odus0")])
 
 [node name="TurretGun2" parent="." unique_id=980924930 instance=ExtResource("11_4dcc7")]
-position = Vector2(-107, -1)
+position = Vector2(-106, -2)
 arc_start_degrees = 90.0
 arc_end_degrees = 270.0
 rest_direction = 1
-detection_radius = 400.0
-bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_6j3dr")])
 
 [node name="TurretGun3" parent="." unique_id=254244297 instance=ExtResource("11_4dcc7")]
-position = Vector2(100, 14)
+position = Vector2(99, 14)
 arc_start_degrees = -18.0
 arc_end_degrees = 52.0
-detection_radius = 400.0
-bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_1sy1v")])
 
 [node name="TurretGun4" parent="." unique_id=899625621 instance=ExtResource("11_4dcc7")]
+z_index = 0
 position = Vector2(58, -12)
 arc_start_degrees = -172.0
-rest_direction = 1
-detection_radius = 400.0
-bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_l8rgx"), SubResource("Resource_43keq")])
 fire_cooldown = 3.0
