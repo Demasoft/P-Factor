@@ -7,6 +7,8 @@
 [ext_resource type="LabelSettings" uid="uid://dbtd4keu8oks7" path="res://objects/fonts/gold.tres" id="4_sg2or"]
 [ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="4_ub7f0"]
 [ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="5_2lc2n"]
+[ext_resource type="Script" uid="uid://nr72b2vfmrca" path="res://00_global/hud/debugger.gd" id="6_kxpmt"]
+[ext_resource type="LabelSettings" uid="uid://dbb81jju6emr5" path="res://objects/fonts/marker_negative.tres" id="8_ldxqx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ldxqx"]
 shader = ExtResource("4_ub7f0")
@@ -40,6 +42,15 @@ shader_parameter/highlight_strength = 0.7000000700356397
 shader_parameter/color_mode_toggle = false
 shader_parameter/is_horizontal = true
 shader_parameter/pause_duration = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxpmt"]
+shader = ExtResource("2_0vlpv")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 0.5
 
 [node name="PlayerHudGround" type="CanvasLayer" unique_id=1014093034]
 process_mode = 3
@@ -132,11 +143,20 @@ size_flags_horizontal = 4
 text = "123456"
 label_settings = ExtResource("2_2b1cy")
 
-[node name="Ready" type="Label" parent="Control/PlayerHudContainer2" unique_id=1780972023]
+[node name="PressStart" type="Label" parent="Control/PlayerHudContainer2" unique_id=1780972023]
 material = SubResource("ShaderMaterial_2lc2n")
 layout_mode = 2
 text = "Pres5 Start"
 label_settings = ExtResource("2_2b1cy")
+
+[node name="Debugger" type="Button" parent="Control/PlayerHudContainer2/PressStart" unique_id=1636807784]
+layout_mode = 0
+offset_left = 127.999985
+offset_right = 143.99998
+offset_bottom = 25.0
+scale = Vector2(2.3926377, 1.5765319)
+text = "D"
+script = ExtResource("6_kxpmt")
 
 [node name="TimerLabel" type="Label" parent="." unique_id=887464187]
 unique_name_in_owner = true
@@ -154,3 +174,61 @@ size_flags_vertical = 0
 text = "00'00'000"
 label_settings = ExtResource("4_sg2or")
 horizontal_alignment = 1
+
+[node name="GameOver" type="Control" parent="." unique_id=77296440]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=178409871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GameOver" unique_id=279985332]
+material = SubResource("ShaderMaterial_kxpmt")
+layout_mode = 0
+offset_left = 242.0
+offset_top = 97.0
+offset_right = 402.0
+offset_bottom = 141.0
+text = "Game Over"
+label_settings = ExtResource("8_ldxqx")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=1464037319]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -23.5
+offset_right = 60.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Retry" type="Button" parent="GameOver/HBoxContainer" unique_id=1353880448]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retry"
+
+[node name="LoadLastSave" type="Button" parent="GameOver/HBoxContainer" unique_id=1881186923]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Last Save"
+
+[node name="QuitToTitle" type="Button" parent="GameOver/HBoxContainer" unique_id=2099850803]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit To Title"

@@ -71,6 +71,7 @@ fire_scene = ExtResource("9_l8rgx")
 fire_end_scale = 4.0
 smoke_scene = ExtResource("10_1sy1v")
 smoke_fade_in = 0.0
+smoke_hold = 0.5
 smoke_end_scale = 6.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=887677042]

@@ -200,6 +200,7 @@ drag_horizontal_offset = 0.2
 script = ExtResource("8_xgwla")
 
 [node name="Label" type="Label" parent="." unique_id=1185249467]
+visible = false
 offset_left = -32.0
 offset_top = -79.0
 offset_right = 32.0

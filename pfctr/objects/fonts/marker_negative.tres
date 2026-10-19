@@ -1,0 +1,15 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dbb81jju6emr5"]
+
+[ext_resource type="FontFile" uid="uid://c7bf8lqnxp1mr" path="res://objects/fonts/PermanentMarker-Regular.ttf" id="1_fcbga"]
+
+[resource]
+font = ExtResource("1_fcbga")
+font_size = 30
+font_color = Color(0, 0.021362305, 0.13671875, 1)
+outline_size = 2
+outline_color = Color(0.6484375, 0.6484375, 0.6484375, 1)
+shadow_size = 2
+shadow_color = Color(0.4871683, 0.4838562, 0.58984375, 1)
+shadow_offset = Vector2(0, 2)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(1, 1)

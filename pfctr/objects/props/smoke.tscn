@@ -51,3 +51,9 @@ material = SubResource("ShaderMaterial_bob8v")
 position = Vector2(-0.056972504, -0.056972504)
 scale = Vector2(0.18571961, 0.18571961)
 texture = SubResource("GradientTexture2D_8ssg7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=159084097]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(-0.056972504, -0.056972504)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_8ssg7")

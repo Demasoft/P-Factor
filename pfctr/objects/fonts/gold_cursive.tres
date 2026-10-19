@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dnt4hksx4xnbi"]
+
+[ext_resource type="FontFile" uid="uid://c15oxui3pq8ow" path="res://objects/fonts/Akkadian.ttf" id="1_aurcp"]
+
+[resource]
+font = ExtResource("1_aurcp")
+font_color = Color(0.7058824, 0.44705883, 0, 1)
+outline_size = 2
+outline_color = Color(0.7019608, 0.7058824, 0, 1)
