@@ -1,6 +1,6 @@
 class_name EnemyStateDeath extends EnemyState
 
-@export var drift_time: float = 1.5
+@export var drift_time: float = 1.0
 @export var drift_distance: float = 60.0
 
 @export_group("Fire")
@@ -30,7 +30,7 @@ func enter() -> void:
 
 	_schedule_fires()
 
-	var target: Vector2 = enemy.global_position + Vector2.from_angle(deg_to_rad(120.0)) * drift_distance
+	var target: Vector2 = enemy.global_position + Vector2.from_angle(deg_to_rad(135.0)) * drift_distance
 	var tween: Tween = enemy.create_tween()
 	tween.tween_property(enemy, "global_position", target, drift_time).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_on_drift_finished)

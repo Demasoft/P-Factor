@@ -59,7 +59,7 @@
 	
 class_name AircraftStateOverboost extends AircraftState
 
-@export var duration: float = 7.0
+@export var duration: float = 3.0
 @export var slow_scale: float = 0.3
 
 var time_left: float = 0.0

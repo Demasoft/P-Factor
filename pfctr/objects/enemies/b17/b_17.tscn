@@ -67,12 +67,14 @@ script = ExtResource("3_bq06v")
 
 [node name="Death" type="Node" parent="States" unique_id=1907619657]
 script = ExtResource("4_plc4l")
+drift_distance = 100.0
 fire_scene = ExtResource("9_l8rgx")
+fire_hold = 0.0
 fire_end_scale = 4.0
 smoke_scene = ExtResource("10_1sy1v")
 smoke_fade_in = 0.0
 smoke_hold = 0.5
-smoke_end_scale = 6.0
+smoke_end_scale = 5.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=887677042]
 scale = Vector2(0.8, 0.8)

@@ -7,9 +7,9 @@
 shader = ExtResource("1_sjl3l")
 shader_parameter/noise_tex = ExtResource("2_17ywe")
 shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
-shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/tip_color = Color(0.30078125, 0.009436274, 0, 1)
 shader_parameter/fire_alpha = 1.0
-shader_parameter/fire_speed = Vector2(0.5, 2)
+shader_parameter/fire_speed = Vector2(1, 2)
 shader_parameter/fire_aperture = 0.550000026125
 shader_parameter/noise_scale = Vector2(1, 1)
 shader_parameter/use_texture_as_shape = true
@@ -38,36 +38,40 @@ texture = SubResource("GradientTexture2D_b3w52")
 [node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1312496871]
 visible = false
 material = SubResource("ShaderMaterial_xhqx6")
-position = Vector2(2.3841856e-07, 0)
-scale = Vector2(0.08681572, 0.64734435)
+position = Vector2(-1.269865, -4.1724133)
+rotation = 2.8797934
+scale = Vector2(0.24621283, -0.23495272)
 texture = SubResource("GradientTexture2D_b3w52")
 
 [node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1769627818]
-visible = false
 material = SubResource("ShaderMaterial_xhqx6")
 position = Vector2(2.3841856e-07, 0)
 scale = Vector2(0.27076614, 0.28094947)
 texture = SubResource("GradientTexture2D_b3w52")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1257807425]
+visible = false
 material = SubResource("ShaderMaterial_xhqx6")
 position = Vector2(2.9430275, 0.9430275)
 scale = Vector2(0.18571961, 0.18571961)
 texture = SubResource("GradientTexture2D_b3w52")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1222618921]
+visible = false
 material = SubResource("ShaderMaterial_xhqx6")
 position = Vector2(-1.0569725, -3.0569725)
 scale = Vector2(0.18571961, 0.18571961)
 texture = SubResource("GradientTexture2D_b3w52")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1245912051]
+visible = false
 material = SubResource("ShaderMaterial_xhqx6")
 position = Vector2(-1.0569725, 3.9430275)
 scale = Vector2(0.18571961, 0.18571961)
 texture = SubResource("GradientTexture2D_b3w52")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1611697709]
+visible = false
 material = SubResource("ShaderMaterial_xhqx6")
 position = Vector2(-0.056972504, -0.056972504)
 scale = Vector2(0.18571961, 0.18571961)

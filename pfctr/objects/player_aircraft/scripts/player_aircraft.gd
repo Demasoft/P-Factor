@@ -46,11 +46,9 @@ func _ready() -> void:
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed( "interact" ):
-		Messages.player_interacted.emit( self )
-	elif event.is_action_pressed( "pause" ):
+	if event.is_action_pressed( "pause" ):
 		get_tree().paused = true
-		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
+		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate() #swap for aircraft pause menu
 		add_child( pause_menu )
 		return
 		

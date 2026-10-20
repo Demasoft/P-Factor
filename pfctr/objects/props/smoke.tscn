@@ -15,12 +15,12 @@ shader_parameter/noise_scale = Vector2(0.2, 0.5)
 shader_parameter/use_texture_as_shape = true
 shader_parameter/use_texture_alpha = false
 
-[sub_resource type="Gradient" id="Gradient_4y8pw"]
+[sub_resource type="Gradient" id="Gradient_l2iwq"]
 offsets = PackedFloat32Array(0, 0.33734939, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.6024096, 0.6024096, 0.6024096, 0.39759037, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8ssg7"]
-gradient = SubResource("Gradient_4y8pw")
+gradient = SubResource("Gradient_l2iwq")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -54,6 +54,6 @@ texture = SubResource("GradientTexture2D_8ssg7")
 
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=159084097]
 material = SubResource("ShaderMaterial_bob8v")
-position = Vector2(-0.056972504, -0.056972504)
-scale = Vector2(0.18571961, 0.18571961)
+position = Vector2(-4.405321, 0.88106465)
+scale = Vector2(0.26175803, 0.28470242)
 texture = SubResource("GradientTexture2D_8ssg7")

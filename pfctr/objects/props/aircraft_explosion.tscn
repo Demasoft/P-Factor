@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cmqdwrd6kbqda"]
+
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="1_j0xf6"]
+[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="2_3w0j4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui6es"]
+shader = ExtResource("1_j0xf6")
+shader_parameter/noise_tex = ExtResource("2_3w0j4")
+shader_parameter/root_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+shader_parameter/tip_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0.25, 1)
+shader_parameter/fire_aperture = 0.30000001425
+shader_parameter/noise_scale = Vector2(0.2, 0.5)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = false
+
+[sub_resource type="Gradient" id="Gradient_l2iwq"]
+offsets = PackedFloat32Array(0, 0.33734939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.6024096, 0.6024096, 0.6024096, 0.39759037, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e5w04"]
+gradient = SubResource("Gradient_l2iwq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="AircraftExplosion" type="Node2D" unique_id=2088132675]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1445637429]
+material = SubResource("ShaderMaterial_ui6es")
+position = Vector2(2.9430275, 0.9430275)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_e5w04")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1424628048]
+material = SubResource("ShaderMaterial_ui6es")
+position = Vector2(-1.0569725, -3.0569725)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_e5w04")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1492668231]
+material = SubResource("ShaderMaterial_ui6es")
+position = Vector2(-1.0569725, 3.9430275)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_e5w04")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1258367171]
+material = SubResource("ShaderMaterial_ui6es")
+position = Vector2(-0.056972504, -0.056972504)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_e5w04")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=418859023]
+material = SubResource("ShaderMaterial_ui6es")
+position = Vector2(-4.405321, 0.88106465)
+scale = Vector2(0.26175803, 0.28470242)
+texture = SubResource("GradientTexture2D_e5w04")

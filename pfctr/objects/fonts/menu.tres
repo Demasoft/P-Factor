@@ -1,5 +1,9 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://khplevakjimc"]
 
 [resource]
-outline_size = 7
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 3
+stacked_outline_0/color = Color(1, 1, 1, 1)

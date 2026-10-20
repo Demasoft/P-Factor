@@ -30,7 +30,7 @@ func show_game_over() -> void:
 	game_over.show()
 	
 	var tween: Tween = create_tween()
-	tween.tween_property( game_over, "modulate", Color.ALICE_BLUE, 4.0 )
+	tween.tween_property( game_over, "modulate", Color.WHITE, 4.0 )
 	await tween.finished
 	
 	retry.show()

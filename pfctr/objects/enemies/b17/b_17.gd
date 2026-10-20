@@ -15,6 +15,10 @@ const DEFAULT_AIM_ANGLE: float = PI   # faces left when no player exists
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var muzzle: Marker2D = $Muzzle
+@onready var sprite: Sprite2D = $Sprite2D
+
+@export var hit_color: Color = Color(0.0, 0.0, 5.913, 1.0)
+@export var hit_flash_time: float = 0.1
 
 @onready var state_enter: EnemyStateEnter = $States/Enter
 @onready var state_idle: EnemyStateIdle = $States/Idle
@@ -24,7 +28,7 @@ const DEFAULT_AIM_ANGLE: float = PI   # faces left when no player exists
 var current_state: EnemyState = null
 var hp: float = 0.0
 var pattern_index: int = 0
-var anchor_y: float = 0.0   # height the enemy bobs around while idle
+var anchor_y: float = 1.0  
 
 func _ready() -> void:
 	#configure_collision()
@@ -68,9 +72,15 @@ func take_damage(amount: float) -> void:
 		return
 
 	hp = maxf(hp - amount, 0.0)
+	flash_hit()
+
 	if hp <= 0.0:
 		change_state(state_dead)
 
+func flash_hit() -> void:
+	sprite.modulate = hit_color
+	await get_tree().create_timer(hit_flash_time).timeout
+	sprite.modulate = Color.WHITE
 
 func get_player() -> PlayerAircraft:
 	var node: Node = get_tree().get_first_node_in_group(PLAYER_GROUP)

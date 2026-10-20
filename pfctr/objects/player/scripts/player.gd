@@ -42,7 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Messages.player_interacted.emit( self )
 	elif event.is_action_pressed( "pause" ):
 		get_tree().paused = true
-		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
+		var pause_menu : PauseMenu = load( "uid://bdi104xa86306" ).instantiate()
 		add_child( pause_menu )
 		return
 		
