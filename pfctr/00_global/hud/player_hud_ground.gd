@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _on_health_changed(hp: float, _max_hp: float) -> void:
 	hp_label.text = "x%d" % ceili(hp)
+	
 
 func show_game_over() -> void:
 	retry.hide()

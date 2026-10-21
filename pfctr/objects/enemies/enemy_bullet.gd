@@ -48,11 +48,9 @@ func update_rotation(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if has_hit:
 		return
-
-	var player: PlayerAircraft = body as PlayerAircraft
-	if player == null:
+	if body is not PlayerAircraft:
 		return
 
 	has_hit = true
-	player.hp -= damage
+	Messages.player_hit.emit( damage )
 	queue_free()

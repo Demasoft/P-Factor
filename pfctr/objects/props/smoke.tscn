@@ -1,17 +1,24 @@
 [gd_scene format=3 uid="uid://bjxflgi0jpyjl"]
 
 [ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="1_l2iwq"]
-[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="2_oyuey"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k3cvj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2iwq"]
+noise = SubResource("FastNoiseLite_k3cvj")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bob8v"]
 shader = ExtResource("1_l2iwq")
-shader_parameter/noise_tex = ExtResource("2_oyuey")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_l2iwq")
 shader_parameter/root_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 shader_parameter/tip_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 shader_parameter/fire_alpha = 1.0
-shader_parameter/fire_speed = Vector2(0.25, 1)
-shader_parameter/fire_aperture = 0.30000001425
-shader_parameter/noise_scale = Vector2(0.2, 0.5)
+shader_parameter/fire_speed = Vector2(1, 1)
+shader_parameter/fire_aperture = 0.16800000798
+shader_parameter/noise_scale = Vector2(0.5, 0.5)
 shader_parameter/use_texture_as_shape = true
 shader_parameter/use_texture_alpha = false
 

@@ -29,30 +29,5 @@ fill_to = Vector2(0.5, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1445637429]
 material = SubResource("ShaderMaterial_ui6es")
-position = Vector2(2.9430275, 0.9430275)
-scale = Vector2(0.18571961, 0.18571961)
-texture = SubResource("GradientTexture2D_e5w04")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1424628048]
-material = SubResource("ShaderMaterial_ui6es")
-position = Vector2(-1.0569725, -3.0569725)
-scale = Vector2(0.18571961, 0.18571961)
-texture = SubResource("GradientTexture2D_e5w04")
-
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1492668231]
-material = SubResource("ShaderMaterial_ui6es")
-position = Vector2(-1.0569725, 3.9430275)
-scale = Vector2(0.18571961, 0.18571961)
-texture = SubResource("GradientTexture2D_e5w04")
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1258367171]
-material = SubResource("ShaderMaterial_ui6es")
-position = Vector2(-0.056972504, -0.056972504)
-scale = Vector2(0.18571961, 0.18571961)
-texture = SubResource("GradientTexture2D_e5w04")
-
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=418859023]
-material = SubResource("ShaderMaterial_ui6es")
-position = Vector2(-4.405321, 0.88106465)
-scale = Vector2(0.26175803, 0.28470242)
+scale = Vector2(0.7943538, 0.7943538)
 texture = SubResource("GradientTexture2D_e5w04")

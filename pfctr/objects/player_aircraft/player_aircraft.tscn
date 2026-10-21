@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://ch2kicl20i6td" path="res://objects/player_aircraft/scripts/aircraft_sprite.gd" id="6_4ly2p"]
 [ext_resource type="Script" uid="uid://kwqiwrjh4cxj" path="res://objects/player_aircraft/states/death.gd" id="6_h82j4"]
 [ext_resource type="PackedScene" uid="uid://nlc51lnwumyd" path="res://objects/player_aircraft/machine_gun.tscn" id="7_gjcwt"]
+[ext_resource type="Script" uid="uid://qf10ksd7ny7c" path="res://objects/player_aircraft/states/damage.gd" id="7_nlf56"]
 [ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="9_h82j4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h82j4"]
@@ -169,6 +170,10 @@ script = ExtResource("5_1xaxk")
 unique_name_in_owner = true
 script = ExtResource("6_h82j4")
 
+[node name="Damage" type="Node" parent="States" unique_id=817990630]
+unique_name_in_owner = true
+script = ExtResource("7_nlf56")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879820816]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_gxif6")
@@ -195,10 +200,10 @@ speed_scale = 3.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2020261988]
 
 [node name="MachineGun" parent="." unique_id=1607767919 instance=ExtResource("7_gjcwt")]
-position = Vector2(27, 4)
+position = Vector2(27, 6)
 
 [node name="MachineGun2" parent="." unique_id=1997811551 instance=ExtResource("7_gjcwt")]
-position = Vector2(27, 9)
+position = Vector2(24, 9)
 
 [node name="Label" type="Label" parent="." unique_id=861721206]
 offset_left = -32.0

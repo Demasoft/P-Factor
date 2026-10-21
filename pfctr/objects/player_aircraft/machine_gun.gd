@@ -5,7 +5,7 @@ class_name MachineGun extends Node2D
 @export var shoot_action: StringName = &"shoot"
 
 @onready var muzzle: Marker2D = $Muzzle
-@onready var flash_player: AnimationPlayer = $FlashPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var cooldown: float = 0
 var enabled: bool = true

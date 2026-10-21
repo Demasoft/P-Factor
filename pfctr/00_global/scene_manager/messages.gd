@@ -17,3 +17,6 @@ signal back_to_title()
 
 @warning_ignore("unused_signal")
 signal particle_removed(world_position: Vector2, killed_by_player: bool)
+
+@warning_ignore("unused_signal")
+signal player_hit( amount: float )

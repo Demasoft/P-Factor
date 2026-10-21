@@ -1,5 +1,7 @@
 class_name PlayerAircraft extends CharacterBody2D
 
+signal damage_taken
+
 @onready var sprite_2d: AircraftSprite = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -38,12 +40,15 @@ var max_hp : float = 3 :
 
 var direction : Vector2 = Vector2.ZERO
 
+var pending_damage: int = 0
+
 func _ready() -> void:
 	if get_tree().get_first_node_in_group( "PlayerAircraft" ) != self:
 		self.queue_free()
 	initialize_states()
 	reparent.call_deferred(get_tree().current_scene)
 	Messages.player_healed.connect( _on_player_healed )
+	#Messages.player_hit.connect( _on_player_hit )
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "pause" ):
@@ -102,6 +107,10 @@ func update_direction() -> void:
 
 func _on_player_healed( amount : float ) -> void:
 	hp += amount
+
+#func _on_player_hit( amount: float ) -> void:
+	## i-frames: ignore hits while already hurt or dead
+	#
 	
 func update_bank(delta: float) -> void:
 	if not bank_enabled:

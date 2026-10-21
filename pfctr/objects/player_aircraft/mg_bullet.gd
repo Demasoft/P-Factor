@@ -3,12 +3,13 @@ class_name Bullet extends Node2D
 @export var speed: float = 600.0
 @export var damage: float = 1.0
 @export var hit_radius: float = 6.0
-@export var splash_duration: float = 0.2  ## Used if the splash isn't an AnimatedSprite2D
+@export var splash_duration: float = 0.1  ## Used if the splash isn't an AnimatedSprite2D
 
 @onready var hit_area: Area2D = $Area2D
 @onready var screen_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
-@onready var sprite: Node2D = $Bullet      
+	 
 @onready var splash: Node2D = $Splash   
+@onready var bullet: Sprite2D = %Bullet
 
 var has_hit: bool = false
 
@@ -44,7 +45,7 @@ func _play_splash() -> void:
 	has_hit = true
 	hit_area.set_deferred("monitoring", false)
 
-	#sprite.hide()
+	bullet.hide()
 	splash.show()
 	splash.scale = Vector2(0.5, 0.5)
 

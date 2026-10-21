@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://blo2fun5ydyen" path="res://objects/player_aircraft/mg_bullet.gd" id="1_mv7tc"]
 [ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="2_1a2ew"]
-[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="3_n577x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g25cw"]
 radius = 2.0
@@ -18,14 +17,29 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="Gradient" id="Gradient_ib6no"]
+offsets = PackedFloat32Array(0.25373134, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.91764706, 0.91764706, 0.91764706, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1a2ew"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n577x"]
+width = 1080
+height = 1080
+noise = SubResource("FastNoiseLite_1a2ew")
+color_ramp = SubResource("Gradient_ib6no")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig02t"]
 shader = ExtResource("2_1a2ew")
-shader_parameter/noise_tex = ExtResource("3_n577x")
-shader_parameter/root_color = Color(1, 0.7490196, 0.3019608, 1)
-shader_parameter/tip_color = Color(0.66796875, 0.020955881, 0, 1)
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_n577x")
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
 shader_parameter/fire_alpha = 1.0
-shader_parameter/fire_speed = Vector2(0.25, 1)
-shader_parameter/fire_aperture = 0.0690000032775
+shader_parameter/fire_speed = Vector2(1, 0)
+shader_parameter/fire_aperture = 0.13200000627
 shader_parameter/noise_scale = Vector2(0.2, 0.5)
 shader_parameter/use_texture_as_shape = true
 shader_parameter/use_texture_alpha = false
@@ -56,21 +70,31 @@ shape = SubResource("CapsuleShape2D_g25cw")
 
 [node name="Bullet" type="Sprite2D" parent="Area2D" unique_id=1097667851]
 unique_name_in_owner = true
-position = Vector2(1.1847996e-27, -2.7105054e-20)
+position = Vector2(-9.62965e-35, 0)
 rotation = 1.5707964
 scale = Vector2(0.24746475, 2.829942)
 texture = SubResource("GradientTexture2D_ib6no")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=961568301]
 
-[node name="Splash" type="Sprite2D" parent="." unique_id=124167030]
+[node name="Splash" type="Sprite2D" parent="." unique_id=2016640391]
 material = SubResource("ShaderMaterial_ig02t")
-scale = Vector2(0.3476845, 0.37816077)
+position = Vector2(18.000002, 5.04871e-29)
+scale = Vector2(1.096068, 0.3100693)
 texture = SubResource("GradientTexture2D_3mlhl")
 
-[node name="Bullet2" type="Sprite2D" parent="Splash" unique_id=2007023123]
-unique_name_in_owner = true
+[node name="Splash1" type="Sprite2D" parent="Splash" unique_id=124167030]
 show_behind_parent = true
-position = Vector2(2.6722047e-27, -5.6206167e-20)
-scale = Vector2(0.5131532, 6.38267)
-texture = SubResource("GradientTexture2D_ib6no")
+material = SubResource("ShaderMaterial_ig02t")
+position = Vector2(-3.1311798, 11.515339)
+scale = Vector2(1, 0.99999994)
+texture = SubResource("GradientTexture2D_3mlhl")
+
+[node name="Splash2" type="Sprite2D" parent="Splash" unique_id=298551705]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_ig02t")
+position = Vector2(-3.1311798, -8.636504)
+rotation = 0.24154511
+scale = Vector2(0.9948054, 1.0061103)
+skew = 0.042036653
+texture = SubResource("GradientTexture2D_3mlhl")
