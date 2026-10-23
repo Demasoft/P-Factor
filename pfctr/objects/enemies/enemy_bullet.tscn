@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dupqdcbx3dc7h"]
+
+[ext_resource type="Script" uid="uid://8wdqghimkikn" path="res://objects/enemies/enemy_bullet.gd" id="1_tn31o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tn31o"]
+radius = 7.185603
+height = 16.854692
+
+[sub_resource type="Gradient" id="Gradient_m1qok"]
+offsets = PackedFloat32Array(0, 0.40963855, 0.6325301)
+colors = PackedColorArray(2.9308496, 2.890505, 3.5629182, 1, 0.63857836, 0, 1.4011594, 0.7882353, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tn31o"]
+gradient = SubResource("Gradient_m1qok")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="EnemyBullet" type="Node2D" unique_id=1509607740]
+script = ExtResource("1_tn31o")
+spin_speed_degrees = 1080.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1605986360]
+scale = Vector2(1.5821509, 1.5821509)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1255419122]
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+shape = SubResource("CapsuleShape2D_tn31o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=139389455]
+scale = Vector2(0.25, 0.2)
+texture = SubResource("GradientTexture2D_tn31o")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1300266715]
+scale = Vector2(1.0000001, 1.0000001)

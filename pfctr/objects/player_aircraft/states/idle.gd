@@ -4,15 +4,14 @@ func init() -> void:
 	pass
 
 func enter() -> void:
-	player.animation_player.play("idle")
+	pass
 
 func exit() -> void:
 	pass
 
 func handle_input(event: InputEvent) -> AircraftState:
 	if event.is_action_pressed("jump"):
-		if player.use_overboost():
-			return overboost
+		return overboost
 
 	return self
 

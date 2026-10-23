@@ -17,7 +17,6 @@ func handle_input( _event: InputEvent ) -> PlayerState:
 		return idle
 	return next_state
 
-
 func process( _delta: float) -> PlayerState:
 	
 	return next_state

@@ -8,7 +8,7 @@ class_name Player extends CharacterBody2D
 
 
 @export var move_speed : float = 180 
-@export var max_fall_velocity: float = 600
+@export var max_fall_velocity: float = 800
 
 var states: Array[ PlayerState ]
 var current_state: PlayerState : 
@@ -16,25 +16,24 @@ var current_state: PlayerState :
 var previous_state : PlayerState : 
 	get : return states[ 1 ]
 
-var hp : float = 20 :
+var hp : float = 3 :
 	set( value ):
 		hp = clampf( value, 0, max_hp )
 		Messages.player_health_changed.emit( hp, max_hp )
-var max_hp : float = 20 :
+var max_hp : float = 3 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )
 #var skill : bool = false
 
 var direction : Vector2 = Vector2.ZERO
-var gravity : float = 980
+var gravity : float = 1000
 var gravity_multiplier : float = 1.0
 
 func _ready() -> void:
 	if get_tree().get_first_node_in_group( "Player" ) != self:
 		self.queue_free()
 	initialize_states()
-	#reparent.call_deferred(get_tree().current_scene)
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -42,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Messages.player_interacted.emit( self )
 	elif event.is_action_pressed( "pause" ):
 		get_tree().paused = true
-		var pause_menu : PauseMenu= load( "uid://bdi104xa86306" ).instantiate()
+		var pause_menu : PauseMenu = load( "res://objects/pause_menu/pause_menu.tscn" ).instantiate()
 		add_child( pause_menu )
 		return
 		
@@ -63,7 +62,6 @@ func _physics_process(_delta: float) -> void:
 
 func initialize_states() -> void:
 	states = []
-	#gather states
 	for c in $States.get_children():
 		if c is PlayerState:
 			states.append( c )
@@ -73,7 +71,6 @@ func initialize_states() -> void:
 	if states.size() == 0:
 		return
 
-	#initialize states
 	for state in states:
 		state.init()
 		

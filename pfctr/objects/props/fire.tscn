@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://q6nj23djp04g"]
+
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="1_sjl3l"]
+
+[sub_resource type="Gradient" id="Gradient_tvan8"]
+offsets = PackedFloat32Array(0, 0.880597)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sjl3l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_17ywe"]
+noise = SubResource("FastNoiseLite_sjl3l")
+color_ramp = SubResource("Gradient_tvan8")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhqx6"]
+shader = ExtResource("1_sjl3l")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_17ywe")
+shader_parameter/root_color = Color(4.415934, 3.3523164, 1.457747, 1)
+shader_parameter/tip_color = Color(0.35546875, 0.01115196, 0, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(1, 1)
+shader_parameter/fire_aperture = 0.550000026125
+shader_parameter/noise_scale = Vector2(0.5, 0.5)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = false
+
+[sub_resource type="Gradient" id="Gradient_sjl3l"]
+offsets = PackedFloat32Array(0, 0.33734939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.6024096, 0.6024096, 0.6024096, 0.39759037, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b3w52"]
+gradient = SubResource("Gradient_sjl3l")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Fire" type="Node2D" unique_id=1896335681]
+scale = Vector2(5.512397, 5.512397)
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=965129280]
+visible = false
+material = SubResource("ShaderMaterial_xhqx6")
+position = Vector2(2.3841856e-07, 0)
+scale = Vector2(0.80429107, 0.057692833)
+texture = SubResource("GradientTexture2D_b3w52")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=579659964]
+visible = false
+material = SubResource("ShaderMaterial_xhqx6")
+position = Vector2(2.3841856e-07, 0)
+rotation = 1.5707964
+scale = Vector2(0.80429107, 0.057692833)
+texture = SubResource("GradientTexture2D_b3w52")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1769627818]
+material = SubResource("ShaderMaterial_xhqx6")
+position = Vector2(2.3841856e-07, 0)
+scale = Vector2(0.27076614, 0.28094947)
+texture = SubResource("GradientTexture2D_b3w52")

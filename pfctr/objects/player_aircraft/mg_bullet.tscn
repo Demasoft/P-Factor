@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dfjmdevv22cc5"]
+
+[ext_resource type="Script" uid="uid://blo2fun5ydyen" path="res://objects/player_aircraft/mg_bullet.gd" id="1_mv7tc"]
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="2_1a2ew"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g25cw"]
+radius = 2.0
+height = 48.0
+
+[sub_resource type="Gradient" id="Gradient_mv7tc"]
+offsets = PackedFloat32Array(0.15060242, 0.23493975, 0.3493976, 1)
+colors = PackedColorArray(1.62, 1.533, 0.804, 1, 1.179811, 1.2473186, 0, 0.59159654, 0.7507996, 0, 0, 0.047058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ib6no"]
+gradient = SubResource("Gradient_mv7tc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_ib6no"]
+offsets = PackedFloat32Array(0.25373134, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.91764706, 0.91764706, 0.91764706, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1a2ew"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n577x"]
+width = 715
+noise = SubResource("FastNoiseLite_1a2ew")
+color_ramp = SubResource("Gradient_ib6no")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig02t"]
+shader = ExtResource("2_1a2ew")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_n577x")
+shader_parameter/root_color = Color(4.415934, 3.3523164, 1.457747, 1)
+shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(1, 0)
+shader_parameter/fire_aperture = 0.13200000627
+shader_parameter/noise_scale = Vector2(0.2, 0.395)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = false
+
+[sub_resource type="Gradient" id="Gradient_4y8pw"]
+offsets = PackedFloat32Array(0, 0.33734939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.6024096, 0.6024096, 0.6024096, 0.39759037, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3mlhl"]
+gradient = SubResource("Gradient_4y8pw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="MGBullet" type="Node2D" unique_id=923343793]
+script = ExtResource("1_mv7tc")
+speed = 3000.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=969792929]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=898652724]
+unique_name_in_owner = true
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_g25cw")
+
+[node name="Bullet" type="Sprite2D" parent="Area2D" unique_id=1097667851]
+unique_name_in_owner = true
+position = Vector2(-9.62965e-35, 0)
+rotation = 1.5707964
+scale = Vector2(0.24746475, 2.829942)
+texture = SubResource("GradientTexture2D_ib6no")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=961568301]
+
+[node name="Splash" type="Sprite2D" parent="." unique_id=2016640391]
+material = SubResource("ShaderMaterial_ig02t")
+position = Vector2(16, 0)
+scale = Vector2(0.563659, 0.42169407)
+texture = SubResource("GradientTexture2D_3mlhl")
+
+[node name="Splash2" type="Sprite2D" parent="Splash" unique_id=1814054216]
+visible = false
+material = SubResource("ShaderMaterial_ig02t")
+position = Vector2(7.096489, 0)
+scale = Vector2(0.52772075, 1.1897105)
+texture = SubResource("GradientTexture2D_3mlhl")

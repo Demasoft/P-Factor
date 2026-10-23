@@ -6,6 +6,8 @@ var next_state : AircraftState
 @onready var idle: AircraftStateIdle = %Idle
 @onready var move: AircraftStateMove = %Move
 @onready var overboost: AircraftStateOverboost = %Overboost
+@onready var death: AircraftStateDeath = %Death
+@onready var damage: PlayerStateDamage = %Damage
 
 func init() -> void:
 	pass
