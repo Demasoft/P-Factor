@@ -2,12 +2,7 @@ class_name ParticleSwarm extends Node2D
 ## Particle swarm enemy. Particles leave one after another and fly toward the
 ## target in a weaving stream. Data lives in packed arrays and is drawn with one
 ## MultiMesh, using the Sprite2D and AnimationPlayer children of this scene.
-##
-## Scene layout:
-##   ParticleSwarm (Node2D)      <- this script
-##   |- Sprite2D                 <- the particle sprite sheet (hframes / vframes set)
-##   |- AnimationPlayer          <- animates Sprite2D:frame, looping
-##
+
 ## Bullets call try_hit() themselves (see ParticleSwarm.active).
 
 signal cleared
@@ -310,8 +305,9 @@ func remove_particle(index: int) -> void:
 	alive_count -= 1
 	
 func _on_particle_removed(world_position: Vector2, killed_by_player: bool) -> void:
-	if not killed_by_player:
-		return
-	var fx: Node2D = explosion_scene.instantiate()
-	get_tree().current_scene.add_child(fx)   # NOT as a child of the swarm, see below
-	fx.explode(world_position)
+	#if not killed_by_player:
+		#return
+	#var fx: Node2D = explosion_scene.instantiate()
+	#get_tree().current_scene.add_child(fx)   # NOT as a child of the swarm, see below
+	#fx.explode(world_position)
+	pass

@@ -24,8 +24,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0.91764706, 0.91764706, 0.91764706, 0)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1a2ew"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n577x"]
-width = 1080
-height = 1080
+width = 715
 noise = SubResource("FastNoiseLite_1a2ew")
 color_ramp = SubResource("Gradient_ib6no")
 seamless = true
@@ -35,12 +34,12 @@ seamless_blend_skirt = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig02t"]
 shader = ExtResource("2_1a2ew")
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_n577x")
-shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/root_color = Color(4.415934, 3.3523164, 1.457747, 1)
 shader_parameter/tip_color = Color(1, 0.03, 0.001, 1)
 shader_parameter/fire_alpha = 1.0
 shader_parameter/fire_speed = Vector2(1, 0)
 shader_parameter/fire_aperture = 0.13200000627
-shader_parameter/noise_scale = Vector2(0.2, 0.5)
+shader_parameter/noise_scale = Vector2(0.2, 0.395)
 shader_parameter/use_texture_as_shape = true
 shader_parameter/use_texture_alpha = false
 
@@ -79,22 +78,13 @@ texture = SubResource("GradientTexture2D_ib6no")
 
 [node name="Splash" type="Sprite2D" parent="." unique_id=2016640391]
 material = SubResource("ShaderMaterial_ig02t")
-position = Vector2(18.000002, 5.04871e-29)
-scale = Vector2(1.096068, 0.3100693)
+position = Vector2(16, 0)
+scale = Vector2(0.563659, 0.42169407)
 texture = SubResource("GradientTexture2D_3mlhl")
 
-[node name="Splash1" type="Sprite2D" parent="Splash" unique_id=124167030]
-show_behind_parent = true
+[node name="Splash2" type="Sprite2D" parent="Splash" unique_id=1814054216]
+visible = false
 material = SubResource("ShaderMaterial_ig02t")
-position = Vector2(-3.1311798, 11.515339)
-scale = Vector2(1, 0.99999994)
-texture = SubResource("GradientTexture2D_3mlhl")
-
-[node name="Splash2" type="Sprite2D" parent="Splash" unique_id=298551705]
-show_behind_parent = true
-material = SubResource("ShaderMaterial_ig02t")
-position = Vector2(-3.1311798, -8.636504)
-rotation = 0.24154511
-scale = Vector2(0.9948054, 1.0061103)
-skew = 0.042036653
+position = Vector2(7.096489, 0)
+scale = Vector2(0.52772075, 1.1897105)
 texture = SubResource("GradientTexture2D_3mlhl")

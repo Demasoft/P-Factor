@@ -2,17 +2,15 @@ class_name EnemyStateIdle extends EnemyState
 
 const MAX_PICK_ATTEMPTS: int = 8
 
-# Roam area as a fraction of the viewport: x, y, width, height.
-# Default = right half of the screen with a small margin.
 @export var roam_area_ratio: Rect2 = Rect2(0.5, 0.1, 0.45, 0.8)
 @export var min_travel_distance: float = 120.0
 @export var arrive_radius: float = 8.0
 @export var max_speed: float = 140.0
 @export var acceleration: float = 400.0
-@export var arrival_gain: float = 3.0       # higher = brakes later
-@export var hold_duration: float = 0.8      # pause at the target before attacking
-@export var bob_amplitude: float = 6.0      # pixels
-@export var bob_frequency: float = 3.0      # radians per second
+@export var arrival_gain: float = 3.0
+@export var hold_duration: float = 0.8
+@export var bob_amplitude: float = 6.0
+@export var bob_frequency: float = 3.0
 
 var target_position: Vector2 = Vector2.ZERO
 var has_arrived: bool = false

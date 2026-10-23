@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cpuajmnto8vt4" path="res://objects/enemies/patterns/bullet_pattern.gd" id="7_vg418"]
 [ext_resource type="Script" uid="uid://b3m57gsnmc6lx" path="res://objects/enemies/patterns/aimed_fan_pattern.gd" id="8_51oij"]
 [ext_resource type="Script" uid="uid://bnpbsj27k7ln3" path="res://objects/enemies/patterns/radial_pattern.gd" id="9_ycola"]
+[ext_resource type="PackedScene" uid="uid://b7scx3x0n2oof" path="res://objects/enemies/swarms/uas_swarm.tscn" id="10_51oij"]
 
 [sub_resource type="Resource" id="Resource_vg418"]
 script = ExtResource("8_51oij")
@@ -55,3 +56,7 @@ patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubReso
 position = Vector2(850, 304)
 move_speed = 50.0
 patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
+
+[node name="UASSwarm" parent="." unique_id=1519920295 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]
+position = Vector2(718, 190)
+target = NodePath("../PlayerAircraft")

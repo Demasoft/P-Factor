@@ -34,7 +34,6 @@ func _ready() -> void:
 	if get_tree().get_first_node_in_group( "Player" ) != self:
 		self.queue_free()
 	initialize_states()
-	#reparent.call_deferred(get_tree().current_scene)
 	Messages.player_healed.connect( _on_player_healed )
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -42,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Messages.player_interacted.emit( self )
 	elif event.is_action_pressed( "pause" ):
 		get_tree().paused = true
-		var pause_menu : PauseMenu = load( "uid://bdi104xa86306" ).instantiate()
+		var pause_menu : PauseMenu = load( "res://objects/pause_menu/pause_menu.tscn" ).instantiate()
 		add_child( pause_menu )
 		return
 		

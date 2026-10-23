@@ -33,7 +33,6 @@ float noise(vec2 p)
 	return dot(n, vec3(70.0));
 }
 
-// Layered noise: each octave is rotated and weighs less than the last.
 float fbm(vec2 p, float weight, float decay, bool use_abs)
 {
 	float total = 0.0;
@@ -62,13 +61,11 @@ void fragment()
 	float body = fbm(p, 0.7, 0.6, false);
 	float density = 0.2 + 8.0 * body * (edges + body) * edges;
 
-	// Fine detail (warp is NOT scaled, same as the original)
 	float detail = fbm(uv * 2.0 + offset, 0.4, 0.6, false)
 	             + fbm(uv * 3.0 + offset, 0.4, 0.6, true);
 
 	float mask = clamp(density + detail, 0.0, 1.0);
 
-	// Original cloud color: warm white + a bit of the sky tint
 	vec3 sky_tint = 0.5 * mix(vec3(0.015, 0.025, 0.08), vec3(0.05, 0.10, 0.25), UV.y);
 	float brightness = clamp(0.5 + 0.3 * detail, 0.0, 1.0);
 	vec3 colour = clamp(sky_tint + vec3(1.1, 1.1, 0.9) * brightness, 0.0, 1.0);

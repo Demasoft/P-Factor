@@ -49,7 +49,7 @@ func _play_splash() -> void:
 	splash.show()
 	splash.scale = Vector2(0.5, 0.5)
 
-	var tween := create_tween().set_parallel(true)
+	var tween : Tween = create_tween().set_parallel(true)
 	tween.tween_property(splash, "scale", Vector2(1.2, 1.2), splash_duration)
 	tween.tween_property(splash, "modulate:a", 0.0, splash_duration)
 	await tween.finished

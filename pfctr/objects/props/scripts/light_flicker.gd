@@ -4,7 +4,6 @@ class_name LightFlicker extends PointLight2D
 @export var flicker_frequency: float = 0.2
 var og_energy : float = 1.0
 
-
 func _ready() -> void:
 	og_energy = energy
 	flicker()

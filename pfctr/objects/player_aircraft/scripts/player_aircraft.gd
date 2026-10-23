@@ -1,5 +1,6 @@
 class_name PlayerAircraft extends CharacterBody2D
 
+@warning_ignore("unused_signal")
 signal damage_taken
 
 @onready var sprite_2d: AircraftSprite = $Sprite2D
@@ -107,10 +108,6 @@ func update_direction() -> void:
 
 func _on_player_healed( amount : float ) -> void:
 	hp += amount
-
-#func _on_player_hit( amount: float ) -> void:
-	## i-frames: ignore hits while already hurt or dead
-	#
 	
 func update_bank(delta: float) -> void:
 	if not bank_enabled:

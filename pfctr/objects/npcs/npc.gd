@@ -14,8 +14,6 @@ var previous_state : NPCState :
 	get : return states[ 1 ]
 
 var direction : Vector2 = Vector2.ZERO
-#var gravity : float = 980
-#var gravity_multiplier : float = 1.0
 
 func _ready() -> void:
 	initialize_states()
@@ -31,14 +29,10 @@ func _process(_delta: float) -> void:
 	change_state(current_state.process(_delta))
 
 func _physics_process(_delta: float) -> void:
-	#velocity.y += gravity * _delta * gravity_multiplier
-	#velocity.y = clampf( velocity.y, -1000, max_fall_velocity )
-	#move_and_slide()
 	change_state( current_state.physics_process( _delta ) )
 
 func initialize_states() -> void:
 	states = []
-	#gather states
 	for c in $States.get_children():
 		if c is NPCState:
 			states.append( c )
@@ -47,7 +41,6 @@ func initialize_states() -> void:
 	if states.size() == 0:
 		return
 
-	#initialize states
 	for state in states:
 		state.init()
 		

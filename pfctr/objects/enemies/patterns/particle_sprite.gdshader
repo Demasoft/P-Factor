@@ -1,7 +1,4 @@
 shader_type canvas_item;
-// Draws one frame of a sprite sheet for every MultiMesh instance.
-// base_frame is driven by the swarm's AnimationPlayer.
-// INSTANCE_CUSTOM.r is a per-particle frame offset (desynchronises the animation).
 
 uniform int h_frames = 1;
 uniform int v_frames = 1;

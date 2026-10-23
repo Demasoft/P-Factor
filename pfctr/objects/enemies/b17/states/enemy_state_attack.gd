@@ -34,8 +34,11 @@ func physics_process(_delta: float) -> EnemyState:
 
 
 func fire_volley() -> void:
-	var aim_angle: float = enemy.get_aim_angle()
-	var angles: Array[float] = current_pattern.get_angles(aim_angle, volleys_fired)
-
+	#var aim_angle: float = enemy.get_aim_angle()
+	#var angles: Array[float] = current_pattern.get_angles(aim_angle, volleys_fired)
+#
 	#for angle: float in angles:
 		#enemy.fire_bullet(angle, current_pattern.bullet_speed)
+
+# Will now fire from turrets, yet to adjust
+	pass

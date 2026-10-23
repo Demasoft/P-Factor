@@ -7,7 +7,6 @@ class_name LevelBounds extends Node2D
 
 
 func _ready() -> void:
-	#handle z-index
 	z_index = 256
 	
 	if Engine.is_editor_hint():
