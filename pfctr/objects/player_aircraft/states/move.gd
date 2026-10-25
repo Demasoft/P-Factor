@@ -1,8 +1,13 @@
 class_name AircraftStateMove extends AircraftState
 
-func init() -> void: pass
-func enter() -> void: pass
-func exit() -> void: pass
+func init() -> void: 
+	pass
+	
+func enter() -> void: 
+	pass
+	
+func exit() -> void: 
+	pass
 
 func handle_input(event: InputEvent) -> AircraftState:
 	if event.is_action_pressed("jump"):

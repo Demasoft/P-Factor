@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cyjsbduf75g4d" path="res://objects/player_aircraft/player_aircraft.tscn" id="1_pcde8"]
 [ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://objects/props/sky.tscn" id="2_marse"]
-[ext_resource type="PackedScene" uid="uid://dm4ypn27rqq7q" path="res://objects/props/speed.tscn" id="4_51oij"]
 [ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://objects/player/scripts/level_bounds.gd" id="4_l8r6p"]
 [ext_resource type="PackedScene" uid="uid://da8c5up6vthdj" path="res://objects/props/clouds.tscn" id="5_5he1d"]
 [ext_resource type="PackedScene" uid="uid://cboc77pka3l26" path="res://objects/enemies/b17/b_17.tscn" id="6_itgdq"]
@@ -42,19 +41,16 @@ z_index = 256
 script = ExtResource("4_l8r6p")
 metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
 
-[node name="Speed" parent="." unique_id=701523281 instance=ExtResource("4_51oij")]
-visible = false
-
 [node name="Clouds" parent="." unique_id=1240607775 instance=ExtResource("5_5he1d")]
 
 [node name="B17" parent="." unique_id=1568138198 instance=ExtResource("6_itgdq")]
 position = Vector2(850, 127)
-move_speed = 50.0
+move_speed = 25.0
 patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
 
 [node name="B18" parent="." unique_id=3160677 instance=ExtResource("6_itgdq")]
 position = Vector2(850, 304)
-move_speed = 50.0
+move_speed = 25.0
 patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
 
 [node name="UASSwarm" parent="." unique_id=1519920295 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]

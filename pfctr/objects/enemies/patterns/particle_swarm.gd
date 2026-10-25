@@ -88,7 +88,7 @@ func _ready() -> void:
 	setup_renderer()
 	setup_animation()
 	configure_spawning()
-	Messages.particle_removed.connect(_on_particle_removed)
+	#Messages.particle_removed.connect(_on_particle_removed)
 
 func _exit_tree() -> void:
 	active.erase(self)
@@ -304,10 +304,10 @@ func remove_particle(index: int) -> void:
 	hit_points[index] = hit_points[last]
 	alive_count -= 1
 	
-func _on_particle_removed(world_position: Vector2, killed_by_player: bool) -> void:
+#func _on_particle_removed(world_position: Vector2, killed_by_player: bool) -> void:
 	#if not killed_by_player:
 		#return
 	#var fx: Node2D = explosion_scene.instantiate()
 	#get_tree().current_scene.add_child(fx)   # NOT as a child of the swarm, see below
 	#fx.explode(world_position)
-	pass
+	#pass

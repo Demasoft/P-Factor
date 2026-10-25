@@ -82,5 +82,8 @@ func _on_player_exited(_n: Node2D) -> void:
 	Messages.input_hint_changed.emit(self, "")
 
 func _on_player_interacted( player : Player ) -> void:
+	player.queue_free()
+	SceneManager.transition_scene( "uid://b5xp08mytjynd", "", Vector2.ZERO, "down" )
+
 #	dia logigc
 	pass

@@ -11,11 +11,13 @@
 [ext_resource type="Script" uid="uid://kwqiwrjh4cxj" path="res://objects/player_aircraft/states/death.gd" id="6_h82j4"]
 [ext_resource type="PackedScene" uid="uid://nlc51lnwumyd" path="res://objects/player_aircraft/machine_gun.tscn" id="7_gjcwt"]
 [ext_resource type="Script" uid="uid://qf10ksd7ny7c" path="res://objects/player_aircraft/states/damage.gd" id="7_nlf56"]
-[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="9_h82j4"]
+[ext_resource type="PackedScene" uid="uid://cfmvm7llrisar" path="res://objects/props/smoke_trail.tscn" id="13_ggpn2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nlf56"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h82j4"]
 shader = ExtResource("6_1xaxk")
-shader_parameter/noise_tex = ExtResource("9_h82j4")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_nlf56")
 shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
 shader_parameter/tip_color = Color(0.76953125, 0.024142155, 0, 1)
 shader_parameter/fire_alpha = 1.0
@@ -25,8 +27,9 @@ shader_parameter/noise_scale = Vector2(16, 2)
 shader_parameter/use_texture_as_shape = true
 shader_parameter/use_texture_alpha = true
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r3lfl"]
-radius = 3.413682
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlf56"]
+radius = 0.909091
+height = 6.0
 
 [sub_resource type="Animation" id="Animation_boad6"]
 length = 0.5
@@ -189,9 +192,10 @@ hframes = 49
 script = ExtResource("6_4ly2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815493226]
-position = Vector2(12.999999, 6)
-scale = Vector2(1.1, 1.1)
-shape = SubResource("CircleShape2D_r3lfl")
+position = Vector2(13, 3.6)
+rotation = 1.5707964
+scale = Vector2(1.5, 1)
+shape = SubResource("CapsuleShape2D_nlf56")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1624528999]
 libraries/ = SubResource("AnimationLibrary_xaxa7")
@@ -214,3 +218,6 @@ theme_override_constants/outline_size = 7
 theme_override_fonts/font = SubResource("FontVariation_gjcwt")
 text = "Testing"
 horizontal_alignment = 1
+
+[node name="SmokeTrail" parent="." unique_id=991294185 instance=ExtResource("13_ggpn2")]
+visible = false

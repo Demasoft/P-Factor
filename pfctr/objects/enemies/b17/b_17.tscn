@@ -50,7 +50,8 @@ metadata/_custom_type_script = "uid://b3m57gsnmc6lx"
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_2pq7e")
-max_hp = 100.0
+max_hp = 200.0
+move_speed = 50.0
 bullet_scene = ExtResource("7_4xfuo")
 patterns = Array[ExtResource("3_ky681")]([SubResource("Resource_ky681")])
 

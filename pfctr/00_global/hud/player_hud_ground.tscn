@@ -6,15 +6,16 @@
 [ext_resource type="LabelSettings" uid="uid://khplevakjimc" path="res://objects/fonts/menu.tres" id="3_sg2or"]
 [ext_resource type="LabelSettings" uid="uid://dbtd4keu8oks7" path="res://objects/fonts/gold.tres" id="4_sg2or"]
 [ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="4_ub7f0"]
-[ext_resource type="Texture2D" uid="uid://bw4ep0p7pki4f" path="res://assets/bg/fire_noise.png" id="5_2lc2n"]
 [ext_resource type="Script" uid="uid://nr72b2vfmrca" path="res://00_global/hud/debugger.gd" id="6_kxpmt"]
 [ext_resource type="LabelSettings" uid="uid://dbb81jju6emr5" path="res://objects/fonts/marker_negative.tres" id="8_ldxqx"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldxqx"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ldxqx"]
 shader = ExtResource("4_ub7f0")
-shader_parameter/noise_tex = ExtResource("5_2lc2n")
-shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
-shader_parameter/tip_color = Color(0.40234375, 0.01387393, 0, 1)
+shader_parameter/noise_tex = SubResource("CompressedTexture2D_ldxqx")
+shader_parameter/root_color = Color(1, 0.3019608, 0.4, 1)
+shader_parameter/tip_color = Color(0, 0.015686275, 0.40392157, 1)
 shader_parameter/fire_alpha = 1.0
 shader_parameter/fire_speed = Vector2(0, 1)
 shader_parameter/fire_aperture = 0.50000002375
@@ -33,7 +34,7 @@ shader_parameter/pause_duration = 0.02
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lc2n"]
 shader = ExtResource("4_ub7f0")
-shader_parameter/noise_tex = ExtResource("5_2lc2n")
+shader_parameter/noise_tex = SubResource("CompressedTexture2D_ldxqx")
 shader_parameter/root_color = Color(1, 0.30196083, 0.40012258, 1)
 shader_parameter/tip_color = Color(0, 0.015716553, 0.40234375, 1)
 shader_parameter/fire_alpha = 1.0
@@ -71,13 +72,6 @@ offset_left = 15.0
 offset_right = 178.0
 offset_bottom = 55.0
 
-[node name="PlayerIcon" type="RichTextLabel" parent="Control/UpperHud/PlayerHudContainer" unique_id=71890160]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-bbcode_enabled = true
-text = "[img=50x50]uid://bqq3xb7bsauy[/img]"
-autowrap_mode = 0
-
 [node name="AircraftIcon" type="Label" parent="Control/UpperHud/PlayerHudContainer" unique_id=372179348]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(12, 0)
@@ -90,7 +84,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "x9"
+text = "x3"
 label_settings = ExtResource("3_sg2or")
 
 [node name="Score" type="Label" parent="Control/UpperHud/PlayerHudContainer" unique_id=1302288960]
@@ -98,7 +92,7 @@ material = SubResource("ShaderMaterial_ldxqx")
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "123456"
+text = "0"
 label_settings = ExtResource("2_2b1cy")
 
 [node name="TimerLabel" type="Label" parent="Control/UpperHud" unique_id=887464187]

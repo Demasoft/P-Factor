@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dv2s0i0dts2ov"]
+
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="1_qftl6"]
+[ext_resource type="Script" uid="uid://bgencrc78421m" path="res://00_global/hud/menu_cursor.gd" id="2_nts8r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e1wn8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1t035"]
+noise = SubResource("FastNoiseLite_e1wn8")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87i27"]
+shader = ExtResource("1_qftl6")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_1t035")
+shader_parameter/root_color = Color(0.75944525, 0.6449982, 0.6449982, 1)
+shader_parameter/tip_color = Color(0.73072135, 0.73072135, 0.8591839, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, -0.1)
+shader_parameter/fire_aperture = 0.08800000418
+shader_parameter/noise_scale = Vector2(0.01, 0.01)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
+
+[sub_resource type="Gradient" id="Gradient_jbaig"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojqec"]
+gradient = SubResource("Gradient_jbaig")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1660366156]
+material = SubResource("ShaderMaterial_87i27")
+scale = Vector2(3.9600036, 0.28000054)
+texture = SubResource("GradientTexture2D_ojqec")
+script = ExtResource("2_nts8r")
