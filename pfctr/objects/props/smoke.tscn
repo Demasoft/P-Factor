@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bjxflgi0jpyjl"]
+
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="1_l2iwq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k3cvj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l2iwq"]
+noise = SubResource("FastNoiseLite_k3cvj")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bob8v"]
+shader = ExtResource("1_l2iwq")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_l2iwq")
+shader_parameter/root_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+shader_parameter/tip_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+shader_parameter/fire_alpha = 0.5350000254125
+shader_parameter/fire_speed = Vector2(1, 1)
+shader_parameter/fire_aperture = 0.16800000798
+shader_parameter/noise_scale = Vector2(0.5, 0.5)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = false
+
+[sub_resource type="Gradient" id="Gradient_l2iwq"]
+offsets = PackedFloat32Array(0, 0.33734939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.6024096, 0.6024096, 0.6024096, 0.39759037, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ssg7"]
+gradient = SubResource("Gradient_l2iwq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Smoke" type="Node2D" unique_id=823951905]
+scale = Vector2(3.404973, 3.404973)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=857431651]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(2.9430275, 0.9430275)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_8ssg7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1717435991]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(-1.0569725, -3.0569725)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_8ssg7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1188669332]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(-1.0569725, 3.9430275)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_8ssg7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=357211762]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(-0.056972504, -0.056972504)
+scale = Vector2(0.18571961, 0.18571961)
+texture = SubResource("GradientTexture2D_8ssg7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=159084097]
+material = SubResource("ShaderMaterial_bob8v")
+position = Vector2(-4.405321, 0.88106465)
+scale = Vector2(0.26175803, 0.28470242)
+texture = SubResource("GradientTexture2D_8ssg7")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://wc5bdjc2d50m"]
+
+[ext_resource type="Shader" uid="uid://lak44r6hqugm" path="res://shaders/sea.gdshader" id="1_klkys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klkys"]
+shader = ExtResource("1_klkys")
+shader_parameter/poly_origin = Vector2(-300, -150)
+shader_parameter/poly_size = Vector2(10, 10)
+shader_parameter/deep_color = Color(0, 0.1029576, 0.2109375, 1)
+shader_parameter/shallow_color = Color(0, 0.29375002, 0.5529412, 1)
+shader_parameter/caustic_color = Color(0.40429688, 0.51168823, 0.5390625, 1)
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/cell_scale = 6.0
+shader_parameter/cell_speed = 0.4
+shader_parameter/edge_width = 0.12
+shader_parameter/caustic_strength = 0.65
+shader_parameter/foam_threshold = 0.85
+shader_parameter/foam_strength = 10.0
+shader_parameter/wave_amount = 0.03
+shader_parameter/wave_frequency = 6.0
+shader_parameter/wave_speed = 0.8
+shader_parameter/flow_direction = Vector2(0, 0.02)
+shader_parameter/top_width_ratio = 0.4
+shader_parameter/perspective_strength = 1.0
+
+[node name="Sea" type="Node2D" unique_id=1873664318]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=255622284]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer" unique_id=1560406764]
+z_index = -1
+material = SubResource("ShaderMaterial_klkys")
+position = Vector2(321, 442.0448)
+scale = Vector2(40.125, 10.505599)
+polygon = PackedVector2Array(-8, -15.999999, 7.9999995, -15.999999, 7.9999995, -12.263512, 7.9999995, -8, -0.1345787, -8, -8, -8, -8, -12.162388)
+uv = PackedVector2Array(-47.999985, -15.999999, 56, -15.999999, 56, 32, -47.999985, 32)

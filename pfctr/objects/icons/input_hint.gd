@@ -1,5 +1,7 @@
 class_name InputHints extends Node2D
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var owner_node: Node
 
 const HINT_MAP : Dictionary = {
 	"keyboard" : {
@@ -17,9 +19,7 @@ var controller_type: String = "keyboard"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	visible = false
 	Messages.input_hint_changed.connect( _on_hint_changed )
-	pass
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
@@ -40,12 +40,28 @@ func get_controller_type( device_id: int ) -> void:
 	print(controller_type)
 	set_process_input( false )
 
-func _on_hint_changed( hint : String ) -> void:
+func _on_hint_changed(source: Node, hint: String) -> void:
+	if source != owner_node:
+		return
+
 	if hint == "":
-		animation_player.play("show")
-	else:
-		animation_player.play("hide")
-		await animation_player.animation_finished
-		animation_player.play( "pointer" )
-		visible = true
-		sprite_2d.frame = HINT_MAP[ controller_type ].get( hint, "0" )
+		fade_out_sprite(sprite_2d)
+		await fade_out_sprite(sprite_2d)
+		animation_player.pause()
+		return
+
+	sprite_2d.frame = HINT_MAP[controller_type].get(hint, 0)
+	animation_player.play("pointer")
+	fade_in_sprite(sprite_2d)
+	
+func fade_in_sprite(sprite: Sprite2D, duration: float = 0.2) -> void:
+	sprite.modulate.a = 0.0
+	
+	var tween := create_tween()
+	tween.tween_property(sprite, "modulate:a", 1.0, duration)
+
+func fade_out_sprite(sprite: Sprite2D, duration: float = 0.2) -> void:
+	var tween := create_tween()
+	tween.tween_property(sprite, "modulate:a", 0.0, duration)
+	
+	await tween.finished

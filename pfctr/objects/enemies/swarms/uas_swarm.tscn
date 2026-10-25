@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b7scx3x0n2oof"]
+
+[ext_resource type="Script" uid="uid://crlv5ohr31c1t" path="res://objects/enemies/patterns/particle_swarm.gd" id="1_widj3"]
+[ext_resource type="Texture2D" uid="uid://dp63uygsereov" path="res://objects/enemies/sprites/propeller.png" id="2_ky8ek"]
+[ext_resource type="PackedScene" uid="uid://csomve8vlknaw" path="res://objects/props/explosion_great.tscn" id="3_1rjy6"]
+
+[sub_resource type="Animation" id="Animation_rbqph"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_shn3n"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rjy6"]
+_data = {
+&"RESET": SubResource("Animation_rbqph"),
+&"idle": SubResource("Animation_shn3n")
+}
+
+[node name="UASSwarm" type="Node2D" unique_id=1519920295]
+script = ExtResource("1_widj3")
+explosion_scene = ExtResource("3_1rjy6")
+swarm_count = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460376010]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ky8ek")
+hframes = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=259798551]
+libraries/ = SubResource("AnimationLibrary_1rjy6")
+autoplay = &"idle"
+speed_scale = 3.0

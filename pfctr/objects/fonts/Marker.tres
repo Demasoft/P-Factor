@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cvmhn7hdsrodd"]
+
+[ext_resource type="FontFile" uid="uid://c7bf8lqnxp1mr" path="res://objects/fonts/PermanentMarker-Regular.ttf" id="1_rkmwj"]
+
+[resource]
+font = ExtResource("1_rkmwj")
+font_size = 20
+font_color = Color(0.70588243, 0, 0, 1)
+outline_color = Color(0.70588243, 0, 0, 1)

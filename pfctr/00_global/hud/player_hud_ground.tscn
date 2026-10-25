@@ -1,37 +1,50 @@
 [gd_scene format=3 uid="uid://xxjra0dsyr4d"]
 
 [ext_resource type="Script" uid="uid://bmmfoxc6co72q" path="res://00_global/hud/player_hud_ground.gd" id="1_2b1cy"]
-[ext_resource type="Shader" uid="uid://bya65qlj7jmp7" path="res://shaders/glass.gdshader" id="1_lgqfi"]
-[ext_resource type="FontFile" uid="uid://bjim05fvis1q0" path="res://objects/fonts/AlienBlock-Regular.ttf" id="2_4sald"]
+[ext_resource type="Shader" uid="uid://cm2tslwgvdhbf" path="res://shaders/highlight.gdshader" id="2_0vlpv"]
+[ext_resource type="LabelSettings" uid="uid://cvmhn7hdsrodd" path="res://objects/fonts/Marker.tres" id="2_2b1cy"]
+[ext_resource type="LabelSettings" uid="uid://khplevakjimc" path="res://objects/fonts/menu.tres" id="3_sg2or"]
+[ext_resource type="LabelSettings" uid="uid://dbtd4keu8oks7" path="res://objects/fonts/gold.tres" id="4_sg2or"]
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="4_ub7f0"]
+[ext_resource type="Script" uid="uid://nr72b2vfmrca" path="res://00_global/hud/debugger.gd" id="6_kxpmt"]
+[ext_resource type="LabelSettings" uid="uid://dbb81jju6emr5" path="res://objects/fonts/marker_negative.tres" id="8_ldxqx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldxqx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldxqx"]
+shader = ExtResource("4_ub7f0")
+shader_parameter/noise_tex = SubResource("CompressedTexture2D_ldxqx")
+shader_parameter/root_color = Color(1, 0.3019608, 0.4, 1)
+shader_parameter/tip_color = Color(0, 0.015686275, 0.40392157, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 1)
+shader_parameter/fire_aperture = 0.50000002375
+shader_parameter/noise_scale = Vector2(1, 1)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b1cy"]
-shader = ExtResource("1_lgqfi")
-shader_parameter/brightness = 0.1
-shader_parameter/chromatic_shift_amount = 0.2
-shader_parameter/bend_amount = 0.10000000149012
-shader_parameter/blur_amount = 0.90000001341108
-shader_parameter/grain_amount = 0.05
-shader_parameter/curve_light_blend = 0.5
-shader_parameter/rim_light_blend = 0.10000000149012
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader = ExtResource("2_0vlpv")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 3.0
+shader_parameter/highlight_strength = 0.7000000700356397
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = true
+shader_parameter/pause_duration = 0.02
 
-[sub_resource type="Gradient" id="Gradient_us222"]
-offsets = PackedFloat32Array(0, 0.987013, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lc2n"]
+shader = ExtResource("4_ub7f0")
+shader_parameter/noise_tex = SubResource("CompressedTexture2D_ldxqx")
+shader_parameter/root_color = Color(1, 0.30196083, 0.40012258, 1)
+shader_parameter/tip_color = Color(0, 0.015716553, 0.40234375, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0, 1)
+shader_parameter/fire_aperture = 0.22
+shader_parameter/noise_scale = Vector2(1, 1)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgqfi"]
-gradient = SubResource("Gradient_us222")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="Gradient" id="Gradient_lgqfi"]
-offsets = PackedFloat32Array(0.45454547, 0.96753246)
-colors = PackedColorArray(0, 1, 0.31764707, 1, 0, 1, 0.31764707, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4sald"]
-gradient = SubResource("Gradient_lgqfi")
-fill_from = Vector2(0.23853211, 0.12844037)
-fill_to = Vector2(0.5, 0)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxpmt"]
 
 [node name="PlayerHudGround" type="CanvasLayer" unique_id=1014093034]
 process_mode = 3
@@ -46,70 +59,169 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=766830631]
+[node name="UpperHud" type="Control" parent="Control" unique_id=1236251236]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 63.0
+
+[node name="PlayerHudContainer" type="HBoxContainer" parent="Control/UpperHud" unique_id=718592196]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 20)
+custom_minimum_size = Vector2(154, 55)
 layout_mode = 0
-offset_left = 54.0
-offset_top = 11.0
-offset_right = 182.0
-offset_bottom = 31.0
-scale = Vector2(0.523, 0.5)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=258556214]
-layout_mode = 2
-
-[node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=2044830295]
-unique_name_in_owner = true
-show_behind_parent = true
-material = SubResource("ShaderMaterial_2b1cy")
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 20.0
-value = 50.0
-rounded = true
-nine_patch_stretch = true
-texture_under = SubResource("GradientTexture2D_lgqfi")
-texture_progress = SubResource("GradientTexture2D_4sald")
-
-[node name="Label" type="Label" parent="Control" unique_id=2080282653]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 3.0
-offset_right = 47.0
-offset_bottom = 37.0
-theme_override_fonts/font = ExtResource("2_4sald")
-theme_override_font_sizes/font_size = 25
-text = "67"
-
-[node name="Label2" type="Label" parent="Control" unique_id=156061301]
-layout_mode = 0
-offset_left = 9.0
-offset_right = 47.0
-offset_bottom = 34.0
-scale = Vector2(0.29959655, 0.29959655)
-theme_override_font_sizes/font_size = 25
-text = "lv"
-
-[node name="Label3" type="Label" parent="Control" unique_id=661104212]
-layout_mode = 0
-offset_left = 54.0
-offset_right = 92.0
-offset_bottom = 34.0
-scale = Vector2(0.29959655, 0.29959655)
-theme_override_font_sizes/font_size = 25
-text = "hp"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=811431383]
-layout_mode = 0
-offset_left = 54.000004
-offset_top = 21.0
-offset_right = 55.000004
+offset_left = 15.0
+offset_right = 178.0
 offset_bottom = 55.0
-scale = Vector2(2.858504, 0.34075376)
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer" unique_id=890225495]
+[node name="AircraftIcon" type="Label" parent="Control/UpperHud/PlayerHudContainer" unique_id=372179348]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "DDD"
+text = "P"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="HPLabel" type="Label" parent="Control/UpperHud/PlayerHudContainer" unique_id=1849598314]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "x3"
+label_settings = ExtResource("3_sg2or")
+
+[node name="Score" type="Label" parent="Control/UpperHud/PlayerHudContainer" unique_id=1302288960]
+material = SubResource("ShaderMaterial_ldxqx")
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="TimerLabel" type="Label" parent="Control/UpperHud" unique_id=887464187]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2b1cy")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_top = 28.0
+offset_right = 58.0
+offset_bottom = 79.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "00'00'000"
+label_settings = ExtResource("4_sg2or")
+horizontal_alignment = 1
+
+[node name="PlayerHudContainer2" type="HBoxContainer" parent="Control/UpperHud" unique_id=1582098571]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(154, 55)
+layout_mode = 0
+offset_left = 464.0
+offset_right = 627.0
+offset_bottom = 55.0
+
+[node name="PlayerIcon" type="RichTextLabel" parent="Control/UpperHud/PlayerHudContainer2" unique_id=2053720166]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[img=50x50]uid://bqq3xb7bsauy[/img]"
+autowrap_mode = 0
+
+[node name="AircraftIcon" type="Label" parent="Control/UpperHud/PlayerHudContainer2" unique_id=1654491162]
+visible = false
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+text = "P"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="HPLabel" type="Label" parent="Control/UpperHud/PlayerHudContainer2" unique_id=1512608013]
+visible = false
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "x9"
+label_settings = ExtResource("3_sg2or")
+
+[node name="Score" type="Label" parent="Control/UpperHud/PlayerHudContainer2" unique_id=616933334]
+visible = false
+material = SubResource("ShaderMaterial_ldxqx")
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "123456"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="PressStart" type="Label" parent="Control/UpperHud/PlayerHudContainer2" unique_id=1780972023]
+material = SubResource("ShaderMaterial_2lc2n")
+layout_mode = 2
+text = "Pres5 Start"
+label_settings = ExtResource("2_2b1cy")
+
+[node name="Debugger" type="Button" parent="Control/UpperHud/PlayerHudContainer2/PressStart" unique_id=1636807784]
+layout_mode = 0
+offset_left = 127.999985
+offset_right = 143.99998
+offset_bottom = 25.0
+scale = Vector2(2.3926377, 1.5765319)
+text = "D"
+script = ExtResource("6_kxpmt")
+
+[node name="GameOver" type="Control" parent="." unique_id=77296440]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=178409871]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver" unique_id=279985332]
+material = SubResource("ShaderMaterial_kxpmt")
+layout_mode = 0
+offset_left = 242.0
+offset_top = 97.0
+offset_right = 402.0
+offset_bottom = 141.0
+text = "Game Over"
+label_settings = ExtResource("8_ldxqx")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="GameOver" unique_id=1464037319]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -23.5
+offset_right = 60.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Retry" type="Button" parent="GameOver/HBoxContainer" unique_id=1353880448]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retry"
+
+[node name="LoadLastSave" type="Button" parent="GameOver/HBoxContainer" unique_id=1881186923]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Last Save"
+
+[node name="QuitToTitle" type="Button" parent="GameOver/HBoxContainer" unique_id=2099850803]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit To Title"

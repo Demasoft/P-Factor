@@ -41,7 +41,6 @@ func process( _delta: float) -> PlayerState:
 
 func physics_process( _delta: float) -> PlayerState:
 	if player.is_on_floor():
-		#if buffer_timer > 0 and Input.is_action_pressed( "jump" ):
 		if buffer_timer > 0 :
 			return jump
 		return idle

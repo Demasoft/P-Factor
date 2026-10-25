@@ -36,8 +36,8 @@ func create_new_save_game( slot : int ) -> void:
 		"scene_path" : new_game_scene,
 		"x" : -473.0,
 		"y" : 262.334,
-		"hp" : 20,
-		"max_hp" : 20,
+		"hp" : 2,
+		"max_hp" : 3,
 		#"dash" : false, #skill
 		"discovered_areas" : discovered_areas,
 		"persistent_data" : persistent_data,
@@ -86,7 +86,6 @@ func setup_player() -> void:
 	var player : Player = null
 	while not player: 
 		player = get_tree().get_first_node_in_group( "Player" )
-		#await  get_tree().process_frame
 	
 	player.max_hp = save_data.get( "max_hp", 20 )
 	player.hp = save_data.get( "hp", 20 )

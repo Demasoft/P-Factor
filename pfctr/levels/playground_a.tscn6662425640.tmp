@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b5xp08mytjynd"]
+
+[ext_resource type="Material" uid="uid://rd7sw4mupkej" path="res://shaders/speed.tres" id="1_l8r6p"]
+[ext_resource type="PackedScene" uid="uid://cyjsbduf75g4d" path="res://objects/player_aircraft/player_aircraft.tscn" id="1_pcde8"]
+[ext_resource type="PackedScene" uid="uid://xvhnseo6vfoc" path="res://objects/props/sky.tscn" id="2_marse"]
+[ext_resource type="Script" uid="uid://cej4p4vnaw1j3" path="res://objects/player/scripts/level_bounds.gd" id="4_l8r6p"]
+[ext_resource type="PackedScene" uid="uid://da8c5up6vthdj" path="res://objects/props/clouds.tscn" id="5_5he1d"]
+[ext_resource type="PackedScene" uid="uid://cboc77pka3l26" path="res://objects/enemies/b17/b_17.tscn" id="6_itgdq"]
+[ext_resource type="Script" uid="uid://cpuajmnto8vt4" path="res://objects/enemies/patterns/bullet_pattern.gd" id="7_vg418"]
+[ext_resource type="Script" uid="uid://b3m57gsnmc6lx" path="res://objects/enemies/patterns/aimed_fan_pattern.gd" id="8_51oij"]
+[ext_resource type="Script" uid="uid://bnpbsj27k7ln3" path="res://objects/enemies/patterns/radial_pattern.gd" id="9_ycola"]
+[ext_resource type="PackedScene" uid="uid://b7scx3x0n2oof" path="res://objects/enemies/swarms/uas_swarm.tscn" id="10_51oij"]
+
+[sub_resource type="Resource" id="Resource_vg418"]
+script = ExtResource("8_51oij")
+bullets_per_volley = 8
+spread_degrees = 20.0
+volleys = 4
+volley_interval = 0.4
+bullet_speed = 200.0
+metadata/_custom_type_script = "uid://b3m57gsnmc6lx"
+
+[sub_resource type="Resource" id="Resource_51oij"]
+script = ExtResource("9_ycola")
+arms = 20
+spin_degrees_per_volley = 360.0
+start_aimed_at_player = true
+volleys = 8
+bullet_speed = 100.0
+metadata/_custom_type_script = "uid://bnpbsj27k7ln3"
+
+[node name="PlaygroundA" type="Node2D" unique_id=1233324546]
+
+[node name="PlayerAircraft" parent="." unique_id=1461582815 instance=ExtResource("1_pcde8")]
+position = Vector2(75, 285)
+
+[node name="Sky" parent="." unique_id=223594441 instance=ExtResource("2_marse")]
+visible = false
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=846435502]
+z_index = 256
+script = ExtResource("4_l8r6p")
+metadata/_custom_type_script = "uid://cej4p4vnaw1j3"
+
+[node name="Speed" type="CanvasLayer" parent="." unique_id=920801185]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="Speed" unique_id=1380068770]
+material = ExtResource("1_l8r6p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Clouds" parent="." unique_id=1240607775 instance=ExtResource("5_5he1d")]
+
+[node name="B17" parent="." unique_id=1568138198 instance=ExtResource("6_itgdq")]
+position = Vector2(858, 193)
+max_hp = 200.0
+move_speed = 50.0
+patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
+
+[node name="B18" parent="." unique_id=1845089648 instance=ExtResource("6_itgdq")]
+position = Vector2(858, 193)
+max_hp = 200.0
+move_speed = 50.0
+patterns = Array[ExtResource("7_vg418")]([SubResource("Resource_vg418"), SubResource("Resource_51oij")])
+
+[node name="UASSwarm" parent="." unique_id=1519920295 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]
+position = Vector2(686, 74)
+swarm_count = 20
+spawn_radius = 50.0
+target = NodePath("../PlayerAircraft")
+spawn_mode = 1
+max_speed = 200.0
+acceleration = 250.0
+particle_radius = 10.0
+
+[node name="UASSwarm2" parent="." unique_id=593429796 node_paths=PackedStringArray("target") instance=ExtResource("10_51oij")]
+position = Vector2(686, 314)
+swarm_count = 20
+spawn_radius = 50.0
+target = NodePath("../PlayerAircraft")
+spawn_mode = 1
+launch_interval = 2.0
+max_speed = 200.0
+acceleration = 250.0
+particle_radius = 10.0

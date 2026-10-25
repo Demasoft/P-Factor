@@ -4,9 +4,32 @@
 [ext_resource type="Script" uid="uid://db3ypa63bxkuw" path="res://objects/player_aircraft/states/idle.gd" id="2_gxif6"]
 [ext_resource type="Script" uid="uid://cmjcffgx2yhoa" path="res://objects/player_aircraft/states/move.gd" id="3_r3lfl"]
 [ext_resource type="Script" uid="uid://dv2db0ey5lvgk" path="res://objects/player_aircraft/states/overboost.gd" id="4_8hpoa"]
+[ext_resource type="Script" uid="uid://fael67q2braq" path="res://objects/player_aircraft/scripts/time_slow.gd" id="5_1xaxk"]
 [ext_resource type="Texture2D" uid="uid://c75yn58qlxxi8" path="res://objects/player_aircraft/sprites/laura.png" id="5_gxif6"]
+[ext_resource type="Shader" uid="uid://dqpeqj4u675ku" path="res://shaders/fire.gdshader" id="6_1xaxk"]
+[ext_resource type="Script" uid="uid://ch2kicl20i6td" path="res://objects/player_aircraft/scripts/aircraft_sprite.gd" id="6_4ly2p"]
+[ext_resource type="Script" uid="uid://kwqiwrjh4cxj" path="res://objects/player_aircraft/states/death.gd" id="6_h82j4"]
+[ext_resource type="PackedScene" uid="uid://nlc51lnwumyd" path="res://objects/player_aircraft/machine_gun.tscn" id="7_gjcwt"]
+[ext_resource type="Script" uid="uid://qf10ksd7ny7c" path="res://objects/player_aircraft/states/damage.gd" id="7_nlf56"]
+[ext_resource type="PackedScene" uid="uid://cfmvm7llrisar" path="res://objects/props/smoke_trail.tscn" id="13_ggpn2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r3lfl"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nlf56"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h82j4"]
+shader = ExtResource("6_1xaxk")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_nlf56")
+shader_parameter/root_color = Color(1, 0.75, 0.3, 1)
+shader_parameter/tip_color = Color(0.76953125, 0.024142155, 0, 1)
+shader_parameter/fire_alpha = 1.0
+shader_parameter/fire_speed = Vector2(0.7, 0.1)
+shader_parameter/fire_aperture = 0.154000007315
+shader_parameter/noise_scale = Vector2(16, 2)
+shader_parameter/use_texture_as_shape = true
+shader_parameter/use_texture_alpha = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlf56"]
+radius = 0.909091
+height = 6.0
 
 [sub_resource type="Animation" id="Animation_boad6"]
 length = 0.5
@@ -120,8 +143,11 @@ _data = {
 &"overboost": SubResource("Animation_8t03j")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_gjcwt"]
+
 [node name="PlayerAircraft" type="CharacterBody2D" unique_id=1461582815 groups=["PlayerAircraft"]]
-scale = Vector2(0.45, 0.45)
+z_index = 1
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_7014d")
 
@@ -139,27 +165,59 @@ script = ExtResource("3_r3lfl")
 unique_name_in_owner = true
 script = ExtResource("4_8hpoa")
 
+[node name="TimeSlow" type="Node" parent="States" unique_id=1134042159]
+unique_name_in_owner = true
+script = ExtResource("5_1xaxk")
+
+[node name="Death" type="Node" parent="States" unique_id=1648964219]
+unique_name_in_owner = true
+script = ExtResource("6_h82j4")
+
+[node name="Damage" type="Node" parent="States" unique_id=817990630]
+unique_name_in_owner = true
+script = ExtResource("7_nlf56")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879820816]
-position = Vector2(-27, -15)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_gxif6")
 hframes = 49
+script = ExtResource("6_4ly2p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1094817041]
+visible = false
+material = SubResource("ShaderMaterial_h82j4")
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_gxif6")
+hframes = 49
+script = ExtResource("6_4ly2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815493226]
-position = Vector2(0, 1)
-scale = Vector2(1.1717551, 1.1717551)
-shape = SubResource("CircleShape2D_r3lfl")
-
-[node name="Label" type="Label" parent="." unique_id=1907820007]
-offset_left = -27.0
-offset_top = -50.0
-offset_right = 28.0
-offset_bottom = -27.0
-theme_override_font_sizes/font_size = 11
-text = "Idle"
-horizontal_alignment = 1
+position = Vector2(13, 3.6)
+rotation = 1.5707964
+scale = Vector2(1.5, 1)
+shape = SubResource("CapsuleShape2D_nlf56")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1624528999]
 libraries/ = SubResource("AnimationLibrary_xaxa7")
 speed_scale = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2020261988]
+
+[node name="MachineGun" parent="." unique_id=1607767919 instance=ExtResource("7_gjcwt")]
+position = Vector2(27, 6)
+
+[node name="MachineGun2" parent="." unique_id=1997811551 instance=ExtResource("7_gjcwt")]
+position = Vector2(24, 9)
+
+[node name="Label" type="Label" parent="." unique_id=861721206]
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = -20.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = SubResource("FontVariation_gjcwt")
+text = "Testing"
+horizontal_alignment = 1
+
+[node name="SmokeTrail" parent="." unique_id=991294185 instance=ExtResource("13_ggpn2")]
+visible = false
